@@ -23,7 +23,7 @@ const Header: FC = () => {
                     <Nav.Link href="/daily">Daily</Nav.Link>
                     <Nav.Link href="/nightfall">Nightfall</Nav.Link>
                     <Nav.Link href="/raiddungeon">Raid and Dungeon</Nav.Link>
-                    <Nav.Link href="/other">Other Activities</Nav.Link>
+                    {/* <Nav.Link href="/other">Other Activities</Nav.Link> */}
                     <Nav.Link href="/calendar">Calendar</Nav.Link>
                 </Nav>
             </Container>

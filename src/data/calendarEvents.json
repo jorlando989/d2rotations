@@ -1,0 +1,27 @@
+{
+	"events": [
+		{ "title": "Root of Nightmares Raid", "time": ["Week 2 on March 10"] },
+		{ "title": "GM Nightfalls", "time": ["Week 7 on April 11"] },
+		{
+			"title": "Iron Banner",
+			"time": [
+				"Week 3 on March 14",
+				"Week 6 on April 4",
+				"Week 9 on April 25"
+			]
+		},
+		{
+			"title": "Trials of Osiris",
+			"time": [
+				"Week 4 on March 24",
+				"Week 5 on March 31",
+				"Week 7 on April 14",
+				"Week 8 on April 21",
+				"Week 10 on May 5",
+				"Week 11 on May 12",
+				"Week 12 on May 19"
+			]
+		},
+		{ "title": "Guardian Games", "time": ["May 02, 2023 – May 23, 2023"] }
+	]
+}

@@ -139,9 +139,21 @@
     bottom: 0;
     width: 100%;
     height: 2rem;
-    color: lightgrey;
-    /* margin-top: 10px; */
-    /* padding-top: 5px;
-    padding-bottom: 5px; */
-    text-align: center;
+    color: lightgray;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer > * {
+    padding-right: 5px;
+}
+
+.footerIcon {
+    font-size: 20px;
+    color: lightgray;
+}
+
+.calendar > * {
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
