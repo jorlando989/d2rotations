@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/d2rotations/static/css/main.2cc7f6e8.css",
+    "main.js": "/d2rotations/static/js/main.4b75f35e.js",
+    "index.html": "/d2rotations/index.html",
+    "main.2cc7f6e8.css.map": "/d2rotations/static/css/main.2cc7f6e8.css.map",
+    "main.4b75f35e.js.map": "/d2rotations/static/js/main.4b75f35e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2cc7f6e8.css",
+    "static/js/main.4b75f35e.js"
+  ]
+}
