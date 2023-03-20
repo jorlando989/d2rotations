@@ -1,0 +1,10 @@
+{
+	"tablesNeeded": [
+		"InventoryItem",
+		"Activity",
+		"ActivityModifier",
+		"ActivityMode",
+		"BreakerType",
+		"DamageType"
+	]
+}

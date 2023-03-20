@@ -1,0 +1,15 @@
+{
+    "rotation": ["shotgun", "sniper", "rocket"],
+    "rocket": {
+        "name": "Heretic",
+        "hash": 3067821200
+    },
+    "sniper": {
+        "name": "Apostate",
+        "hash": 2164448701
+    },
+    "shotgun": {
+        "name": "Blasphemer",
+        "hash": 2782847179
+    }
+}

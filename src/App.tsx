@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+
+import Calendar from "./components/Calendar";
+import Daily from "./components/Daily";
+import Dashboard from "./components/Dashboard";
+import { BlockingDefsProvider } from "./components/DefsProvider";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Nightfall from "./components/Nightfall";
+import RaidDungeon from "./components/RaidDungeon";
+import Weekly from "./components/Weekly";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	function renderRoutes() {
+		return (
+			<Routes>
+				<Route path='/' element={<Dashboard />} />
+				<Route path='/weekly' element={<Weekly />} />
+				<Route path='/daily' element={<Daily />} />
+				<Route path='/nightfall' element={<Nightfall />} />
+				<Route path='/raiddungeon' element={<RaidDungeon />} />
+				{/* <Route path="/other" element={<Other />}/> */}
+				<Route path='/calendar' element={<Calendar />} />
+			</Routes>
+		);
+	}
+
+	return (
+		<div className='App'>
+			<BrowserRouter>
+				<Header />
+				<div className='content-wrap'>
+					<BlockingDefsProvider>
+						{renderRoutes()}
+					</BlockingDefsProvider>
+				</div>
+				<Footer />
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;

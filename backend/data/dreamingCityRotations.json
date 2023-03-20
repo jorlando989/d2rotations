@@ -1,0 +1,42 @@
+{
+	"curseRotation": [
+		{
+			"strength": "Weak",
+			"petraLocation": "The Strand"
+		},
+		{
+			"strength": "Medium",
+			"petraLocation": "Divilian Mists"
+		},
+		{
+			"strength": "Strong",
+			"petraLocation": "Rheasilvia"
+		}
+	],
+	"ascendantChallengeRotation": [
+		"Gardens of Esila",
+		"Spine of Keres",
+		"Harbinger's Seclude",
+		"Bay of Drowned Wishes",
+		"Chamber of Starlight",
+		"Aphelion's Rest"
+	],
+	"Gardens of Esila": {
+		"challengeName": "Forfeit Shrine"
+	},
+	"Spine of Keres": {
+		"challengeName": "Shattered Ruins"
+	},
+	"Harbinger's Seclude": {
+		"challengeName": "Keep of Honed Edges"
+	},
+	"Bay of Drowned Wishes": {
+		"challengeName": "Agonarch Abyss"
+	},
+	"Chamber of Starlight": {
+		"challengeName": "Cimmerian Garrison"
+	},
+	"Aphelion's Rest": {
+		"challengeName": "Ouroborea"
+	}
+}

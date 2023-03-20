@@ -1,0 +1,30 @@
+{
+    "rotation": ["Last Wish", "Garden of Salvation", "Deep Stone Crypt", "Vault of Glass", "Vow of the Disciple"],
+    "King's Fall": {
+        "milestoneHash": 292102995,
+        "activityHash": 1374392663,
+        "masterActivityHash": 2964135793
+    },
+    "Vault of Glass": {
+        "milestoneHash": 1888320892,
+        "activityHash": 3881495763,
+        "masterActivityHash": 1681562271
+    },
+    "Vow of the Disciple": {
+        "milestoneHash": 2136320298,
+        "activityHash": 1441982566,
+        "masterActivityHash": 4217492330
+    },
+    "Deep Stone Crypt": {
+        "milestoneHash": 541780856,
+        "activityHash": 910380154
+    },
+    "Last Wish": {
+        "milestoneHash": 3181387331,
+        "activityHash": 2122313384
+    },
+    "Garden of Salvation": {
+        "milestoneHash": 2712317338,
+        "activityHash": 3458480158
+    }
+}

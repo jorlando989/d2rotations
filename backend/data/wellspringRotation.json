@@ -1,0 +1,23 @@
+{
+    "rotation": ["bor'gong", "zeerik", "golmag", "vezuul"],
+    "bor'gong": {
+        "bossName": "Bor'Gong",
+        "activityHash": 54269080,
+        "weaponHash": 138845773
+    },
+    "zeerik": {
+        "bossName": "Zeerik",
+        "activityHash": 3333680772,
+        "weaponHash": 408327437
+    },
+    "golmag": {
+        "bossName": "Golmag",
+        "activityHash": 201280774,
+        "weaponHash": 927567426
+    },
+    "vezuul": {
+        "bossName": "Vezuul",
+        "activityHash": 2948928434,
+        "weaponHash": 2371706208
+    }
+}

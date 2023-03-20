@@ -1,0 +1,30 @@
+{
+    "rotation": ["Shattered Throne", "Pit of Heresy", "Prophecy", "Grasp of Avarice", "Duality"],
+    "Spire of the Watcher": {
+        "milestoneHash": 526718853,
+        "activityHash": 1262462921,
+        "masterActivityHash": 1801496203
+    },
+    "Duality": {
+        "milestoneHash": null,
+        "activityHash": 2823159265,
+        "masterActivityHash": 1668217731
+    },
+    "Shattered Throne": {
+        "milestoneHash": 422102671,
+        "activityHash": 2032534090
+    },
+    "Grasp of Avarice": {
+        "milestoneHash": 1092691445,
+        "activityHash": 4078656646,
+        "masterActivityHash": 3774021532
+    },
+    "Prophecy": {
+        "milestoneHash": 478604913,
+        "activityHash": 1077850348
+    },
+    "Pit of Heresy": {
+        "milestoneHash": 1742973996,
+        "activityHash": 1375089621
+    }
+}

@@ -1,0 +1,20 @@
+{
+	"rotation": [
+		["Despair", "Fear", "Rage"],
+		["Isolation", "Pride", "Servitude"],
+		["Insanity", "Anguish", "Despair"],
+		["Fear", "Isolation", "Rage"],
+		["Anguish", "Pride", "Servitude"],
+		["Insanity", "Despair", "Fear"],
+		["Isolation", "Rage", "Servitude"],
+		["Insanity", "Anguish", "Pride"]
+	],
+	"Despair": {"activityHash": 1060539534},
+	"Fear": {"activityHash": 1131960056},
+	"Rage": {"activityHash": 2279262916},
+	"Insanity": {"activityHash": 3076504012},
+	"Anguish": {"activityHash": 1862440533},
+	"Pride": {"activityHash": 3174288738},
+	"Isolation": {"activityHash": 2697497130},
+	"Servitude": {"activityHash": 3132010863}
+}

@@ -1,0 +1,147 @@
+.info {
+    padding-top: 100px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.display-in-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.display-in-row-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.icon-m5 {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.bg-teal {
+    background-color: #297373;
+}
+
+.min-width {
+    width: min-content;
+}
+.itemCard {
+    padding: 7px;
+    font-size: 20px;
+    width: max-content;
+    border-radius: 5px;
+}
+
+.center-vertical {
+    align-items: center;
+}
+
+.p5 {
+    padding: 5px;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.mr5 {
+    margin-right: 5px;
+}
+
+.rewardIcon {
+    height: 30px;
+    margin-right: 5px;
+}
+
+.md-rewardIcon {
+    height: 60px;
+    margin-right: 5px;
+}
+
+.highlight {
+    background-color: #297373;
+}
+
+.rotationTable1 {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.rotationTable2 {
+    flex-grow: 2;
+}
+
+.tabsTable {
+    background-color: grey;
+    color: white;
+}
+
+.rounded-corners {
+    border-radius: 5px;
+}
+
+.tab-pane {
+    background-color: #85ffc7 !important;
+}
+
+.tab-pane > div {
+    background-color: #297373;
+}
+
+.width60 {
+    width: 60%;
+}
+
+.description {
+    padding: 5px;
+}
+
+.pill {
+    color: white;
+    background-color: teal;
+}
+
+.pillLink {
+    color: white !important;
+}
+
+.pillLink:hover {
+    background-color: grey !important;
+}
+
+.pillLink.active {
+    background-color: #ff8552 !important;
+    color: black !important;
+}
+
+.weaponIcon {
+    width: 50px;
+    padding: 5px;
+}
+
+.subTitle {
+    font-size: 20px;
+}
+
+.App {
+    position: relative;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    padding-bottom: 2rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+    color: lightgrey;
+    /* margin-top: 10px; */
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+    text-align: center;
+}

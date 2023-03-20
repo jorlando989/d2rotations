@@ -1,0 +1,27 @@
+{
+    "rotation": ["D.F.A.", "Wendigo GL3", "Mindbender's Ambition", "Horror's Least", "Hung Jury SR4", "The Militia's Birthright"],
+    "D.F.A.": {
+        "itemHash": 575830664,
+        "adeptItemHash": 2006308129
+    },
+    "Wendigo GL3": {
+        "itemHash": 3183283212,
+        "adeptItemHash": 555148853
+    },
+    "Mindbender's Ambition": {
+        "itemHash": 1094005544,
+        "adeptItemHash": 912150785
+    },
+    "Horror's Least": {
+        "itemHash": 216983039,
+        "adeptItemHash": 1924276978
+    },
+    "Hung Jury SR4": {
+        "itemHash": 772231794,
+        "adeptItemHash": 4074251943
+    },
+    "The Militia's Birthright": {
+        "itemHash": 40394833,
+        "adeptItemHash": 2378101424
+    }
+}
