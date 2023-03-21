@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/d2rotations.report/static/css/main.2cc7f6e8.css",
-    "main.js": "/d2rotations.report/static/js/main.4b75f35e.js",
+    "main.js": "/d2rotations.report/static/js/main.a3663d90.js",
     "index.html": "/d2rotations.report/index.html",
     "main.2cc7f6e8.css.map": "/d2rotations.report/static/css/main.2cc7f6e8.css.map",
-    "main.4b75f35e.js.map": "/d2rotations.report/static/js/main.4b75f35e.js.map"
+    "main.a3663d90.js.map": "/d2rotations.report/static/js/main.a3663d90.js.map"
   },
   "entrypoints": [
     "static/css/main.2cc7f6e8.css",
-    "static/js/main.4b75f35e.js"
+    "static/js/main.a3663d90.js"
   ]
 }
