@@ -8,6 +8,8 @@ import "./styles/component.css";
 
 import ActivityCard from "./ActivityCard";
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
 type MyProps = {
 	activityType: string;
 };
@@ -27,13 +29,13 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 	}
 
 	getNightmareHunts() {
-		fetch("http://localhost:5000/api/nightmare_hunts")
+		fetch(`${API_ENDPOINT}/api/nightmare_hunts`)
 			.then(res => res.json())
 			.then(res => this.setState({ nightmareHuntResponse: res }));
 	}
 
 	getCruciblePlaylists() {
-		fetch("http://localhost:5000/api/crucible_playlist")
+		fetch(`${API_ENDPOINT}/api/crucible_playlist`)
 			.then(res => res.json())
 			.then(res => this.setState({ cruciblePlaylistResponse: res }));
 	}
@@ -82,7 +84,7 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 			this.state.nightmareHuntResponse.hunts !== null
 		) {
 			const huntsInfo = this.getNightmareHuntsInfo();
-			if (huntsInfo == undefined)
+			if (huntsInfo === undefined)
 				return <div>error loading nightmare hunts</div>;
 			return huntsInfo.map(activity => {
 				if (activity === undefined) return <div>error loading hunt</div>;
@@ -94,7 +96,7 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 			this.state.cruciblePlaylistResponse.playlists !== null
 		) {
 			const cruciblePlaylistInfo = this.getCruciblePlaylistInfo();
-			if (cruciblePlaylistInfo == undefined)
+			if (cruciblePlaylistInfo === undefined)
 				return <div>error loading crucible playlists</div>;
 			return cruciblePlaylistInfo.map(activity => {
 				if (activity === undefined)

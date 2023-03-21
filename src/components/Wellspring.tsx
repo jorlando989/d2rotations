@@ -4,6 +4,8 @@ import { getInventoryItemDef, getActivityDef } from "@d2api/manifest-web";
 import { DestinyActivityDefinition, DestinyInventoryItemDefinition } from "bungie-api-ts/destiny2";
 import { renderRewards } from "../services/descriptionRenderer";
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
 type wellspringResponse = {
 	bossName: string,
     activityHash: number,
@@ -35,7 +37,7 @@ class Wellspring extends React.Component<MyProps, MyState> {
 	}
 
 	getWellspringRotation() {
-		fetch("http://localhost:5000/api/wellspring")
+		fetch(`${API_ENDPOINT}/api/wellspring`)
 			.then(res => res.json())
 			.then(res => this.setState({ apiResponse: res }));
 	}

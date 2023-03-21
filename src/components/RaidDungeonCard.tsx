@@ -16,6 +16,8 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { renderModifiers } from "../services/descriptionRenderer";
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
 type MyProps = {
 	type: string;
 };
@@ -49,13 +51,13 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 	}
 
 	getRaidRotation() {
-		fetch("http://localhost:5000/api/raid_rotation")
+		fetch(`${API_ENDPOINT}/api/raid_rotation`)
 			.then(res => res.json())
 			.then(res => this.setState({ raidApiResponse: res }));
 	}
 
 	getDungeonRotation() {
-		fetch("http://localhost:5000/api/dungeon_rotation")
+		fetch(`${API_ENDPOINT}/api/dungeon_rotation`)
 			.then(res => res.json())
 			.then(res => this.setState({ dungeonApiResponse: res }));
 	}

@@ -4,6 +4,8 @@ import "./styles/component.css";
 
 import Card from "react-bootstrap/Card";
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
 type empireHuntResponse = {
 	currHunt: string;
 };
@@ -23,7 +25,7 @@ class EmpireHunt extends React.Component<MyProps, MyState> {
 	}
 
 	getEmpireHuntRotation() {
-		fetch("http://localhost:5000/api/empire_hunt")
+		fetch(`${API_ENDPOINT}/api/empire_hunt`)
 			.then(res => res.json())
 			.then(res => this.setState({ apiResponse: res }));
 	}

@@ -2,6 +2,8 @@ import React from "react";
 import "./styles/component.css";
 import { getItemImage } from "../services/iconRenderer";
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
 type currRewardType = {
 	hash: number;
 	name: string;
@@ -30,7 +32,7 @@ class AltarsOfSorrow extends React.Component<MyProps, MyState> {
 	}
 
 	getAltarOfSorrowRewards() {
-		fetch("http://localhost:5000/api/altarsOfSorrow")
+		fetch(`${API_ENDPOINT}/api/altarsOfSorrow`)
 			.then(res => res.json())
 			.then(res => this.setState({ apiResponse: res }));
 	}

@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles/component.css";
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
 type dreamingCityResponse = {
 	curseWeek: {
 		strength: string;
@@ -33,7 +35,7 @@ class DreamingCity extends React.Component<MyProps, MyState> {
 	}
 
 	getDreamingCityRotation() {
-		fetch("http://localhost:5000/api/ascendant_challenge")
+		fetch(`${API_ENDPOINT}/api/ascendant_challenge`)
 			.then(res => res.json())
 			.then(res => this.setState({ apiResponse: res }));
 	}

@@ -18,10 +18,10 @@ function renderTimes(eventTimes: string[]) {
 
 function renderEvent(eventInfo: eventType) {
 	return (
-		<Card style={{ width: "18rem" }}>
+		<Card style={{ width: "18rem" }} key={eventInfo.title}>
 			<Card.Body>
 				<Card.Title>{eventInfo.title}</Card.Title>
-				<Card.Text>{renderTimes(eventInfo.time)}</Card.Text>
+				{renderTimes(eventInfo.time)}
 			</Card.Body>
 		</Card>
 	);

@@ -25,7 +25,7 @@ function App() {
 			</Routes>
 		);
 	}
-
+  
 	return (
 		<div className='App'>
 			<BrowserRouter>

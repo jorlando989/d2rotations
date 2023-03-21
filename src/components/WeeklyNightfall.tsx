@@ -17,6 +17,8 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
 type MyProps = {};
 
 type MyState = {
@@ -36,7 +38,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 	}
 
 	getWeeklyNightfallRewards() {
-		fetch("http://localhost:5000/api/weekly_nightfall")
+		fetch(`${API_ENDPOINT}/api/weekly_nightfall`)
 			.then(res => res.json())
 			.then(res => this.setState({ apiResponse: res }));
 	}
@@ -50,7 +52,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		const nightfallLevels = this.state.apiResponse.nightfallActivities.map(
 			activity => {
 				const activityInfo = getActivityDef(activity.activityHash);
-				if (activityInfo == undefined) return;
+				if (activityInfo === undefined) return undefined;
 
 				//get modifier info
 				const modifiersInfo = activity.modifierHashes.map(modifier => {
@@ -59,7 +61,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 				});
 				const filteredModifierInfo = modifiersInfo.filter(mod => {
 					return (
-						mod !== undefined && mod.displayProperties.name != ""
+						mod !== undefined && mod.displayProperties.name !== ""
 					);
 				});
 
@@ -100,7 +102,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		nightfallLevels: nightfallLevelsInfoType[]
 	) {
 		return nightfallLevels.map(level => {
-			if (level == undefined) return;
+			if (level === undefined) return undefined;
 			return (
 				<Nav.Item key={level.activityInfo.hash} className='pill'>
 					<Nav.Link
@@ -116,7 +118,8 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 
 	renderNightfallLevelsforCategory(nightfallLevels: nightfallLevelsInfoType[]) {
 		return nightfallLevels.map(level => {
-			if (level == undefined || level.modifiersInfo == undefined) return;
+			if (level === undefined || level.modifiersInfo === undefined) 
+				return undefined;
 			return (
 				<Tab.Pane
 					eventKey={level.activityInfo.displayProperties.name}
@@ -149,7 +152,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 	renderWeaponRotation(weaponsInfo: weaponInfoType[] | undefined) {
         if (weaponsInfo === undefined) return <div>error loading nightfall weapons</div>;
 		return weaponsInfo.map(weapon => {
-            if (weapon === undefined || weapon.itemInfo === undefined || weapon.adeptItemInfo == undefined) return <div>error loading nightfall weapon</div>;
+            if (weapon === undefined || weapon.itemInfo === undefined || weapon.adeptItemInfo === undefined) return <div>error loading nightfall weapon</div>;
             let classes = "display-in-row center-vertical";
             let item = weapon.itemInfo;
             if (weapon.itemInfo.displayProperties.name === this.state.apiResponse.currWeapon) {
@@ -171,7 +174,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		if (this.state !== null && this.state.apiResponse !== undefined) {
 			const nightfallLevels: nightfallLevelsInfoType[] | undefined = this.getNightfallLevelsInfo();
             const weaponsInfo = this.getNightfallWeaponInfo();
-			if (nightfallLevels == undefined || nightfallLevels[0] == undefined) {
+			if (nightfallLevels === undefined || nightfallLevels[0] === undefined) {
 				return <div>error loading nightfall rotation</div>;
             }
 			return (

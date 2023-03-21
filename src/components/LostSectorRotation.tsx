@@ -1,19 +1,21 @@
-import React, { FC } from "react";
-import "./styles/component.css";
-import "./styles/lostSector.css";
-import { lostSectorType } from "../typeDefinitions/lostSectors";
 import {
 	getActivityDef,
 	getActivityModifierDef,
-	getInventoryItemDef,
+	getInventoryItemDef
 } from "@d2api/manifest-web";
+import React from "react";
 import { renderModifiers } from "../services/descriptionRenderer";
+import { lostSectorType } from "../typeDefinitions/lostSectors";
+import "./styles/component.css";
+import "./styles/lostSector.css";
 
-import Card from "react-bootstrap/Card";
 import {
 	DestinyActivityModifierDefinition,
-	DestinyInventoryItemDefinition,
+	DestinyInventoryItemDefinition
 } from "bungie-api-ts/destiny2";
+import Card from "react-bootstrap/Card";
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 type MyProps = {};
 
@@ -35,7 +37,7 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 	}
 
 	getLostSectors() {
-		fetch("http://localhost:5000/api/lost_sector")
+		fetch(`${API_ENDPOINT}/api/lost_sector`)
 			.then(res => res.json())
 			.then(res => this.setState({ apiResponse: res }));
 	}
@@ -78,7 +80,7 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 			);
 			//filter hidden modifiers
 			filteredMasterModifiers = masterModifiers.filter(mod => {
-				if (mod === undefined) return;
+				if (mod === undefined) return null;
 				return (
 					mod.displayInNavMode && mod.displayProperties.name !== ""
 				);
@@ -106,7 +108,7 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 
 			if (legendModifiers) {
 				filteredLegendModifiers = legendModifiers.filter(mod => {
-					if (mod === undefined) return;
+					if (mod === undefined) return null;
 					return (
 						mod.displayInNavMode &&
 						mod.displayProperties.name !== ""
