@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const keys = require('../src/config/keys');
+const keys = require('./config/keys');
 var LocalStorage = require('node-localstorage').LocalStorage;
 var cors = require("cors");
 
