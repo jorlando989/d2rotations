@@ -7,7 +7,7 @@ import {
 } from "@d2api/manifest-web";
 import React from "react";
 
-const keys = require("../config/keys.json");
+const keys = require("../config/keys");
 const neededManifestDefs = require("../data/neededManifestDefs.json");
 
 verbose();

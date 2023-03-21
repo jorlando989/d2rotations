@@ -2,7 +2,7 @@ import {
 	includeTables, loadDefs, setApiKey, verbose
 } from "@d2api/manifest-web";
 
-const keys = require("../config/keys.json");
+const keys = require("../config/keys");
 const neededManifestDefs = require("../data/neededManifestDefs.json");
 
 verbose(); // make the client chatty. if you want.
