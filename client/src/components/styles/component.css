@@ -15,6 +15,12 @@
     flex-wrap: wrap;
 }
 
+.display-in-row-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .icon-m5 {
     margin-right: 5px;
     margin-bottom: 5px;

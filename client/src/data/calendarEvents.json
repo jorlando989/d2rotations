@@ -23,5 +23,9 @@
 			]
 		},
 		{ "title": "Guardian Games", "time": ["May 02, 2023 – May 23, 2023"] }
-	]
+	],
+	"seasonInfo": {
+		"name": "Defiance",
+		"dates": "February 28th, 2023 - May 22, 2023"
+	}
 }

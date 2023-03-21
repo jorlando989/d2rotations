@@ -28,13 +28,24 @@ function renderEvent(eventInfo: eventType) {
 }
 
 const Calendar: FC = () => {
-	return (
-		<div className='info display-in-row-wrap calendar'>
-			{calendarEvents.events.map((eventInfo: eventType) => {
-				return renderEvent(eventInfo);
-			})}
-		</div>
-	);
+	if (calendarEvents) {
+		return (
+			<div className="info">
+				<div className="display-in-row-title mr5">
+					<h2>Season of {calendarEvents.seasonInfo.name}</h2>
+					<div>{calendarEvents.seasonInfo.dates}</div>
+				</div>
+				<hr />
+				<div className='display-in-row-wrap calendar'>
+					{calendarEvents.events.map((eventInfo: eventType) => {
+						return renderEvent(eventInfo);
+					})}
+				</div>
+			</div>
+		);
+	} else {
+		return <div>loading...</div>
+	}
 };
 
 export default Calendar;
