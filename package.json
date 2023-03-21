@@ -55,5 +55,9 @@
     "bootstrap": "^5.2.3",
     "gh-pages": "^5.0.0",
     "react-bootstrap": "^2.7.2"
+  },
+  "engines": {
+    "node": "16.6.0",
+    "npm": "8.11.0"
   }
 }
