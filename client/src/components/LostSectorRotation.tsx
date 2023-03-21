@@ -140,8 +140,10 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 		rewards: DestinyInventoryItemDefinition[],
 		currReward: string
 	) {
+		console.log(rewards);
 		if (rewards === undefined) return;
 		return rewards.map(reward => {
+			console.log(reward);
 			if (
 				reward.displayProperties.name.includes("Exotic") &&
 				!reward.displayProperties.name.includes(currReward)
