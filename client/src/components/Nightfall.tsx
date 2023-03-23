@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Countdown from './Countdown';
+import Countdown from './CountdownTimer';
 import './styles/component.css';
 import './styles/dashboard.css';
 import WeeklyNightfall from './WeeklyNightfall';

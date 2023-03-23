@@ -1,0 +1,10 @@
+.card {
+     width: 250px;
+}
+
+.cardTitle {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    text-align: center;
+    padding: 2px;
+}

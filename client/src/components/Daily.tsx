@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './styles/component.css';
 
 import AltarsOfSorrow from './AltarsOfSorrow';
-import Countdown from './Countdown';
+import Countdown from './CountdownTimer';
 import LostSectorRotation from './LostSectorRotation';
 import Wellspring from './Wellspring';
 // import StrikeModifiers from './StrikeModifiers';
@@ -10,7 +10,7 @@ import Wellspring from './Wellspring';
 const Daily: FC = () => {
     return (
         <div className='info'>
-            <div className='display-in-row'>
+            <div className='display-in-row-title'>
                 <h2>Daily Rotations</h2>
                 <Countdown type="daily"/>
             </div>

@@ -1,3 +1,7 @@
 .dashboard {
     font-size: 100px;
 }
+
+.row-right {
+    justify-content: flex-end;
+}

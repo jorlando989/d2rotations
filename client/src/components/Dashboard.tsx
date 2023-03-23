@@ -1,13 +1,161 @@
-import React, { FC } from 'react';
-import './styles/component.css';
-import './styles/dashboard.css';
+import { getActivityDef } from "@d2api/manifest-web";
+import React from "react";
+import { lostSectorType } from "../typeDefinitions/lostSectors";
+import { weeklyNightfallResponse } from "../typeDefinitions/nightfall";
+import {
+	dungeonResponse,
+	raidResponse,
+} from "../typeDefinitions/raidDungeonTypes";
+import CountdownTimer from "./CountdownTimer";
+import ImageCard from "./ImageCard";
 
-const Dashboard: FC = () => {
-    return (
-        <div className='info dashboard'>
-            dashboard
-        </div>
-    );
+import "./styles/component.css";
+import "./styles/dashboard.css";
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
+type MyProps = {};
+
+type MyState = {
+	lostSectorResponse: lostSectorType;
+	nightfallResponse: weeklyNightfallResponse;
+	raidResponse: raidResponse;
+	dungeonResponse: dungeonResponse;
 };
+
+class Dashboard extends React.Component<MyProps, MyState> {
+	constructor(props: MyProps) {
+		super(props);
+		this.state = {
+			lostSectorResponse: {
+				currLostSectorName: "",
+				currLostSectorHashes: { master: -1, legend: -1 },
+				currReward: "",
+				lostSectorRotation: [],
+			},
+			nightfallResponse: {
+				nightfallActivities: undefined,
+				weaponsRotation: [{ itemHash: -1, adeptItemHash: -1 }],
+				currWeapon: "",
+			},
+			raidResponse: {
+				featuredRaid: {
+					milestoneHash: -1,
+					activityHash: -1,
+					masterActivityHash: -1,
+				},
+				raidRotation: [],
+			},
+			dungeonResponse: {
+				featuredDungeon: {
+					milestoneHash: -1,
+					activityHash: -1,
+					masterActivityHash: -1,
+				},
+				dungeonRotation: [],
+			},
+		};
+	}
+
+	getLostSectors() {
+		fetch(`${API_ENDPOINT}/api/lost_sector`)
+			.then(res => res.json())
+			.then(res => this.setState({ lostSectorResponse: res }));
+	}
+
+	getWeeklyNightfallRewards() {
+		fetch(`${API_ENDPOINT}/api/weekly_nightfall`)
+			.then(res => res.json())
+			.then(res => this.setState({ nightfallResponse: res }));
+	}
+
+	getRaidRotation() {
+		fetch(`${API_ENDPOINT}/api/raid_rotation`)
+			.then(res => res.json())
+			.then(res => this.setState({ raidResponse: res }));
+	}
+
+	getDungeonRotation() {
+		fetch(`${API_ENDPOINT}/api/dungeon_rotation`)
+			.then(res => res.json())
+			.then(res => this.setState({ dungeonResponse: res }));
+	}
+
+	componentDidMount() {
+		this.getLostSectors();
+		this.getWeeklyNightfallRewards();
+		this.getDungeonRotation();
+		this.getRaidRotation();
+	}
+
+	getInfo(hash: number) {
+		const activityInfo = getActivityDef(hash);
+		return {
+			image: activityInfo?.pgcrImage,
+			description: activityInfo?.displayProperties.description,
+			name: activityInfo?.displayProperties.name,
+		};
+	}
+
+	render() {
+		if (this.state.nightfallResponse.nightfallActivities === undefined) {
+			return;
+		}
+		const nightfallInfo = this.getInfo(
+			this.state.nightfallResponse.nightfallActivities[0].activityHash
+		);
+
+		const lostSectorInfo = this.getInfo(
+			this.state.lostSectorResponse.currLostSectorHashes.legend
+		);
+		const raidInfo = this.getInfo(
+			this.state.raidResponse.featuredRaid.activityHash
+		);
+        const dungeonInfo = this.getInfo(this.state.dungeonResponse.featuredDungeon.activityHash);
+		return (
+			<div className='info'>
+				<div className='display-in-row row-right'>
+					<div className='borderBox'>
+						Weekly Reset in:
+						<CountdownTimer type='weekly' />
+					</div>
+					<div className='borderBox'>
+						Daily Reset in:
+						<CountdownTimer type='daily' />
+					</div>
+				</div>
+				<div className='display-in-row-wrap'>
+					<div>
+						Daily Lost Sector:
+						<ImageCard
+							title={
+								this.state.lostSectorResponse.currLostSectorName
+							}
+							imageSrc={lostSectorInfo.image}
+						/>
+					</div>
+					<div>
+						Weekly Nightfall:
+						<ImageCard
+							title={nightfallInfo?.description}
+							imageSrc={nightfallInfo?.image}
+						/>
+					</div>
+					<div>
+						Raid Rotator:
+						<ImageCard
+							title={raidInfo.name}
+							imageSrc={raidInfo.image}
+						/>
+					</div>
+					<div>
+						Dungeon Rotator:
+						<ImageCard title={dungeonInfo.name} imageSrc={dungeonInfo.image} />
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
 
 export default Dashboard;

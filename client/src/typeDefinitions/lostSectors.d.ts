@@ -1,4 +1,4 @@
-import {DestinyRewardDefinition, DestinyActivityDefinition, DestinyActivityModifierDefinition, DestinyInventoryItemDefinition, DestinyBreakerTypeDefinition} from 'bungie-api-ts';
+import { DestinyInventoryItemDefinition } from 'bungie-api-ts';
 
 type lostSectorHashesType = {
     master: number,
@@ -8,6 +8,10 @@ type lostSectorHashesType = {
 export type lostSectorType = {
     currLostSectorName: string,
     currLostSectorHashes: lostSectorHashesType,
-    currReward: DestinyRewardDefinition,
+    currReward: string,
     lostSectorRotation: string[]
+}
+
+export type lostSectorInfoType = {
+
 }

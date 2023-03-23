@@ -1,19 +1,14 @@
 import {
 	getActivityDef,
 	getActivityModifierDef,
-	getInventoryItemDef
+	getInventoryItemDef,
 } from "@d2api/manifest-web";
 import React from "react";
-import { renderModifiers } from "../services/descriptionRenderer";
 import { lostSectorType } from "../typeDefinitions/lostSectors";
 import "./styles/component.css";
 import "./styles/lostSector.css";
 
-import {
-	DestinyActivityModifierDefinition,
-	DestinyInventoryItemDefinition
-} from "bungie-api-ts/destiny2";
-import Card from "react-bootstrap/Card";
+import LostSectorCard from "./LostSectorCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -136,83 +131,27 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 		};
 	}
 
-	renderRewards(
-		rewards: DestinyInventoryItemDefinition[],
-		currReward: string
-	) {
-		console.log(rewards);
-		if (rewards === undefined) return;
-		return rewards.map(reward => {
-			console.log(reward);
-			if (
-				reward.displayProperties.name.includes("Exotic") &&
-				!reward.displayProperties.name.includes(currReward)
-			) {
-				return "";
-			}
-			return (
-				<div key={reward.hash}>
-					<img
-						src={`https://www.bungie.net${reward.displayProperties.icon}`}
-						className='rewardIcon'
-						alt='reward icon'
-					/>
-					{reward.displayProperties.name}
-				</div>
-			);
-		});
-	}
-
 	renderLostSectors() {
 		const lostSectorsInfo = this.getRewards();
-		const lostSectorName = this.state.apiResponse.currLostSectorName;
 		const currReward = this.state.apiResponse.currReward;
 		return (
 			<div className='display-in-row'>
-				<Card style={{ width: "25rem" }}>
-					<Card.Img
-						variant='top'
-						src={`https://www.bungie.net${lostSectorsInfo.legendInfo?.pgcrImage}`}
-					/>
-					<Card.Body>
-						<Card.Title>{lostSectorName} - Legend</Card.Title>
-						<div className='display-in-row-wrap'>
-							{renderModifiers(
-								lostSectorsInfo.legendModifiers as DestinyActivityModifierDefinition[]
-							)}
-						</div>
-						<hr />
-						<div>
-							<b>Rewards:</b>
-							{this.renderRewards(
-								lostSectorsInfo.legendRewards as DestinyInventoryItemDefinition[],
-								currReward
-							)}
-						</div>
-					</Card.Body>
-				</Card>
-				<Card style={{ width: "25rem" }}>
-					<Card.Img
-						variant='top'
-						src={`https://www.bungie.net${lostSectorsInfo.masterInfo?.pgcrImage}`}
-					/>
-					<Card.Body>
-						<Card.Title>{lostSectorName} - Master</Card.Title>
-						<div className='display-in-row-wrap'>
-							{renderModifiers(
-								lostSectorsInfo.masterModifiers as DestinyActivityModifierDefinition[]
-							)}
-						</div>
-						<hr />
-						<div>
-							<b>Rewards:</b>
-							{this.renderRewards(
-								lostSectorsInfo.masterRewards as DestinyInventoryItemDefinition[],
-								currReward
-							)}
-						</div>
-					</Card.Body>
-				</Card>
+				<LostSectorCard
+					type='Legend'
+					lostSectorInfo={lostSectorsInfo.legendInfo}
+					lostSectorModifiers={lostSectorsInfo.legendModifiers}
+					lostSectorRewards={lostSectorsInfo.legendRewards}
+					lostSectorName={this.state.apiResponse.currLostSectorName}
+					currReward={currReward}
+				/>
+				<LostSectorCard
+					type='Master'
+					lostSectorInfo={lostSectorsInfo.masterInfo}
+					lostSectorModifiers={lostSectorsInfo.masterModifiers}
+					lostSectorRewards={lostSectorsInfo.masterRewards}
+					lostSectorName={this.state.apiResponse.currLostSectorName}
+					currReward={currReward}
+				/>
 			</div>
 		);
 	}
