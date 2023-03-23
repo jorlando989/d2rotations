@@ -17,14 +17,17 @@
     },
     "Deep Stone Crypt": {
         "milestoneHash": 541780856,
-        "activityHash": 910380154
+        "activityHash": 910380154,
+        "masterActivityHash": null
     },
     "Last Wish": {
         "milestoneHash": 3181387331,
-        "activityHash": 2122313384
+        "activityHash": 2122313384,
+        "masterActivityHash": null
     },
     "Garden of Salvation": {
         "milestoneHash": 2712317338,
-        "activityHash": 3458480158
+        "activityHash": 3458480158,
+        "masterActivityHash": null
     }
 }

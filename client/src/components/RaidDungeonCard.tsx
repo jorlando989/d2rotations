@@ -74,7 +74,10 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 
 		let masterInfo;
 		let masterModifiers;
-		if (featuredRaid.masterActivityHash) {
+		if (featuredRaid.masterActivityHash == null) {
+			masterInfo = null;
+			masterModifiers = null;
+		} else if (featuredRaid.masterActivityHash) {
 			masterInfo = getActivityDef(featuredRaid.masterActivityHash);
 			if (masterInfo === undefined) return;
 			masterModifiers = masterInfo.modifiers
@@ -127,7 +130,10 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 
 		let masterInfo;
 		let masterModifiers;
-		if (featuredDungeon.masterActivityHash) {
+		if (featuredDungeon.masterActivityHash == null) {
+			masterInfo = null;
+			masterModifiers = null;
+		} else if (featuredDungeon.masterActivityHash) {
 			masterInfo = getActivityDef(featuredDungeon.masterActivityHash);
 			if (masterInfo === undefined) return;
 			masterModifiers = masterInfo.modifiers
@@ -212,7 +218,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 
 	renderMaster(
 		masterInfo: DestinyActivityDefinition,
-		masterModifiers: DestinyActivityModifierDefinition[] | undefined
+		masterModifiers: DestinyActivityModifierDefinition[] | null | undefined
 	) {
 		if (masterInfo && masterModifiers) {
 			return (
@@ -231,7 +237,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 					</Card.Body>
 				</Card>
 			);
-		} else {
+		} else if (masterInfo !== null) {
 			return <div>error loading modifiers</div>;
 		}
 	}

@@ -2,10 +2,10 @@ import { DestinyActivityDefinition, DestinyActivityModifierDefinition } from 'bu
 
 export type rotatorType = {
     rotatorInfo: DestinyActivityDefinition,
-    masterInfo: DestinyActivityDefinition,
+    masterInfo: DestinyActivityDefinition | null,
     rotation: DestinyActivityDefinition[] | undefined,
     challenges: DestinyActivityModifierDefinition[] | null | undefined,
-    masterModifiers: DestinyActivityModifierDefinition[] | undefined
+    masterModifiers: DestinyActivityModifierDefinition[] | null | undefined
 } | undefined;
 
 type featuredType = {

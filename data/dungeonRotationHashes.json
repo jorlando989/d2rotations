@@ -12,7 +12,8 @@
     },
     "Shattered Throne": {
         "milestoneHash": 422102671,
-        "activityHash": 2032534090
+        "activityHash": 2032534090,
+        "masterActivityHash": null
     },
     "Grasp of Avarice": {
         "milestoneHash": 1092691445,
@@ -21,10 +22,12 @@
     },
     "Prophecy": {
         "milestoneHash": 478604913,
-        "activityHash": 1077850348
+        "activityHash": 1077850348,
+        "masterActivityHash": null
     },
     "Pit of Heresy": {
         "milestoneHash": 1742973996,
-        "activityHash": 1375089621
+        "activityHash": 1375089621,
+        "masterActivityHash": null
     }
 }

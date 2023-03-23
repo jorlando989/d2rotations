@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import Countdown from 'react-countdown';
 import './styles/countdown.css';
 
