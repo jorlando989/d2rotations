@@ -21,7 +21,7 @@ function ensureManifest() {
 }
 
 export function DefsProvider({ children }: React.PropsWithChildren<{}>) {
-	console.log(children);
+	// console.log(children);
 	return (
 		<React.Suspense fallback={<div>loading manifest...</div>}>
 			{children}

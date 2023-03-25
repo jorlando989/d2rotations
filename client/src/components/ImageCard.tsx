@@ -26,7 +26,6 @@ class ImageCard extends React.Component<MyProps, MyState> {
 	}
 
 	render() {
-		console.log(this.props.imageSrc);
 		if (this.props) {
 			return (
 				<Card className='bg-dark text-white'>

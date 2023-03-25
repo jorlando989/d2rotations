@@ -32,7 +32,6 @@ class LostSectorCard extends React.Component<MyProps, MyState> {
 	) {
 		if (rewards === undefined) return;
 		return rewards.map(reward => {
-			console.log(reward);
 			if (
 				reward.displayProperties.name.includes("Exotic") &&
 				!reward.displayProperties.name.includes(currReward)
