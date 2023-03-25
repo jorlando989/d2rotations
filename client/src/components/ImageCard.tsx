@@ -6,11 +6,25 @@ import Card from "react-bootstrap/Card";
 type MyProps = {
 	title: string | undefined;
 	imageSrc: string | undefined;
+	extraImg?: string;
 };
 
 type MyState = {};
 
 class ImageCard extends React.Component<MyProps, MyState> {
+	renderExtra() {
+		if (this.props.extraImg) {
+			return (
+				<span>
+					<img
+						src={this.props.extraImg}
+						className='rewardIcon armorIcon'
+					/>
+				</span>
+			);
+		}
+	}
+
 	render() {
 		console.log(this.props.imageSrc);
 		if (this.props) {
@@ -21,7 +35,9 @@ class ImageCard extends React.Component<MyProps, MyState> {
 						alt='Card image'
 					/>
 					<Card.ImgOverlay>
-						<Card.Title className="cardTitle">{this.props.title}</Card.Title>
+						<Card.Title className='cardTitle'>
+							{this.props.title} {this.renderExtra()}
+						</Card.Title>
 					</Card.ImgOverlay>
 				</Card>
 			);

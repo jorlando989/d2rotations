@@ -120,3 +120,22 @@ export function getItemImage(itemHash: number) {
 	const itemInfo = getInventoryItemDef(itemHash);
 	return itemInfo?.displayProperties.icon;
 }
+
+export function getArmorImage(name: string) {
+	let icon;
+	switch (name) {
+		case "Legs":
+			icon = "./icons/boots.svg";
+			break;
+		case "Head":
+			icon = "./icons/helmet.svg";
+			break;
+		case "Chest":
+			icon = "./icons/chest.svg";
+			break;
+		case "Arms":
+			icon = "./icons/gloves.svg";
+			break;
+	}
+	return icon;
+}

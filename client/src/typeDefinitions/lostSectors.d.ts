@@ -9,7 +9,8 @@ export type lostSectorType = {
     currLostSectorName: string,
     currLostSectorHashes: lostSectorHashesType,
     currReward: string,
-    lostSectorRotation: string[]
+    lostSectorRotation: string[],
+    rewardRotation: string[]
 }
 
 export type lostSectorInfoType = {

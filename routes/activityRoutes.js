@@ -47,6 +47,7 @@ module.exports = app => {
 			currLostSectorHashes,
 			currReward,
 			lostSectorRotation: lostSectorRotation.rotation,
+			rewardRotation: lostSectorRewardRotation.rotation
 		});
 	});
 

@@ -1,5 +1,6 @@
 import { getActivityDef } from "@d2api/manifest-web";
 import React from "react";
+import { getArmorImage } from "../services/iconRenderer";
 import { lostSectorType } from "../typeDefinitions/lostSectors";
 import { weeklyNightfallResponse } from "../typeDefinitions/nightfall";
 import {
@@ -32,6 +33,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 				currLostSectorHashes: { master: -1, legend: -1 },
 				currReward: "",
 				lostSectorRotation: [],
+                rewardRotation: []
 			},
 			nightfallResponse: {
 				nightfallActivities: undefined,
@@ -132,6 +134,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 								this.state.lostSectorResponse.currLostSectorName
 							}
 							imageSrc={lostSectorInfo.image}
+							extraImg={getArmorImage(this.state.lostSectorResponse.currReward)}
 						/>
 					</div>
 					<div>

@@ -5,3 +5,15 @@
 .smallIcon {
     width: 15px;
 }
+
+.rewardRotation {
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 3px;
+    justify-content: space-around;
+}
+
+.reward {
+    width: 100%;
+    text-align: center;
+}

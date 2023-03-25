@@ -9,6 +9,7 @@ import "./styles/component.css";
 import "./styles/lostSector.css";
 
 import LostSectorCard from "./LostSectorCard";
+import { getArmorImage } from "../services/iconRenderer";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -27,6 +28,7 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 				currLostSectorHashes: { master: -1, legend: -1 },
 				currReward: "",
 				lostSectorRotation: [],
+				rewardRotation: [],
 			},
 		};
 	}
@@ -53,6 +55,29 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 				</div>
 			);
 		});
+	}
+
+	renderRewardRotation() {
+		if (this.state.apiResponse.rewardRotation) {
+			return this.state.apiResponse.rewardRotation.map(reward => {
+				let icon = getArmorImage(reward);
+				let rewardClasses = "reward";
+				if (reward === this.state.apiResponse.currReward) {
+					rewardClasses += " highlight";
+				}
+				return (
+					<div className={rewardClasses}>
+						<img
+							className="rewardIcon armorIcon"
+							src={icon}
+							alt='reward icon'
+						/>
+					</div>
+				);
+			});
+		} else {
+			return <div></div>;
+		}
 	}
 
 	getRewards() {
@@ -168,6 +193,9 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 						<hr />
 						<div className='ml5'>
 							{this.renderLostSectorRotation()}
+						</div>
+						<div className='display-in-row rewardRotation'>
+							{this.renderRewardRotation()}
 						</div>
 					</div>
 				</div>
