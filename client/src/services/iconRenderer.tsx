@@ -1,4 +1,8 @@
-import { getBreakerTypeDef, getDamageTypeDef, getInventoryItemDef } from "@d2api/manifest-web";
+import {
+	getBreakerTypeDef,
+	getDamageTypeDef,
+	getInventoryItemDef,
+} from "@d2api/manifest-web";
 
 export function renderDamageIcons(description: string) {
 	const splitDesc = description.split(" ");
@@ -122,20 +126,27 @@ export function getItemImage(itemHash: number) {
 }
 
 export function getArmorImage(name: string) {
-	let icon;
 	switch (name) {
 		case "Legs":
-			icon = "./icons/boots.svg";
-			break;
+			return "./icons/boots.svg";
 		case "Head":
-			icon = "./icons/helmet.svg";
-			break;
+			return "./icons/helmet.svg";
 		case "Chest":
-			icon = "./icons/chest.svg";
-			break;
+			return "./icons/chest.svg";
 		case "Arms":
-			icon = "./icons/gloves.svg";
-			break;
+			return "./icons/gloves.svg";
 	}
-	return icon;
+}
+
+export function getNightfallLevelIcon(name: string) {
+	switch (name) {
+		case "Nightfall: Hero":
+			return "/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png";
+		case "Nightfall: Legend":
+			return "/common/destiny2_content/icons/45f40693f3014d50ea78d5f3f8fe2e04.png";
+		case "Nightfall: Master":
+			return "/common/destiny2_content/icons/05546f508343b402f6499fee3b29ed5c.png";
+		case "Nightfall: Grandmaster":
+			return "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png";
+	}
 }

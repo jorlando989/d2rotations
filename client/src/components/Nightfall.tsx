@@ -7,7 +7,7 @@ import WeeklyNightfall from './WeeklyNightfall';
 const Nightfall: FC = () => {
     return (
         <div className='info'>
-            <div className='display-in-row'>
+            <div className='display-in-row-title'>
                 <h2>Nightfall</h2>
                 <Countdown type="weekly"/>
             </div>

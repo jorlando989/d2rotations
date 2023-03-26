@@ -92,47 +92,12 @@
     flex-grow: 2;
 }
 
-.tabsTable {
-    background-color: grey;
-    color: white;
-}
-
 .rounded-corners {
     border-radius: 5px;
 }
 
-.tab-pane {
-    background-color: #85ffc7 !important;
-}
-
-.tab-pane > div {
-    background-color: #297373;
-}
-
 .width60 {
     width: 60%;
-}
-
-.description {
-    padding: 5px;
-}
-
-.pill {
-    color: white;
-    background-color: teal;
-}
-
-.pillLink {
-    color: white !important;
-}
-
-.pillLink:hover {
-    background-color: grey !important;
-}
-
-.pillLink.active {
-    background-color: #ff8552 !important;
-    color: black !important;
 }
 
 .weaponIcon {

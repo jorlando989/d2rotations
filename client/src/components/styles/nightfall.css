@@ -1,0 +1,33 @@
+.pill {
+    color: white;
+    background-color: teal;
+}
+
+.pillLink {
+    color: white !important;
+}
+
+.pillLink:hover {
+    background-color: grey !important;
+}
+
+.pillLink.active {
+    background-color: #ff8552 !important;
+    color: black !important;
+}
+
+.tab-pane {
+    background-color: #85ffc7 !important;
+}
+
+.tab-pane > div {
+    background-color: #297373;
+}
+
+.description {
+    padding: 5px;
+}
+
+.tabsTable {
+    opacity: 90%;
+}

@@ -1,5 +1,5 @@
-.card {
-     width: 250px;
+.smallCard {
+    width: 250px;
 }
 
 .cardTitle {
@@ -8,3 +8,12 @@
     text-align: center;
     padding: 2px;
 }
+
+.largeCardTitle {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* .largeCardImg {
+    height: 500px;
+} */

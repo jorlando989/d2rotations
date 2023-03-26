@@ -28,7 +28,7 @@ class ImageCard extends React.Component<MyProps, MyState> {
 	render() {
 		if (this.props) {
 			return (
-				<Card className='bg-dark text-white'>
+				<Card className='bg-dark text-white smallCard'>
 					<Card.Img
 						src={`https://www.bungie.net${this.props.imageSrc}`}
 						alt='Card image'

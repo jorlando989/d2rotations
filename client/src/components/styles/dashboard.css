@@ -1,5 +1,5 @@
-.dashboard {
-    font-size: 100px;
+.dashboard > * {
+    margin-right: 10px;
 }
 
 .row-right {

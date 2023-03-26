@@ -1,17 +1,23 @@
 import {
-    getActivityDef,
-    getActivityModifierDef,
-    getInventoryItemDef
+	getActivityDef,
+	getActivityModifierDef,
+	getInventoryItemDef,
 } from "@d2api/manifest-web";
 import React from "react";
-import { renderModifiers, renderRewards } from "../services/descriptionRenderer";
 import {
-    nightfallLevelsInfoType,
-    weeklyNightfallResponse,
-    weaponInfoType
+	renderModifiers,
+	renderRewards,
+} from "../services/descriptionRenderer";
+import {
+	nightfallLevelsInfoType,
+	weaponInfoType,
+	weeklyNightfallResponse,
 } from "../typeDefinitions/nightfall";
 import "./styles/component.css";
+import "./styles/imagecard.css";
+import "./styles/nightfall.css";
 
+import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
@@ -31,8 +37,8 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		this.state = {
 			apiResponse: {
 				nightfallActivities: undefined,
-                weaponsRotation: [{itemHash: -1, adeptItemHash: -1}],
-                currWeapon: ""
+				weaponsRotation: [{ itemHash: -1, adeptItemHash: -1 }],
+				currWeapon: "",
 			},
 		};
 	}
@@ -85,18 +91,20 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		return nightfallLevels;
 	}
 
-    getNightfallWeaponInfo() {
-        if (this.state.apiResponse.weaponsRotation === undefined) return;
-        const weaponsInfo = this.state.apiResponse.weaponsRotation.map(weapon => {
-			const itemInfo = getInventoryItemDef(weapon.itemHash);
-			const adeptItemInfo = getInventoryItemDef(weapon.adeptItemHash);
-			return {
-				itemInfo,
-				adeptItemInfo
+	getNightfallWeaponInfo() {
+		if (this.state.apiResponse.weaponsRotation === undefined) return;
+		const weaponsInfo = this.state.apiResponse.weaponsRotation.map(
+			weapon => {
+				const itemInfo = getInventoryItemDef(weapon.itemHash);
+				const adeptItemInfo = getInventoryItemDef(weapon.adeptItemHash);
+				return {
+					itemInfo,
+					adeptItemInfo,
+				};
 			}
-		});
-        return weaponsInfo;
-    }
+		);
+		return weaponsInfo;
+	}
 
 	renderNightfallLevelsCategories(
 		nightfallLevels: nightfallLevelsInfoType[]
@@ -109,16 +117,21 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 						eventKey={level.activityInfo.displayProperties.name}
 						className='pillLink'
 					>
-						{level.activityInfo.displayProperties.name}
+						{level.activityInfo.displayProperties.name.replace(
+							"Nightfall: ",
+							""
+						)}
 					</Nav.Link>
 				</Nav.Item>
 			);
 		});
 	}
 
-	renderNightfallLevelsforCategory(nightfallLevels: nightfallLevelsInfoType[]) {
+	renderNightfallLevelsforCategory(
+		nightfallLevels: nightfallLevelsInfoType[]
+	) {
 		return nightfallLevels.map(level => {
-			if (level === undefined || level.modifiersInfo === undefined) 
+			if (level === undefined || level.modifiersInfo === undefined)
 				return undefined;
 			return (
 				<Tab.Pane
@@ -150,67 +163,109 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 	}
 
 	renderWeaponRotation(weaponsInfo: weaponInfoType[] | undefined) {
-        if (weaponsInfo === undefined) return <div>error loading nightfall weapons</div>;
+		if (weaponsInfo === undefined)
+			return <div>error loading nightfall weapons</div>;
 		return weaponsInfo.map(weapon => {
-            if (weapon === undefined || weapon.itemInfo === undefined || weapon.adeptItemInfo === undefined) return <div>error loading nightfall weapon</div>;
-            let classes = "display-in-row center-vertical";
-            let item = weapon.itemInfo;
-            if (weapon.itemInfo.displayProperties.name === this.state.apiResponse.currWeapon) {
-                classes = classes.concat(" highlight");
-                item = weapon.adeptItemInfo;
-            }
-            return (
-                <div key={item.hash}>
-                    <div className={classes}>
-                        <img src={`https://www.bungie.net${item.displayProperties.icon}`} className='weaponIcon' alt='weapon icon'/>
-                        {item.displayProperties.name}
-                    </div>
-                </div>
-            );
-        });
+			if (
+				weapon === undefined ||
+				weapon.itemInfo === undefined ||
+				weapon.adeptItemInfo === undefined
+			)
+				return <div>error loading nightfall weapon</div>;
+			let classes = "display-in-row center-vertical";
+			let item = weapon.itemInfo;
+			if (
+				weapon.itemInfo.displayProperties.name ===
+				this.state.apiResponse.currWeapon
+			) {
+				classes = classes.concat(" highlight");
+				item = weapon.adeptItemInfo;
+			}
+			return (
+				<div key={item.hash}>
+					<div className={classes}>
+						<img
+							src={`https://www.bungie.net${item.displayProperties.icon}`}
+							className='weaponIcon'
+							alt='weapon icon'
+						/>
+						{item.displayProperties.name}
+					</div>
+				</div>
+			);
+		});
+	}
+
+	renderTable(nightfallLevels: nightfallLevelsInfoType[]) {
+		return (
+			<Tab.Container
+				id='left-tabs-example'
+				defaultActiveKey='Nightfall: Hero'
+			>
+				<Row>
+					<Col sm={3} className='rounded-corners'>
+						<Nav variant='pills' className='flex-column'>
+							{this.renderNightfallLevelsCategories(
+								nightfallLevels
+							)}
+						</Nav>
+					</Col>
+					<Col sm={9} className='rounded-corners'>
+						<Tab.Content>
+							{this.renderNightfallLevelsforCategory(
+								nightfallLevels
+							)}
+						</Tab.Content>
+					</Col>
+				</Row>
+			</Tab.Container>
+		);
+	}
+
+	renderNightfallInfo(
+		nightfallInfo: nightfallLevelsInfoType,
+		nightfallLevels: nightfallLevelsInfoType[]
+	) {
+		return (
+			<Card className='bg-dark text-white largeCard'>
+				<Card.Img
+					src={`https://www.bungie.net${nightfallInfo?.activityInfo.pgcrImage}`}
+					alt='Card image'
+					className="largeCardImg"
+				/>
+				<Card.ImgOverlay>
+					<div className='cardTitle largeCardTitle'>
+						{
+							nightfallInfo?.activityInfo.displayProperties
+								.description
+						}
+					</div>
+					<div className='tabsTable'>
+						{this.renderTable(nightfallLevels)}
+					</div>
+				</Card.ImgOverlay>
+			</Card>
+		);
 	}
 
 	render() {
 		if (this.state !== null && this.state.apiResponse !== undefined) {
-			const nightfallLevels: nightfallLevelsInfoType[] | undefined = this.getNightfallLevelsInfo();
-            const weaponsInfo = this.getNightfallWeaponInfo();
-			if (nightfallLevels === undefined || nightfallLevels[0] === undefined) {
+			const nightfallLevels: nightfallLevelsInfoType[] | undefined =
+				this.getNightfallLevelsInfo();
+			const weaponsInfo = this.getNightfallWeaponInfo();
+			if (
+				nightfallLevels === undefined ||
+				nightfallLevels[0] === undefined
+			) {
 				return <div>error loading nightfall rotation</div>;
-            }
+			}
 			return (
-				<div className='display-in-row'>
-					<div className='rounded-corners ml5 mr5 rotationTable2 width60'>
-						<div className='ml5 bg-teal pb5'>
-							<h3>
-								{nightfallLevels[0].activityInfo.displayProperties.description}
-							</h3>
-						</div>
-						<div className='tabsTable'>
-							<Tab.Container
-								id='left-tabs-example'
-								defaultActiveKey='Nightfall: Hero'
-							>
-								<Row>
-									<Col sm={3}>
-										<Nav
-											variant='pills'
-											className='flex-column'
-										>
-											{this.renderNightfallLevelsCategories(
-												nightfallLevels
-											)}
-										</Nav>
-									</Col>
-									<Col sm={9}>
-										<Tab.Content>
-											{this.renderNightfallLevelsforCategory(
-												nightfallLevels
-											)}
-										</Tab.Content>
-									</Col>
-								</Row>
-							</Tab.Container>
-						</div>
+				<div className='display-in-row-wrap'>
+					<div className='rounded-corners ml5 mr5 rotationTable2 width60 pb5'>
+						{this.renderNightfallInfo(
+							nightfallLevels[0],
+							nightfallLevels
+						)}
 					</div>
 					<div className='rotationTable1'>
 						<h4>Nightfall Weapon Rotation</h4>

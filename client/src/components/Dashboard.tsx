@@ -126,7 +126,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						<CountdownTimer type='daily' />
 					</div>
 				</div>
-				<div className='display-in-row-wrap'>
+				<div className='display-in-row-wrap dashboard'>
 					<div>
 						Daily Lost Sector:
 						<ImageCard
