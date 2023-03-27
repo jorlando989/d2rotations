@@ -3,18 +3,19 @@ import React from "react";
 import {
 	dungeonResponse,
 	raidResponse,
-	rotatorType
+	rotatorType,
 } from "../typeDefinitions/raidDungeonTypes";
 import "./styles/component.css";
 
 import {
 	DestinyActivityDefinition,
-	DestinyActivityModifierDefinition
+	DestinyActivityModifierDefinition,
 } from "bungie-api-ts/destiny2";
 import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { renderModifiers } from "../services/descriptionRenderer";
+import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -217,28 +218,19 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 	}
 
 	renderMaster(
-		masterInfo: DestinyActivityDefinition,
 		masterModifiers: DestinyActivityModifierDefinition[] | null | undefined
 	) {
-		if (masterInfo && masterModifiers) {
+		if (masterModifiers) {
 			return (
-				<Card style={{ width: "25rem" }}>
-					<Card.Img
-						variant='top'
-						src={`https://www.bungie.net${masterInfo.pgcrImage}`}
-					/>
-					<Card.Body>
-						<Card.Title>
-							{masterInfo.displayProperties.name}
-						</Card.Title>
-						<div className='display-in-row'>
-							{renderModifiers(masterModifiers)}
-						</div>
-					</Card.Body>
-				</Card>
+				<div>
+					<span className='subTitle'>
+						<u>Master Modifiers:</u>
+					</span>
+					<div className='display-in-row-wrap'>
+						{renderModifiers(masterModifiers)}
+					</div>
+				</div>
 			);
-		} else if (masterInfo !== null) {
-			return <div>error loading modifiers</div>;
 		}
 	}
 
@@ -255,7 +247,8 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 			}
 			return rotation.map(rotator => {
 				if (rotator === undefined) return null;
-				let classes = "display-in-row center-vertical";
+				let classes =
+					"display-in-row center center-vertical pr5";
 				if (rotator.displayProperties.name === current) {
 					classes = classes.concat(" highlight");
 				}
@@ -263,15 +256,13 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 					iconImage = rotator.displayProperties.icon;
 				}
 				return (
-					<div key={rotator.hash}>
-						<div className={classes}>
-							<img
-								src={`https://www.bungie.net${iconImage}`}
-								className='weaponIcon darkBgIcon'
-								alt='weapon icon'
-							/>
-							{rotator.originalDisplayProperties.name}
-						</div>
+					<div key={rotator.hash} className={classes}>
+						<img
+							src={`https://www.bungie.net${iconImage}`}
+							className='weaponIcon darkBgIcon'
+							alt='weapon icon'
+						/>
+						{rotator.originalDisplayProperties.name}
 					</div>
 				);
 			});
@@ -281,46 +272,25 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 	renderRotator(rotator: rotatorType, type: string) {
 		if (rotator === undefined) return <div>error loading rotator</div>;
 		return (
-			<div className='display-in-row'>
-				<div className='ml5 mr5 rotationTable2'>
-					<div className='display-in-row'>
-						<div key={rotator.rotatorInfo.hash}>
-							<Card style={{ width: "25rem" }}>
-								<Card.Img
-									variant='top'
-									src={`https://www.bungie.net${rotator.rotatorInfo.pgcrImage}`}
-								/>
-								<Card.Body>
-									<Card.Title>
-										{
-											rotator.rotatorInfo
-												.displayProperties.name
-										}
-									</Card.Title>
-									{this.renderChallenges(rotator.challenges)}
-								</Card.Body>
-							</Card>
-						</div>
-						<div>
-							{this.renderMaster(
-								rotator.masterInfo,
-								rotator.masterModifiers
-							)}
-						</div>
+			<div className='ml5 mr5'>
+				<LargeImageCard
+					title={
+						rotator.rotatorInfo.displayProperties.name.split(":")[0]
+					}
+					imageSrc={rotator.rotatorInfo.pgcrImage}
+					withFooter={true}
+				>
+					<div className=''>
+						{this.renderChallenges(rotator.challenges)}
+						{this.renderMaster(rotator.masterModifiers)}
 					</div>
-				</div>
-				<div className='rotationTable1'>
-					<h4>
-						Featured {type.charAt(0).toUpperCase() + type.slice(1)} Rotation
-					</h4>
-					<hr />
-					<div>
-						{this.renderRotation(
-							rotator.rotation,
-							rotator.rotatorInfo.displayProperties.name,
-							type
-						)}
-					</div>
+				</LargeImageCard>
+				<div className='display-in-row-wrap rotationBox'>
+					{this.renderRotation(
+						rotator.rotation,
+						rotator.rotatorInfo.displayProperties.name,
+						type
+					)}
 				</div>
 			</div>
 		);
@@ -340,7 +310,8 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 			} else if (
 				this.props.type === "dungeon" &&
 				this.state.dungeonApiResponse !== null &&
-				this.state.dungeonApiResponse.featuredDungeon.activityHash !== -1
+				this.state.dungeonApiResponse.featuredDungeon.activityHash !==
+					-1
 			) {
 				const dungeonInfo = this.getDungeonInfo();
 				if (dungeonInfo === undefined)

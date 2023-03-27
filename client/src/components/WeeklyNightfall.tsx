@@ -22,6 +22,7 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
+import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -227,13 +228,8 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		nightfallLevels: nightfallLevelsInfoType[]
 	) {
 		return (
-			<Card className='bg-dark text-white largeCard'>
-				<Card.Img
-					src={`https://www.bungie.net${nightfallInfo?.activityInfo.pgcrImage}`}
-					alt='Card image'
-					className="largeCardImg"
-				/>
-				<Card.ImgOverlay>
+			<LargeImageCard imageSrc={nightfallInfo?.activityInfo.pgcrImage}>
+				<div>
 					<div className='cardTitle largeCardTitle'>
 						{
 							nightfallInfo?.activityInfo.displayProperties
@@ -243,8 +239,8 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 					<div className='tabsTable'>
 						{this.renderTable(nightfallLevels)}
 					</div>
-				</Card.ImgOverlay>
-			</Card>
+				</div>
+			</LargeImageCard>
 		);
 	}
 

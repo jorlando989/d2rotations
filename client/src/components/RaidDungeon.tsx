@@ -5,13 +5,11 @@ import "./styles/dashboard.css";
 
 const RaidDungeon: FC = () => {
 	return (
-		<div className='info'>
-			<h2>Raid and Dungeon Rotators</h2>
-
-			<h4>Raid Rotator</h4>
+		<div className='info display-in-row'>
+			{/* <h4>Raid Rotator</h4> */}
 			<RaidDungeonCard type='raid' />
 
-			<h4>Dungeon Rotator</h4>
+			{/* <h4>Dungeon Rotator</h4> */}
 			<RaidDungeonCard type='dungeon' />
 		</div>
 	);
