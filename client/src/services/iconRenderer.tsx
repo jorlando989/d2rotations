@@ -150,3 +150,18 @@ export function getNightfallLevelIcon(name: string) {
 			return "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png";
 	}
 }
+
+export function getCalendarIcon(name: string) {
+	switch (name) {
+		case "Iron Banner":
+			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_fe57052d7cf971f7502daa75a2ca2437.png";
+		case "Trials of Osiris":
+			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_e35792b49b249ca5dcdb1e7657ca42b6.png"
+		case "Grandmaster Nightfalls":
+			return "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png";
+		case "Guardian Games":
+			return "/common/destiny2_content/icons/3ced9acee3e24b777f57c95c07efa0f2.png";
+		case "Root of Nightmares Raid":
+			return "/common/destiny2_content/icons/9694158ef08d416ab091062629b6b7ec.png";
+	}
+}

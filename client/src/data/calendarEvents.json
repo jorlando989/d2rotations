@@ -1,7 +1,6 @@
 {
 	"events": [
 		{ "title": "Root of Nightmares Raid", "time": ["Normal: Week 2 on March 10", "Master and Challenges: Week 4 on March 28"] },
-		{ "title": "GM Nightfalls", "time": ["Week 7 on April 11"] },
 		{
 			"title": "Iron Banner",
 			"time": [
@@ -22,10 +21,10 @@
 				"Week 12 on May 19"
 			]
 		},
+		{ "title": "Grandmaster Nightfalls", "time": ["Week 7 on April 11"] },
 		{ "title": "Guardian Games", "time": ["May 02, 2023 – May 23, 2023"] }
 	],
 	"seasonInfo": {
-		"name": "Defiance",
 		"dates": "February 28th, 2023 - May 22, 2023"
 	}
 }

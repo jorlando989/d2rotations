@@ -244,4 +244,23 @@ module.exports = app => {
 			dungeonRotation: rotationHashes
 		});
 	});
+
+	app.get("/api/season", async (req, res) => {
+		const response = await fetch(
+			"https://www.bungie.net/Platform/Settings/",
+			{
+				headers: {
+					"X-API-Key": keys.apiKey,
+				},
+			}
+		);
+		if (response.status === 400 || response.status === 401) {
+			return res
+				.status(401)
+				.send({ error: "error retrieving milestones" });
+		}
+		const resp = await response.json();
+		const settings = resp.Response;
+		res.send({"seasonHash": settings.destiny2CoreSettings.currentSeasonHash});
+	});
 };

@@ -13,6 +13,10 @@
     flex-direction: row;
 }
 
+.display-flex {
+    display: flex;
+}
+
 .display-in-row-wrap {
     display: flex;
     flex-direction: row;
@@ -111,6 +115,10 @@
 .weaponIcon {
     width: 50px;
     padding: 5px;
+}
+
+.seasonIcon {
+    width: 75px;
 }
 
 .subTitle {

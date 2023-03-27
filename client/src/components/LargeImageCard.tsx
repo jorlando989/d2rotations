@@ -8,16 +8,21 @@ type MyProps = {
 	imageSrc: string | undefined;
 	extraImg?: string;
 	children: JSX.Element;
-    withFooter?: boolean
+	withFooter?: boolean;
 };
 
 type MyState = {};
 
 class ImageCard extends React.Component<MyProps, MyState> {
+	renderTitle() {
+		if (this.props.title)
+			return <h3 className='cardTitle'>{this.props.title}</h3>;
+	}
+
 	render() {
 		if (this.props) {
-            let classes = "bg-dark text-white largeCard";
-            if (this.props.withFooter) classes += " with-footer";
+			let classes = "bg-dark text-white largeCard";
+			if (this.props.withFooter) classes += " with-footer";
 			return (
 				<Card className={classes}>
 					<Card.Img
@@ -26,9 +31,9 @@ class ImageCard extends React.Component<MyProps, MyState> {
 						className='largeCardImg'
 					/>
 					<Card.ImgOverlay>
-                        <h3 className="cardTitle">{this.props.title}</h3>
-                        {this.props.children}
-                    </Card.ImgOverlay>
+						{this.renderTitle()}
+						{this.props.children}
+					</Card.ImgOverlay>
 				</Card>
 			);
 		}

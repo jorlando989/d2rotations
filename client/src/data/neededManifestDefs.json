@@ -5,6 +5,7 @@
 		"ActivityModifier",
 		"ActivityMode",
 		"BreakerType",
-		"DamageType"
+		"DamageType",
+		"Season"
 	]
 }
