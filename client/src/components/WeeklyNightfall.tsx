@@ -257,13 +257,13 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 			}
 			return (
 				<div className='display-in-row-wrap'>
-					<div className='rounded-corners ml5 mr5 rotationTable2 width60 pb5'>
+					<div className='rounded-corners ml5 mr5 width60 pb5'>
 						{this.renderNightfallInfo(
 							nightfallLevels[0],
 							nightfallLevels
 						)}
 					</div>
-					<div className='rotationTable1'>
+					<div>
 						<h4>Nightfall Weapon Rotation</h4>
 						<hr />
 						<div>{this.renderWeaponRotation(weaponsInfo)}</div>
