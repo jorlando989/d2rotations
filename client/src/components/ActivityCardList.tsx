@@ -118,7 +118,7 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 
 	render() {
 		return (
-			<div className='display-in-row row-margin'>
+			<div className='display-in-row-wrap row-margin'>
 				{this.renderActivities(this.props.activityType)}
 			</div>
 		);
