@@ -22,7 +22,7 @@ class ActivityCard extends React.Component<MyProps, MyState> {
             >
                 <OverlayTrigger
                     key={activity.hash}
-                    placement='top'
+                    placement='bottom'
                     overlay={
                         <Tooltip id='activity description'>
                             <b>

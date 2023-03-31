@@ -7,6 +7,7 @@ import {
 import "./styles/component.css";
 
 import ActivityCard from "./ActivityCard";
+import ImageCard from "./ImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -87,8 +88,15 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 			if (huntsInfo === undefined)
 				return <div>error loading nightmare hunts</div>;
 			return huntsInfo.map(activity => {
-				if (activity === undefined) return <div>error loading hunt</div>;
-				return <ActivityCard activity={activity} key={activity.hash}/>;
+				if (activity === undefined)
+					return <div>error loading hunt</div>;
+				return (
+					<ImageCard
+						title={activity.displayProperties.name.split(":")[1]}
+						imageSrc={activity.pgcrImage}
+						key={activity.hash}
+					/>
+				);
 			});
 		} else if (
 			activityInfo === "cruciblePlaylist" &&
@@ -101,7 +109,8 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 			return cruciblePlaylistInfo.map(activity => {
 				if (activity === undefined)
 					return <div>error loading crucible playlist</div>;
-				return <ActivityCard activity={activity} key={activity.hash}/>;
+				console.log(cruciblePlaylistInfo);
+				return <ActivityCard activity={activity} key={activity.hash} />;
 			});
 		}
 		return <div>Activity type not found</div>;
@@ -109,7 +118,7 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 
 	render() {
 		return (
-			<div className='display-in-row'>
+			<div className='display-in-row row-margin'>
 				{this.renderActivities(this.props.activityType)}
 			</div>
 		);

@@ -32,6 +32,10 @@
     justify-content: space-evenly;
 }
 
+.row-margin > * {
+    margin-right: 5px;
+}
+
 .icon-m5 {
     margin-right: 5px;
     margin-bottom: 5px;

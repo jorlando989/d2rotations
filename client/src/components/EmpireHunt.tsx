@@ -3,6 +3,7 @@ import React from "react";
 import "./styles/component.css";
 
 import Card from "react-bootstrap/Card";
+import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -20,7 +21,7 @@ class EmpireHunt extends React.Component<MyProps, MyState> {
 	constructor(props: MyProps) {
 		super(props);
 		this.state = {
-			apiResponse: {currHunt: ""}
+			apiResponse: { currHunt: "" },
 		};
 	}
 
@@ -44,19 +45,17 @@ class EmpireHunt extends React.Component<MyProps, MyState> {
 			const activity = this.getInfo();
 			if (activity === undefined)
 				return <div>error loading empire hunt </div>;
+			const title = activity.displayProperties.name.split(":");
 			return (
-				<div key={activity.hash}>
-					<Card style={{ width: "25rem" }}>
-						<Card.Img
-							variant='top'
-							src={`https://www.bungie.net${activity.pgcrImage}`}
-						/>
-						<Card.Body>
-							<Card.Title>
-								{activity.displayProperties.name}
-							</Card.Title>
-						</Card.Body>
-					</Card>
+				<div key={activity.hash} style={{ width: "40%" }}>
+					<LargeImageCard
+						imageSrc={activity.pgcrImage}
+						title={title[0] + ": " + title[1]}
+					>
+						<div className='dark-background' style={{ width: "80%", margin: "auto" }}>
+							{activity.displayProperties.description}
+						</div>
+					</LargeImageCard>
 				</div>
 			);
 		}
