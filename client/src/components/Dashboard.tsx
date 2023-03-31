@@ -118,15 +118,9 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		);
 		return (
 			<div className='info'>
-				<div className='display-in-row row-right'>
-					<div className='borderBox'>
-						Weekly Reset in:
-						<CountdownTimer type='weekly' />
-					</div>
-					<div className='borderBox'>
-						Daily Reset in:
-						<CountdownTimer type='daily' />
-					</div>
+				<div className='display-in-row row-right row-margin'>
+					<CountdownTimer type='weekly' />
+					<CountdownTimer type='daily' />
 				</div>
 				<div className='display-in-row-wrap dashboard'>
 					<div>
