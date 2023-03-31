@@ -34,8 +34,8 @@ const Daily: FC = () => {
                 <h4>Altars of Sorrow Reward</h4>
                 <AltarsOfSorrow />
             </div>
-            <div>
-                <h4>Wellspring</h4>
+            <div className='mt10'>
+                {/* <h4>Wellspring</h4> */}
                 <Wellspring />
             </div>
             

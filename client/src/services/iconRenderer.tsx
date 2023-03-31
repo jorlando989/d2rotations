@@ -156,7 +156,7 @@ export function getCalendarIcon(name: string) {
 		case "Iron Banner":
 			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_fe57052d7cf971f7502daa75a2ca2437.png";
 		case "Trials of Osiris":
-			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_e35792b49b249ca5dcdb1e7657ca42b6.png"
+			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_e35792b49b249ca5dcdb1e7657ca42b6.png";
 		case "Grandmaster Nightfalls":
 			return "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png";
 		case "Guardian Games":
@@ -164,4 +164,23 @@ export function getCalendarIcon(name: string) {
 		case "Root of Nightmares Raid":
 			return "/common/destiny2_content/icons/9694158ef08d416ab091062629b6b7ec.png";
 	}
+}
+
+export function renderIconWithWatermark(iconImg: string, watermarkImg: string, size: number) {
+	return (
+		<div className='rewardContainer' style={{height: `${size}px`, width: `${size}px`}}>
+			<div
+				className='rewardItem p5'
+				style={{
+					backgroundImage: `url(https://www.bungie.net${iconImg})`,
+				}}
+			></div>
+			<div
+				className='rewardWatermark p5'
+				style={{
+					backgroundImage: `url(https://www.bungie.net${watermarkImg})`,
+				}}
+			></div>
+		</div>
+	);
 }

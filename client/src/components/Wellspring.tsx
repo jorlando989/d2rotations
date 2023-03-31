@@ -1,21 +1,25 @@
 import React from "react";
 import "./styles/component.css";
 import { getInventoryItemDef, getActivityDef } from "@d2api/manifest-web";
-import { DestinyActivityDefinition, DestinyInventoryItemDefinition } from "bungie-api-ts/destiny2";
+import {
+	DestinyActivityDefinition,
+	DestinyInventoryItemDefinition,
+} from "bungie-api-ts/destiny2";
 import { renderRewards } from "../services/descriptionRenderer";
+import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 type wellspringResponse = {
-	bossName: string,
-    activityHash: number,
-    weaponHash: number
+	bossName: string;
+	activityHash: number;
+	weaponHash: number;
 };
 
 type wellspringInfoType = {
-    activityInfo: DestinyActivityDefinition,
-    rewardInfo: DestinyInventoryItemDefinition,
-    activityRewards: DestinyInventoryItemDefinition[]
+	activityInfo: DestinyActivityDefinition;
+	rewardInfo: DestinyInventoryItemDefinition;
+	activityRewards: DestinyInventoryItemDefinition[];
 };
 
 type MyProps = {};
@@ -30,8 +34,8 @@ class Wellspring extends React.Component<MyProps, MyState> {
 		this.state = {
 			apiResponse: {
 				bossName: "",
-                activityHash: -1,
-                weaponHash: -1
+				activityHash: -1,
+				weaponHash: -1,
 			},
 		};
 	}
@@ -46,50 +50,64 @@ class Wellspring extends React.Component<MyProps, MyState> {
 		this.getWellspringRotation();
 	}
 
-    getInfo(wellspringInfo: wellspringResponse) {
+	getInfo(wellspringInfo: wellspringResponse) {
 		const activityInfo = getActivityDef(wellspringInfo.activityHash);
-        if (activityInfo === undefined) {
-            return;
-        }
+		if (activityInfo === undefined) {
+			return;
+		}
 		const rewardInfo = getInventoryItemDef(wellspringInfo.weaponHash);
-        if (rewardInfo === undefined) {
-            return;
-        }
+		if (rewardInfo === undefined) {
+			return;
+		}
 
-		const activityRewards = activityInfo.rewards.flatMap(({rewardItems}) => {
-			const rewards = rewardItems.filter(reward => {
-                return reward !== undefined;
-            }).map(reward => {
-				const rewardData = getInventoryItemDef(reward.itemHash)!;
-				return rewardData;
-			});
-			return rewards;
-		});
-        return {
-            activityInfo,
-            rewardInfo,
-            activityRewards
-        };
-    }
+		const activityRewards = activityInfo.rewards.flatMap(
+			({ rewardItems }) => {
+				const rewards = rewardItems
+					.filter(reward => {
+						return reward !== undefined;
+					})
+					.map(reward => {
+						const rewardData = getInventoryItemDef(
+							reward.itemHash
+						)!;
+						return rewardData;
+					});
+				return rewards;
+			}
+		);
+		return {
+			activityInfo,
+			rewardInfo,
+			activityRewards,
+		};
+	}
 
 	render() {
 		if (this.state !== null && this.state.apiResponse.bossName !== "") {
-            const wellspringInfo: wellspringInfoType | undefined = this.getInfo(this.state.apiResponse);
-            if (wellspringInfo === undefined) return (
-                <div>error loading Wellspring reward</div>
-            );
+			const wellspringInfo: wellspringInfoType | undefined = this.getInfo(
+				this.state.apiResponse
+			);
+			if (wellspringInfo === undefined)
+				return <div>error loading Wellspring reward</div>;
 			return (
-				<div className='bg-teal itemCard'>
-					<div>
-                        <h3>
-                            {wellspringInfo.activityInfo.displayProperties.name}
-                        </h3>
-                        <div>
-                            {wellspringInfo.activityInfo.displayProperties.description}
-                        </div>
-                    </div>
-                    <hr />
-                    {renderRewards(wellspringInfo.activityRewards)}
+				<div className='width60'>
+					<LargeImageCard
+						imageSrc={wellspringInfo.activityInfo.pgcrImage}
+						title={
+							wellspringInfo.activityInfo.displayProperties.name
+						}
+					>
+						<div className='dark-background width60 p5'>
+							<div className='p5'>
+								{
+									wellspringInfo.activityInfo
+										.displayProperties.description
+								}
+							</div>
+							<hr />
+							{renderRewards(wellspringInfo.activityRewards)}
+						</div>
+					</LargeImageCard>
 				</div>
 			);
 		}

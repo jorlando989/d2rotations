@@ -1,6 +1,9 @@
 import React from "react";
 import "./styles/component.css";
-import { getItemImage } from "../services/iconRenderer";
+import {
+	getItemImage,
+	renderIconWithWatermark,
+} from "../services/iconRenderer";
 import { getInventoryItemDef } from "@d2api/manifest-web";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
@@ -52,21 +55,18 @@ class AltarsOfSorrow extends React.Component<MyProps, MyState> {
 	render() {
 		if (this.state !== null) {
 			const rewardInfo = this.getRewardInfo();
+			if (!rewardInfo) return <div></div>;
 			return (
 				<div className='bg-teal itemCard'>
 					<div className='display-in-row center-vertical'>
-						<div className="rewardContainer">
-							<div
-								className='rewardItem p5'
-								style={{
-									backgroundImage: `url(https://www.bungie.net${rewardInfo?.displayProperties.icon})`,
-								}}
-							></div>
-							<div className='rewardWatermark p5'
-								style={{
-									backgroundImage: `url(https://www.bungie.net${rewardInfo?.iconWatermark})`,
-								}}></div>
+						<div className="mr5">
+							{renderIconWithWatermark(
+								rewardInfo.displayProperties.icon,
+								rewardInfo.iconWatermark,
+								100
+							)}
 						</div>
+
 						{rewardInfo?.displayProperties.name}
 					</div>
 				</div>
