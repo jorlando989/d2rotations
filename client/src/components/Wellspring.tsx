@@ -90,14 +90,14 @@ class Wellspring extends React.Component<MyProps, MyState> {
 			if (wellspringInfo === undefined)
 				return <div>error loading Wellspring reward</div>;
 			return (
-				<div className='width60'>
+				<div style={{width: '50%'}}>
 					<LargeImageCard
 						imageSrc={wellspringInfo.activityInfo.pgcrImage}
 						title={
 							wellspringInfo.activityInfo.displayProperties.name
 						}
 					>
-						<div className='dark-background width60 p5'>
+						<div className='dark-background p5 overflowAuto'>
 							<div className='p5'>
 								{
 									wellspringInfo.activityInfo
