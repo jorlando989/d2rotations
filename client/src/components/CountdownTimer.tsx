@@ -11,7 +11,9 @@ function renderWeeklyCountdown() {
 	//reset time is tuesday (2) at 1pm EST
 	const weekDaysToReset = [2, 1, 0, 6, 5, 4, 3];
 	let resetTime = null;
-	const daylight_savings = true;
+	let jan = new Date(now.getFullYear(), 0, 1).getTimezoneOffset();
+    let jul = new Date(now.getFullYear(), 6, 1).getTimezoneOffset();
+	const daylight_savings = Math.max(jan, jul) !== now.getTimezoneOffset();
 
 	if (daylight_savings) {
 		//DAYLIGHT SAVINGS
