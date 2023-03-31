@@ -172,7 +172,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 	) {
 		if (challenges) {
 			return (
-				<div>
+				<div className="dark-background">
 					<span className='subTitle'>
 						<u>Challenges:</u>
 					</span>
@@ -222,7 +222,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 	) {
 		if (masterModifiers) {
 			return (
-				<div>
+				<div className="dark-background">
 					<span className='subTitle'>
 						<u>Master Modifiers:</u>
 					</span>

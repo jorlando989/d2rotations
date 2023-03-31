@@ -33,7 +33,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 				currLostSectorHashes: { master: -1, legend: -1 },
 				currReward: "",
 				lostSectorRotation: [],
-                rewardRotation: []
+				rewardRotation: [],
 			},
 			nightfallResponse: {
 				nightfallActivities: undefined,
@@ -113,7 +113,9 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const raidInfo = this.getInfo(
 			this.state.raidResponse.featuredRaid.activityHash
 		);
-        const dungeonInfo = this.getInfo(this.state.dungeonResponse.featuredDungeon.activityHash);
+		const dungeonInfo = this.getInfo(
+			this.state.dungeonResponse.featuredDungeon.activityHash
+		);
 		return (
 			<div className='info'>
 				<div className='display-in-row row-right'>
@@ -129,31 +131,45 @@ class Dashboard extends React.Component<MyProps, MyState> {
 				<div className='display-in-row-wrap dashboard'>
 					<div>
 						Daily Lost Sector:
-						<ImageCard
-							title={
-								this.state.lostSectorResponse.currLostSectorName
-							}
-							imageSrc={lostSectorInfo.image}
-							extraImg={getArmorImage(this.state.lostSectorResponse.currReward)}
-						/>
+						<a href='/daily'>
+							<ImageCard
+								title={
+									this.state.lostSectorResponse
+										.currLostSectorName
+								}
+								imageSrc={lostSectorInfo.image}
+								extraImg={getArmorImage(
+									this.state.lostSectorResponse.currReward
+								)}
+							/>
+						</a>
 					</div>
 					<div>
 						Weekly Nightfall:
-						<ImageCard
-							title={nightfallInfo?.description}
-							imageSrc={nightfallInfo?.image}
-						/>
+						<a href='/nightfall'>
+							<ImageCard
+								title={nightfallInfo?.description}
+								imageSrc={nightfallInfo?.image}
+							/>
+						</a>
 					</div>
 					<div>
 						Raid Rotator:
-						<ImageCard
-							title={raidInfo.name}
-							imageSrc={raidInfo.image}
-						/>
+						<a href='/raiddungeon'>
+							<ImageCard
+								title={raidInfo.name}
+								imageSrc={raidInfo.image}
+							/>
+						</a>
 					</div>
 					<div>
 						Dungeon Rotator:
-						<ImageCard title={dungeonInfo.name} imageSrc={dungeonInfo.image} />
+						<a href='/raiddungeon'>
+							<ImageCard
+								title={dungeonInfo.name}
+								imageSrc={dungeonInfo.image}
+							/>
+						</a>
 					</div>
 				</div>
 			</div>
