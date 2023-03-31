@@ -24,7 +24,7 @@
 }
 
 .largeCard {
-    height: min-content;
+    height: 100% !important;
 }
 
 .rotationBox {

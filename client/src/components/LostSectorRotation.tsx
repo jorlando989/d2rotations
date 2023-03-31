@@ -166,7 +166,7 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 					imageSrc={lostSectorsInfo.legendInfo?.pgcrImage}
 					title={this.state.apiResponse.currLostSectorName}
 				>
-					<div className="display-in-row-wrap row-space overflowAuto80">
+					<div className='display-in-row-wrap row-space overflowAuto80'>
 						<LostSectorCard
 							type='Legend'
 							lostSectorInfo={lostSectorsInfo.legendInfo}

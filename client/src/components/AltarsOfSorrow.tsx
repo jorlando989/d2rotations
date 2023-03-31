@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/component.css";
 import { getItemImage } from "../services/iconRenderer";
+import { getInventoryItemDef } from "@d2api/manifest-web";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -41,18 +42,32 @@ class AltarsOfSorrow extends React.Component<MyProps, MyState> {
 		this.getAltarOfSorrowRewards();
 	}
 
+	getRewardInfo() {
+		const rewardInfo = getInventoryItemDef(
+			this.state.apiResponse.currRewardInfo.hash
+		);
+		return rewardInfo;
+	}
+
 	render() {
 		if (this.state !== null) {
-			const itemImageSrc = getItemImage(this.state.apiResponse.currRewardInfo.hash);
+			const rewardInfo = this.getRewardInfo();
 			return (
 				<div className='bg-teal itemCard'>
 					<div className='display-in-row center-vertical'>
-						<img
-							src={`https://www.bungie.net${itemImageSrc}`}
-							className='p5'
-							alt='altars of sorrow reward'
-						/>
-						{this.state.apiResponse.currReward}
+						<div className="rewardContainer">
+							<div
+								className='rewardItem p5'
+								style={{
+									backgroundImage: `url(https://www.bungie.net${rewardInfo?.displayProperties.icon})`,
+								}}
+							></div>
+							<div className='rewardWatermark p5'
+								style={{
+									backgroundImage: `url(https://www.bungie.net${rewardInfo?.iconWatermark})`,
+								}}></div>
+						</div>
+						{rewardInfo?.displayProperties.name}
 					</div>
 				</div>
 			);
