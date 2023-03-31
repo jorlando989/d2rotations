@@ -3,15 +3,14 @@ import React from "react";
 import {
 	dungeonResponse,
 	raidResponse,
-	rotatorType,
+	rotatorType
 } from "../typeDefinitions/raidDungeonTypes";
 import "./styles/component.css";
 
 import {
 	DestinyActivityDefinition,
-	DestinyActivityModifierDefinition,
+	DestinyActivityModifierDefinition
 } from "bungie-api-ts/destiny2";
-import Card from "react-bootstrap/Card";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { renderModifiers } from "../services/descriptionRenderer";

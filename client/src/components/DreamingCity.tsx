@@ -1,4 +1,5 @@
 import React from "react";
+import LargeImageCard from "./LargeImageCard";
 import "./styles/component.css";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
@@ -53,30 +54,42 @@ class DreamingCity extends React.Component<MyProps, MyState> {
 			const ascendantChallenge =
 				this.state.apiResponse.ascendantChallenge;
 			return (
-				<div className='display-in-row'>
-					<div className='bg-teal itemCard min-width rounded-corners whiteText mr5'>
-						<h4>{curseWeek.strength} Curse</h4>
-						<div>
-							<i>
-								Petra can be found in {curseWeek.petraLocation}
-							</i>
+				<div style={{ maxWidth: "500px" }}>
+					<LargeImageCard
+						title='Dreaming City'
+						imageSrc='/img/destiny_content/pgcr/free_roam_dreaming_city.jpg'
+					>
+						<div className="overflowAuto">
+							<div className='dark-background mb5'>
+								<h4>{curseWeek.strength} Curse</h4>
+								<div>
+									<i>
+										Petra can be found in{" "}
+										{curseWeek.petraLocation}
+									</i>
+								</div>
+							</div>
+
+							<div className='dark-background'>
+								<h4>
+									Ascendant Challenge:{" "}
+									{
+										ascendantChallenge
+											.currAscendantChallengeInfo
+											.challengeName
+									}
+								</h4>
+								<div>
+									<i>
+										Found in{" "}
+										{
+											ascendantChallenge.currAscendantChallenge
+										}
+									</i>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div className='bg-teal itemCard min-width rounded-corners whiteText'>
-						<h4>
-							Ascendant Challenge:{" "}
-							{
-								ascendantChallenge.currAscendantChallengeInfo
-									.challengeName
-							}
-						</h4>
-						<div>
-							<i>
-								Found in{" "}
-								{ascendantChallenge.currAscendantChallenge}
-							</i>
-						</div>
-					</div>
+					</LargeImageCard>
 				</div>
 			);
 		}

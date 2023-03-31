@@ -2,7 +2,6 @@ import { getActivityDef } from "@d2api/manifest-web";
 import React from "react";
 import "./styles/component.css";
 
-import Card from "react-bootstrap/Card";
 import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
@@ -47,7 +46,7 @@ class EmpireHunt extends React.Component<MyProps, MyState> {
 				return <div>error loading empire hunt </div>;
 			const title = activity.displayProperties.name.split(":");
 			return (
-				<div key={activity.hash} style={{ width: "40%" }}>
+				<div key={activity.hash} style={{ maxWidth: "500px" }}>
 					<LargeImageCard
 						imageSrc={activity.pgcrImage}
 						title={title[0] + ": " + title[1]}

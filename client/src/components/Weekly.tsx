@@ -22,12 +22,8 @@ const Weekly: FC = () => {
 				<h4>Nightmare Hunts</h4>
 				<ActivityCardList activityType='nightmareHunts' />
 			</div>
-			<div className="mt10">
+			<div className="mt10 display-in-row-wrap row-margin">
 				<EmpireHunt />
-			</div>
-
-			<div>
-				<h4>Dreaming City - Curse Week and Ascendant Challenge</h4>
 				<DreamingCity />
 			</div>
 		</div>
