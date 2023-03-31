@@ -29,6 +29,10 @@
     justify-content: space-between;
 }
 
+.row-space {
+    justify-content: space-evenly;
+}
+
 .icon-m5 {
     margin-right: 5px;
     margin-bottom: 5px;
@@ -38,9 +42,20 @@
     background-color: #297373;
 }
 
+.overflowAuto {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.overflowAuto80 {
+    overflow: auto;
+    max-height: 80%;
+}
+
 .min-width {
     width: min-content;
 }
+
 .itemCard {
     padding: 7px;
     font-size: 20px;

@@ -10,6 +10,7 @@ import "./styles/lostSector.css";
 
 import LostSectorCard from "./LostSectorCard";
 import { getArmorImage } from "../services/iconRenderer";
+import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -68,7 +69,7 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 				return (
 					<div className={rewardClasses}>
 						<img
-							className="rewardIcon armorIcon"
+							className='rewardIcon armorIcon'
 							src={icon}
 							alt='reward icon'
 						/>
@@ -160,23 +161,38 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 		const lostSectorsInfo = this.getRewards();
 		const currReward = this.state.apiResponse.currReward;
 		return (
-			<div className='display-in-row'>
-				<LostSectorCard
-					type='Legend'
-					lostSectorInfo={lostSectorsInfo.legendInfo}
-					lostSectorModifiers={lostSectorsInfo.legendModifiers}
-					lostSectorRewards={lostSectorsInfo.legendRewards}
-					lostSectorName={this.state.apiResponse.currLostSectorName}
-					currReward={currReward}
-				/>
-				<LostSectorCard
-					type='Master'
-					lostSectorInfo={lostSectorsInfo.masterInfo}
-					lostSectorModifiers={lostSectorsInfo.masterModifiers}
-					lostSectorRewards={lostSectorsInfo.masterRewards}
-					lostSectorName={this.state.apiResponse.currLostSectorName}
-					currReward={currReward}
-				/>
+			<div className='rounded-corners ml5 mr5 width60 pb5'>
+				<LargeImageCard
+					imageSrc={lostSectorsInfo.legendInfo?.pgcrImage}
+					title={this.state.apiResponse.currLostSectorName}
+				>
+					<div className="display-in-row-wrap row-space overflowAuto80">
+						<LostSectorCard
+							type='Legend'
+							lostSectorInfo={lostSectorsInfo.legendInfo}
+							lostSectorModifiers={
+								lostSectorsInfo.legendModifiers
+							}
+							lostSectorRewards={lostSectorsInfo.legendRewards}
+							lostSectorName={
+								this.state.apiResponse.currLostSectorName
+							}
+							currReward={currReward}
+						/>
+						<LostSectorCard
+							type='Master'
+							lostSectorInfo={lostSectorsInfo.masterInfo}
+							lostSectorModifiers={
+								lostSectorsInfo.masterModifiers
+							}
+							lostSectorRewards={lostSectorsInfo.masterRewards}
+							lostSectorName={
+								this.state.apiResponse.currLostSectorName
+							}
+							currReward={currReward}
+						/>
+					</div>
+				</LargeImageCard>
 			</div>
 		);
 	}
@@ -185,10 +201,8 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 		if (this.state !== null) {
 			return (
 				<div className='display-in-row'>
-					<div className='rotationTable2'>
-						{this.renderLostSectors()}
-					</div>
-					<div className='rotationTable1'>
+					{this.renderLostSectors()}
+					<div className=''>
 						<h4>Lost Sector Rotation</h4>
 						<hr />
 						<div className='ml5'>

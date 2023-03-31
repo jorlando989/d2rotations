@@ -17,11 +17,8 @@ import "./styles/component.css";
 import "./styles/imagecard.css";
 import "./styles/nightfall.css";
 
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Nav from "react-bootstrap/Nav";
-import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
@@ -113,17 +110,13 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		return nightfallLevels.map(level => {
 			if (level === undefined) return undefined;
 			return (
-				<Nav.Item key={level.activityInfo.hash} className='pill'>
-					<Nav.Link
-						eventKey={level.activityInfo.displayProperties.name}
-						className='pillLink'
-					>
-						{level.activityInfo.displayProperties.name.replace(
-							"Nightfall: ",
-							""
-						)}
-					</Nav.Link>
-				</Nav.Item>
+				<Tab
+					eventKey={level.activityInfo.displayProperties.name}
+					title={level.activityInfo.displayProperties.name.replace(
+						"Nightfall: ",
+						""
+					)}
+				></Tab>
 			);
 		});
 	}
@@ -199,27 +192,14 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 
 	renderTable(nightfallLevels: nightfallLevelsInfoType[]) {
 		return (
-			<Tab.Container
-				id='left-tabs-example'
+			<Tabs
 				defaultActiveKey='Nightfall: Hero'
+				id='nightfall-tabs'
+				className='mb-3'
 			>
-				<Row>
-					<Col sm={3} className='rounded-corners'>
-						<Nav variant='pills' className='flex-column'>
-							{this.renderNightfallLevelsCategories(
-								nightfallLevels
-							)}
-						</Nav>
-					</Col>
-					<Col sm={9} className='rounded-corners'>
-						<Tab.Content>
-							{this.renderNightfallLevelsforCategory(
-								nightfallLevels
-							)}
-						</Tab.Content>
-					</Col>
-				</Row>
-			</Tab.Container>
+				{this.renderNightfallLevelsCategories(nightfallLevels)}
+				{this.renderNightfallLevelsforCategory(nightfallLevels)}
+			</Tabs>
 		);
 	}
 
@@ -229,7 +209,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 	) {
 		return (
 			<LargeImageCard imageSrc={nightfallInfo?.activityInfo.pgcrImage}>
-				<div>
+				<div className="overflowAuto">
 					<div className='cardTitle largeCardTitle'>
 						{
 							nightfallInfo?.activityInfo.displayProperties

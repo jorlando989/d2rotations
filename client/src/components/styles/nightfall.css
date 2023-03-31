@@ -1,17 +1,13 @@
-.pill {
-    color: white;
-    background-color: teal;
-}
-
-.pillLink {
+.nav-item > .nav-link {
     color: white !important;
+    background-color: teal !important;
 }
 
-.pillLink:hover {
+.nav-item > .nav-link:hover {
     background-color: grey !important;
 }
 
-.pillLink.active {
+.nav-item > .nav-link.active {
     background-color: #ff8552 !important;
     color: black !important;
 }

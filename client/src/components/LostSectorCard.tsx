@@ -54,34 +54,26 @@ class LostSectorCard extends React.Component<MyProps, MyState> {
 	render() {
 		if (this.props !== null) {
 			return (
-				<div className='display-in-row'>
-					<Card style={{ width: "25rem" }}>
-						<Card.Img
-							variant='top'
-							src={`https://www.bungie.net${this.props.lostSectorInfo?.pgcrImage}`}
-						/>
-						<Card.Body>
-							<Card.Title>
-								{this.props.lostSectorName} - {this.props.type}
-							</Card.Title>
-							<div className='display-in-row-wrap'>
-								{renderModifiers(
-									this.props
-										.lostSectorModifiers as DestinyActivityModifierDefinition[]
-								)}
-							</div>
-							<hr />
-							<div>
-								<b>Rewards:</b>
-								{this.renderRewards(
-									this.props
-										.lostSectorRewards as DestinyInventoryItemDefinition[],
-									this.props.currReward
-								)}
-							</div>
-						</Card.Body>
-					</Card>
-				</div>
+				<Card style={{ width: "25rem" }} className="lostSectorCard">
+					<Card.Body>
+						<Card.Title>{this.props.type}</Card.Title>
+						<div className='display-in-row-wrap'>
+							{renderModifiers(
+								this.props
+									.lostSectorModifiers as DestinyActivityModifierDefinition[]
+							)}
+						</div>
+						<hr />
+						<div>
+							<b>Rewards:</b>
+							{this.renderRewards(
+								this.props
+									.lostSectorRewards as DestinyInventoryItemDefinition[],
+								this.props.currReward
+							)}
+						</div>
+					</Card.Body>
+				</Card>
 			);
 		}
 	}

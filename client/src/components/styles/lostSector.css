@@ -1,5 +1,12 @@
 .card-body { 
-    background-color: grey;
+    background-color: #297373;
+    border-radius: 3px;
+}
+
+.lostSectorCard {
+    opacity: 90%;
+    background-color: #297373 !important;
+    margin-bottom: 5px;
 }
 
 .smallIcon {
