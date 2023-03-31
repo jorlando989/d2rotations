@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Countdown from "react-countdown";
 import "./styles/countdown.css";
+import { dstOffsetAtDate } from "../services/daylightSavingsChecker";
 
 type CountdownProps = {
 	type: string;
@@ -11,9 +12,7 @@ function renderWeeklyCountdown() {
 	//reset time is tuesday (2) at 1pm EST
 	const weekDaysToReset = [2, 1, 0, 6, 5, 4, 3];
 	let resetTime = null;
-	let jan = new Date(now.getFullYear(), 0, 1).getTimezoneOffset();
-    let jul = new Date(now.getFullYear(), 6, 1).getTimezoneOffset();
-	const daylight_savings = Math.max(jan, jul) !== now.getTimezoneOffset();
+	const daylight_savings = dstOffsetAtDate(now) !== 0;
 
 	if (daylight_savings) {
 		//DAYLIGHT SAVINGS
@@ -62,9 +61,7 @@ function renderDailyCountdown() {
 	const now = new Date();
 	//reset time is either next day at 1pm or same day at 1 pm
 	let resetTime = null;
-	let jan = new Date(now.getFullYear(), 0, 1).getTimezoneOffset();
-    let jul = new Date(now.getFullYear(), 6, 1).getTimezoneOffset();
-	const daylight_savings = Math.max(jan, jul) !== now.getTimezoneOffset();
+	const daylight_savings = dstOffsetAtDate(now) !== 0;
 
 	if (daylight_savings) {
 		//DAYLIGHT SAVINGS
