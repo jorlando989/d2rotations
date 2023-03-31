@@ -272,7 +272,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 	renderRotator(rotator: rotatorType, type: string) {
 		if (rotator === undefined) return <div>error loading rotator</div>;
 		return (
-			<div className='ml5 mr5'>
+			<div className='ml5 mr5 raidDungeonCard'>
 				<LargeImageCard
 					title={
 						rotator.rotatorInfo.displayProperties.name.split(":")[0]
@@ -280,7 +280,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 					imageSrc={rotator.rotatorInfo.pgcrImage}
 					withFooter={true}
 				>
-					<div className=''>
+					<div className='overflowAuto'>
 						{this.renderChallenges(rotator.challenges)}
 						{this.renderMaster(rotator.masterModifiers)}
 					</div>

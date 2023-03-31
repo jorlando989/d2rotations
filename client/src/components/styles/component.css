@@ -19,8 +19,7 @@
 
 .display-in-row-wrap {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
 }
 
 .display-in-row-title {
