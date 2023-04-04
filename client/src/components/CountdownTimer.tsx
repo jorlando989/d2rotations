@@ -22,7 +22,7 @@ function renderWeeklyCountdown() {
 				now.getFullYear(),
 				now.getMonth(),
 				now.getDate() + 7,
-				1
+				13
 			);
 		} else {
 			//reset is x days away at 1pm EST
