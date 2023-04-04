@@ -103,8 +103,6 @@ module.exports = app => {
 	// 	const milestones = resp.Response;
 	// 	const vanguardOpsMilestone = milestones['1437935813'];
 
-	// 	console.log(milestones);
-
 	// 	res.send({
 	// 		milestoneHash: vanguardOpsMilestone.milestoneHash,
 	// 		modifierHashes: vanguardOpsMilestone.activities[0].modifierHashes

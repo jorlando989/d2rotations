@@ -109,7 +109,6 @@ class ActivityCardList extends React.Component<MyProps, MyState> {
 			return cruciblePlaylistInfo.map(activity => {
 				if (activity === undefined)
 					return <div>error loading crucible playlist</div>;
-				// console.log(cruciblePlaylistInfo);
 				return <ActivityCard activity={activity} key={activity.hash} />;
 			});
 		}

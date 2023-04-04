@@ -60,7 +60,7 @@ class DreamingCity extends React.Component<MyProps, MyState> {
 						imageSrc='/img/destiny_content/pgcr/free_roam_dreaming_city.jpg'
 					>
 						<div className="overflowAuto">
-							<div className='dark-background mb5'>
+							<div className='dark-background mb5 p5'>
 								<h4>{curseWeek.strength} Curse</h4>
 								<div>
 									<i>
@@ -70,7 +70,7 @@ class DreamingCity extends React.Component<MyProps, MyState> {
 								</div>
 							</div>
 
-							<div className='dark-background'>
+							<div className='dark-background p5'>
 								<h4>
 									Ascendant Challenge:{" "}
 									{
