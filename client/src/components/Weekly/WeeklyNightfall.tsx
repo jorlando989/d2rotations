@@ -7,19 +7,19 @@ import React from "react";
 import {
 	renderModifiers,
 	renderRewards,
-} from "../services/descriptionRenderer";
+} from "../../services/descriptionRenderer";
 import {
 	nightfallLevelsInfoType,
 	weaponInfoType,
 	weeklyNightfallResponse,
-} from "../typeDefinitions/nightfall";
-import "./styles/component.css";
-import "./styles/imagecard.css";
-import "./styles/nightfall.css";
+} from "../../typeDefinitions/nightfall";
+import "../styles/component.css";
+import "../styles/imagecard.css";
+import "../styles/nightfall.css";
 
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import LargeImageCard from "./LargeImageCard";
+import LargeImageCard from "../Card/LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 

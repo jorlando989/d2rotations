@@ -1,8 +1,8 @@
 import { FC } from "react";
-import "./styles/component.css";
+import "../styles/component.css";
 
-import ActivityCardList from "./ActivityCardList";
-import Countdown from "./CountdownTimer";
+import ActivityCardList from "../Card/ActivityCardList";
+import Countdown from "../CountdownTimer";
 import DreamingCity from "./DreamingCity";
 import EmpireHunt from "./EmpireHunt";
 

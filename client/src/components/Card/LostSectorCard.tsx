@@ -1,7 +1,7 @@
 import React from "react";
-import { renderModifiers } from "../services/descriptionRenderer";
-import "./styles/component.css";
-import "./styles/lostSector.css";
+import { renderModifiers } from "../../services/descriptionRenderer";
+import "../styles/component.css";
+import "../styles/lostSector.css";
 
 import {
 	DestinyActivityDefinition,

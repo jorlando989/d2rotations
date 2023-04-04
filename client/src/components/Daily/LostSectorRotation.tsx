@@ -4,13 +4,13 @@ import {
 	getInventoryItemDef,
 } from "@d2api/manifest-web";
 import React from "react";
-import { lostSectorType } from "../typeDefinitions/lostSectors";
-import "./styles/component.css";
-import "./styles/lostSector.css";
+import { lostSectorType } from "../../typeDefinitions/lostSectors";
+import "../styles/component.css";
+import "../styles/lostSector.css";
 
-import LostSectorCard from "./LostSectorCard";
-import { getArmorImage } from "../services/iconRenderer";
-import LargeImageCard from "./LargeImageCard";
+import LostSectorCard from "../Card/LostSectorCard";
+import { getArmorImage } from "../../services/iconRenderer";
+import LargeImageCard from "../Card/LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 

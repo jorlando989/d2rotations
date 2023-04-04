@@ -4,8 +4,8 @@ import {
 	dungeonResponse,
 	raidResponse,
 	rotatorType
-} from "../typeDefinitions/raidDungeonTypes";
-import "./styles/component.css";
+} from "../../typeDefinitions/raidDungeonTypes";
+import "../styles/component.css";
 
 import {
 	DestinyActivityDefinition,
@@ -13,7 +13,7 @@ import {
 } from "bungie-api-ts/destiny2";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import { renderModifiers } from "../services/descriptionRenderer";
+import { renderModifiers } from "../../services/descriptionRenderer";
 import LargeImageCard from "./LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;

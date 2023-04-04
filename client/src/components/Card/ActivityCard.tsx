@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/component.css";
+import "../styles/component.css";
 
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";

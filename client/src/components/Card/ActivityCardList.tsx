@@ -3,8 +3,8 @@ import React from "react";
 import {
 	cruciblePlaylistResponse,
 	nightmareHuntResponse,
-} from "../typeDefinitions/activityTypes";
-import "./styles/component.css";
+} from "../../typeDefinitions/activityTypes";
+import "../styles/component.css";
 
 import ActivityCard from "./ActivityCard";
 import ImageCard from "./ImageCard";

@@ -1,6 +1,6 @@
 import React from "react";
-import LargeImageCard from "./LargeImageCard";
-import "./styles/component.css";
+import LargeImageCard from "../Card/LargeImageCard";
+import "../styles/component.css";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 

@@ -1,10 +1,10 @@
 import { FC } from "react";
-import "./styles/component.css";
+import "../styles/component.css";
 
-import AltarsOfSorrow from "./AltarsOfSorrow";
-import Countdown from "./CountdownTimer";
+import AltarsOfSorrow from "../Weekly/AltarsOfSorrow";
+import Countdown from "../CountdownTimer";
 import LostSectorRotation from "./LostSectorRotation";
-import Wellspring from "./Wellspring";
+import Wellspring from "../Weekly/Wellspring";
 // import StrikeModifiers from './StrikeModifiers';
 
 const Daily: FC = () => {

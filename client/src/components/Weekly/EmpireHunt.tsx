@@ -1,8 +1,8 @@
 import { getActivityDef } from "@d2api/manifest-web";
 import React from "react";
-import "./styles/component.css";
+import "../styles/component.css";
 
-import LargeImageCard from "./LargeImageCard";
+import LargeImageCard from "../Card/LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 

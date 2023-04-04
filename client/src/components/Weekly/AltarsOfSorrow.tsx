@@ -2,8 +2,8 @@ import { getInventoryItemDef } from "@d2api/manifest-web";
 import React from "react";
 import {
 	renderIconWithWatermark
-} from "../services/iconRenderer";
-import "./styles/component.css";
+} from "../../services/iconRenderer";
+import "../styles/component.css";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 

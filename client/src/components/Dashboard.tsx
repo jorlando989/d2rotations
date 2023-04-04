@@ -8,7 +8,7 @@ import {
 	raidResponse,
 } from "../typeDefinitions/raidDungeonTypes";
 import CountdownTimer from "./CountdownTimer";
-import ImageCard from "./ImageCard";
+import ImageCard from "./Card/ImageCard";
 
 import "./styles/component.css";
 import "./styles/dashboard.css";
@@ -151,7 +151,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						Raid Rotator:
 						<a href='/raiddungeon'>
 							<ImageCard
-								title={raidInfo.name}
+								title={raidInfo.name?.split(':')[0]}
 								imageSrc={raidInfo.image}
 							/>
 						</a>
@@ -160,7 +160,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						Dungeon Rotator:
 						<a href='/raiddungeon'>
 							<ImageCard
-								title={dungeonInfo.name}
+								title={dungeonInfo.name?.split(':')[0]}
 								imageSrc={dungeonInfo.image}
 							/>
 						</a>

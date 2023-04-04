@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Countdown from './CountdownTimer';
-import './styles/component.css';
-import './styles/dashboard.css';
+import Countdown from '../CountdownTimer';
+import '../styles/component.css';
+import '../styles/dashboard.css';
 import WeeklyNightfall from './WeeklyNightfall';
 
 const Nightfall: FC = () => {

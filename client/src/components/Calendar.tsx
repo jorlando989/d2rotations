@@ -3,7 +3,7 @@ import { DestinySeasonDefinition } from "bungie-api-ts/destiny2";
 import React from "react";
 import { getCalendarIcon } from "../services/iconRenderer";
 import { eventType } from "../typeDefinitions/calendarTypes";
-import CalendarCard from "./CalendarCard";
+import CalendarCard from "./Card/CalendarCard";
 import "./styles/component.css";
 
 type MyProps = {};

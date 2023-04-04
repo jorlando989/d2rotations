@@ -1,6 +1,6 @@
 import { FC } from "react";
-import RaidDungeonCard from "./RaidDungeonCard";
-import "./styles/component.css";
+import RaidDungeonCard from "../Card/RaidDungeonCard";
+import "../styles/component.css";
 
 const RaidDungeon: FC = () => {
 	return (

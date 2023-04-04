@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/component.css";
+import "../styles/component.css";
 import { getActivityModifierDef, getMilestoneDef } from "@d2api/manifest-web";
 import { DestinyMilestoneDefinition, DestinyActivityModifierDefinition } from "bungie-api-ts/destiny2";
 

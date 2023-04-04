@@ -1,8 +1,8 @@
 import React from "react";
-import "./styles/component.css";
-import "./styles/imagecard.css";
+import "../styles/component.css";
+import "../styles/imagecard.css";
 import Card from "react-bootstrap/Card";
-import { eventType } from "../typeDefinitions/calendarTypes";
+import { eventType } from "../../typeDefinitions/calendarTypes";
 
 type MyProps = {
 	title: string | undefined;

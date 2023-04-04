@@ -1,12 +1,12 @@
 import React from "react";
-import "./styles/component.css";
+import "../styles/component.css";
 import { getInventoryItemDef, getActivityDef } from "@d2api/manifest-web";
 import {
 	DestinyActivityDefinition,
 	DestinyInventoryItemDefinition,
 } from "bungie-api-ts/destiny2";
-import { renderRewards } from "../services/descriptionRenderer";
-import LargeImageCard from "./LargeImageCard";
+import { renderRewards } from "../../services/descriptionRenderer";
+import LargeImageCard from "../Card/LargeImageCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 

@@ -2,14 +2,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import Calendar from "./components/Calendar";
-import Daily from "./components/Daily";
+import Daily from "./components/Daily/Daily";
 import Dashboard from "./components/Dashboard";
 import { BlockingDefsProvider } from "./components/DefsProvider";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Nightfall from "./components/Nightfall";
-import RaidDungeon from "./components/RaidDungeon";
-import Weekly from "./components/Weekly";
+import Nightfall from "./components/Weekly/Nightfall";
+import RaidDungeon from "./components/Weekly/RaidDungeon";
+import Weekly from "./components/Weekly/Weekly";
 
 function App() {
 	function renderRoutes() {
