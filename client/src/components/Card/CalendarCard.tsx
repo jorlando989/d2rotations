@@ -35,13 +35,7 @@ class CalendarCard extends React.Component<MyProps, MyState> {
 	checkIfActive(time: String) {
 		const now = new Date();
 
-		if (time.includes(",")) {
-			//date range
-			const splitString = time.split("–");
-			const startDate = splitString[0];
-			const endDate = splitString[1];
-			// console.log(startDate, endDate);
-		} else if (this.props.title === "Iron Banner") {
+		if (this.props.title === "Iron Banner") {
 			const splitString = time.split(" ");
 			const month = splitString[splitString.length - 2];
 			const day = Number(splitString[splitString.length - 1]);
@@ -60,6 +54,7 @@ class CalendarCard extends React.Component<MyProps, MyState> {
 				}
 				return true;
 			}
+			return false;
 		} else if (this.props.title === "Trials of Osiris") {
 			const splitString = time.split(" ");
 			const month = splitString[splitString.length - 2];
@@ -70,14 +65,43 @@ class CalendarCard extends React.Component<MyProps, MyState> {
 				now.getDate() >= day &&
 				now.getDate() <= day + 5
 			) {
-				if (now.getDate() == day + 4 && isAfterDailyReset(now)) {
-					//reset has already happened on next tuesday
+				//reset has already happened on next tuesday
+				if (now.getDate() == day + 4 && isAfterDailyReset(now))
 					return false;
-				}
 				return true;
 			}
+			return false;
+		} else if (time.includes(",")) {
+			//date range
+			const splitString = time.split("–");
+
+			const daylight_savings = dstOffsetAtDate(now) !== 0;
+			let startDate, endDate;
+			if (daylight_savings) {
+				startDate = new Date(splitString[0] + " 13:00:00");
+				endDate = new Date(splitString[1] + " 13:00:00");
+			} else {
+				startDate = new Date(splitString[0] + " 12:00:00");
+				endDate = new Date(splitString[1] + " 12:00:00");
+			}
+
+			return now >= startDate && now < endDate;
+		} else {
+			const splitString = time.split(" ");
+			const month = splitString[splitString.length - 2];
+			const day = Number(splitString[splitString.length - 1]);
+
+			const eventDate = new Date(
+				now.getFullYear(),
+				monthNames.indexOf(month),
+				day
+			);
+
+			if (now.getDate() === eventDate.getDate() && !isAfterDailyReset(now)) {
+				return false;
+			}
+			return now >= eventDate;
 		}
-		return false;
 	}
 
 	renderTimes() {
