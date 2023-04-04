@@ -48,3 +48,8 @@ export function dstOffsetAtDate(dateInput: Date) {
         - dateInput.getMilliseconds()
     );
 }
+
+export function isAfterDailyReset(now: Date) {
+    if (dstOffsetAtDate(now) !== 0) return now.getHours() >= 13;
+	else return now.getHours() >= 12;
+}

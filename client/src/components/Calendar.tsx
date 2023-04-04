@@ -38,6 +38,18 @@ class Calendar extends React.Component<MyProps, MyState> {
 		return seasonInfo;
 	}
 
+	renderEvents() {
+		return calendarEvents.events.map((eventInfo: eventType) => {
+			return (
+				<CalendarCard
+					title={eventInfo.title}
+					iconImg={getCalendarIcon(eventInfo.title)}
+					eventInfo={eventInfo}
+				/>
+			);
+		})
+	}
+
 	render() {
 		if (calendarEvents) {
 			let seasonInfo: DestinySeasonDefinition | null | undefined = null;
@@ -63,15 +75,7 @@ class Calendar extends React.Component<MyProps, MyState> {
 					</div>
 					<hr />
 					<div className='display-in-row-wrap calendar'>
-						{calendarEvents.events.map((eventInfo: eventType) => {
-							return (
-								<CalendarCard
-									title={eventInfo.title}
-									iconImg={getCalendarIcon(eventInfo.title)}
-									eventInfo={eventInfo}
-								/>
-							);
-						})}
+						{this.renderEvents()}
 					</div>
 				</div>
 			);

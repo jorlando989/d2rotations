@@ -83,6 +83,10 @@
     padding-right: 5px;
 }
 
+.pl5 { 
+    padding-left: 5px;
+}
+
 .mb5 {
     margin-bottom: 5px;
 }
@@ -140,6 +144,11 @@
 
 .highlight {
     background-color: #297373;
+}
+
+.highlight2 {
+    background-color: #ff6c2d;
+    color: black;
 }
 
 .rotationTable1 {
