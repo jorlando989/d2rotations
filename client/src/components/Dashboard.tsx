@@ -12,6 +12,7 @@ import ImageCard from "./Card/ImageCard";
 
 import "./styles/component.css";
 import "./styles/dashboard.css";
+import SeasonCard from "./Card/SeasonCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -118,6 +119,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		);
 		return (
 			<div className='info'>
+				<SeasonCard />
 				<div className='display-in-row row-right row-margin'>
 					<CountdownTimer type='weekly' />
 					<CountdownTimer type='daily' />

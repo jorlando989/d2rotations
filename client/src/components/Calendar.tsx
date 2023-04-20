@@ -4,6 +4,7 @@ import React from "react";
 import { getCalendarIcon } from "../services/iconRenderer";
 import { eventType } from "../typeDefinitions/calendarTypes";
 import CalendarCard from "./Card/CalendarCard";
+import SeasonCard from "./Card/SeasonCard";
 import "./styles/component.css";
 
 type MyProps = {};
@@ -47,7 +48,7 @@ class Calendar extends React.Component<MyProps, MyState> {
 					eventInfo={eventInfo}
 				/>
 			);
-		})
+		});
 	}
 
 	render() {
@@ -58,21 +59,7 @@ class Calendar extends React.Component<MyProps, MyState> {
 			}
 			return (
 				<div className='info'>
-					<div className='display-in-row-title mr5'>
-						<div className='display-in-row'>
-							<img
-								src={`https://www.bungie.net${seasonInfo?.displayProperties.icon}`}
-								className='seasonIcon'
-							/>
-							<h2 className='center-vertical display-flex'>
-								{seasonInfo?.displayProperties.name}
-							</h2>
-						</div>
-
-						<div className='center-vertical display-flex'>
-							{calendarEvents.seasonInfo.dates}
-						</div>
-					</div>
+					<SeasonCard />
 					<hr />
 					<div className='display-in-row-wrap calendar'>
 						{this.renderEvents()}
