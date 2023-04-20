@@ -8,7 +8,27 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
 function renderVar(description: string) {
-	const renderedDesc = description.replace(/{var:(?:\d{1,10})}/g, "25");
+	const varString = description.split(/[{|}]+/g).filter(e => e.includes("var:"));
+	console.log(varString);
+
+	let value = "";
+	switch(varString[0]) {
+		case "var:608648777":	//hero
+			value = "1765";
+			break;
+		case "var:1693239810": 	//legend
+			value = "1815";
+			break;
+		case "var:3875023991": 	//master
+			value = "1820";
+			break;
+		case "var:1607961440": 	//grandmaster
+			value = "1815";
+			break;
+		default:
+			value = "25";
+	}
+	const renderedDesc = description.replace(/{var:(?:\d{1,10})}/g, value);
 	return renderedDesc;
 }
 
@@ -20,6 +40,7 @@ export function renderModifiers(
 		if (mod === undefined) return null;
 		let renderedDescription;
 		if (mod.displayProperties.description.includes("{")) {
+			console.log(mod.displayProperties.name, mod.displayProperties.description);
 			renderedDescription = renderVar(mod.displayProperties.description);
 		} else {
 			renderedDescription = mod.displayProperties.description;
@@ -31,6 +52,8 @@ export function renderModifiers(
 			mod.displayProperties.name.includes("Threat") ||
 			mod.displayProperties.name.includes("Surge")
 		) {
+			renderedDescription = renderDamageIcons(renderedDescription);
+		} else if (mod.displayProperties.name === "Shielded Foes") {
 			renderedDescription = renderDamageIcons(renderedDescription);
 		}
 		return (
