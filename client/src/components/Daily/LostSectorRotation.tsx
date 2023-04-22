@@ -161,7 +161,7 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 		const lostSectorsInfo = this.getRewards();
 		const currReward = this.state.apiResponse.currReward;
 		return (
-			<div className='rounded-corners ml5 mr5 width60 pb5'>
+			<div className='rounded-corners ml5 mr5 lostSector pb5'>
 				<LargeImageCard
 					imageSrc={lostSectorsInfo.legendInfo?.pgcrImage}
 					title={this.state.apiResponse.currLostSectorName}

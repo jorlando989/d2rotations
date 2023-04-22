@@ -168,7 +168,7 @@ export function getCalendarIcon(name: string) {
 
 export function renderIconWithWatermark(iconImg: string, watermarkImg: string, size: number) {
 	return (
-		<div className='rewardContainer' style={{height: `${size}px`, width: `${size}px`}}>
+		<div className='rewardContainer mr5' style={{height: `${size}px`, width: `${size}px`}}>
 			<div
 				className='rewardItem p5'
 				style={{

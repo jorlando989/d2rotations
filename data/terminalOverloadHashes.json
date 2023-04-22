@@ -1,0 +1,15 @@
+{
+    "rotation": ["Ahimsa Park", "Liming Harbor", "Zephyr Concourse"],
+    "Ahimsa Park": {
+        "activityHash": 508116160,
+        "weaponHash": 2573900604
+    },
+    "Liming Harbor": {
+        "activityHash": 2375923691,
+        "weaponHash": 811403305
+    },
+    "Zephyr Concourse": {
+        "activityHash": 681459255,
+        "weaponHash": 2187717691
+    }
+}

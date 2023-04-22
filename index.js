@@ -12,6 +12,8 @@ require('./models/nightmareHuntsRotation');
 require('./models/empireHuntRotation');
 require('./models/dreamingCityRotations');
 require('./models/raidAndDungeonRotations');
+require('./models/terminalOverloadRotation');
+require('./models/destinationRotations');
 
 mongoose.connect(keys.mongoURI);
 

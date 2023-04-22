@@ -5,6 +5,7 @@ import ActivityCardList from "../Card/ActivityCardList";
 import Countdown from "../CountdownTimer";
 import DreamingCity from "./DreamingCity";
 import EmpireHunt from "./EmpireHunt";
+import VexIncursionZone from "./VexIncursionZone";
 
 const Weekly: FC = () => {
 	return (
@@ -25,6 +26,7 @@ const Weekly: FC = () => {
 			<div className="mt10 display-in-row-wrap row-margin">
 				<EmpireHunt />
 				<DreamingCity />
+				<VexIncursionZone />
 			</div>
 		</div>
 	);

@@ -90,7 +90,7 @@ class Wellspring extends React.Component<MyProps, MyState> {
 			if (wellspringInfo === undefined)
 				return <div>error loading Wellspring reward</div>;
 			return (
-				<div style={{width: '50%'}}>
+				<div style={{ maxWidth: "500px" }}>
 					<LargeImageCard
 						imageSrc={wellspringInfo.activityInfo.pgcrImage}
 						title={

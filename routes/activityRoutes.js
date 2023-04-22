@@ -10,19 +10,23 @@ const altarsOfSorrowRewardHashes = require("../data/altarsOfSorrowRotation.json"
 const wellspringRotationHashes = require("../data/wellspringRotation.json");
 const nightfallWeaponsHashes = require("../data/nightfallWeaponsRotation.json");
 const nightmareHuntsHashes = require("../data/nightmareHuntsRotation.json");
-const empireHuntHashes = require('../data/empireHuntRotation.json');
-const dreamingCityHashes = require('../data/dreamingCityRotations.json');
-const raidRotationHashes = require('../data/raidRotationHashes.json');
-const dungeonRotationHashes = require('../data/dungeonRotationHashes.json');
+const empireHuntHashes = require("../data/empireHuntRotation.json");
+const dreamingCityHashes = require("../data/dreamingCityRotations.json");
+const raidRotationHashes = require("../data/raidRotationHashes.json");
+const dungeonRotationHashes = require("../data/dungeonRotationHashes.json");
+const terminalOverloadHashes = require("../data/terminalOverloadHashes.json");
+const destinationRotationHashes = require("../data/destinationRotations.json");
 
 const LostSectorIndexes = mongoose.model("lostSectorIndex");
 const AltarsOfSorrowRotation = mongoose.model("altarsOfSorrowRotation");
 const WellspringRotation = mongoose.model("wellspringRotation");
 const NightfallWeaponRotation = mongoose.model("nightfallWeaponRotation");
 const NightmareHuntsRotation = mongoose.model("nightmareHuntsRotation");
-const EmpireHuntRotation = mongoose.model('empireHuntRotation');
-const DreamingCityRotations = mongoose.model('dreamingCityRotations');
-const RaidAndDungeonRotations = mongoose.model('raidRotation');
+const EmpireHuntRotation = mongoose.model("empireHuntRotation");
+const DreamingCityRotations = mongoose.model("dreamingCityRotations");
+const RaidAndDungeonRotations = mongoose.model("raidRotation");
+const TerminalOverloadRotation = mongoose.model("terminalOverload");
+const DestinationRotations = mongoose.model("destinationRotations");
 
 module.exports = app => {
 	app.get("/api/lost_sector", async (req, res) => {
@@ -47,7 +51,7 @@ module.exports = app => {
 			currLostSectorHashes,
 			currReward,
 			lostSectorRotation: lostSectorRotation.rotation,
-			rewardRotation: lostSectorRewardRotation.rotation
+			rewardRotation: lostSectorRewardRotation.rotation,
 		});
 	});
 
@@ -170,7 +174,7 @@ module.exports = app => {
 		const milestones = resp.Response;
 
 		const cruciblePlaylistMilestoneInfo = milestones["3312774044"];
-		res.send({playlists: cruciblePlaylistMilestoneInfo.activities});
+		res.send({ playlists: cruciblePlaylistMilestoneInfo.activities });
 	});
 
 	app.get("/api/nightmare_hunts", async (req, res) => {
@@ -189,57 +193,77 @@ module.exports = app => {
 	});
 
 	app.get("/api/empire_hunt", async (req, res) => {
-		const empireHuntDB = await EmpireHuntRotation.findOne({empireHuntIndex: {$gte: 0}});
+		const empireHuntDB = await EmpireHuntRotation.findOne({
+			empireHuntIndex: { $gte: 0 },
+		});
 
-		const currHunt = empireHuntHashes.rotation[empireHuntDB.empireHuntIndex];
+		const currHunt =
+			empireHuntHashes.rotation[empireHuntDB.empireHuntIndex];
 
-		res.send({currHunt: empireHuntHashes[currHunt]});
+		res.send({ currHunt: empireHuntHashes[currHunt] });
 	});
 
 	app.get("/api/ascendant_challenge", async (req, res) => {
-		const dreamingCityRotationsDB = await DreamingCityRotations.findOne({curseRotationIndex: {$gte: 0}});
+		const dreamingCityRotationsDB = await DreamingCityRotations.findOne({
+			curseRotationIndex: { $gte: 0 },
+		});
 
-		const curseWeek = dreamingCityHashes.curseRotation[dreamingCityRotationsDB.curseRotationIndex];
-		const currAscendantChallenge = dreamingCityHashes.ascendantChallengeRotation[dreamingCityRotationsDB.ascendantChallengeIndex];
+		const curseWeek =
+			dreamingCityHashes.curseRotation[
+				dreamingCityRotationsDB.curseRotationIndex
+			];
+		const currAscendantChallenge =
+			dreamingCityHashes.ascendantChallengeRotation[
+				dreamingCityRotationsDB.ascendantChallengeIndex
+			];
 
-		const currAscendantChallengeInfo = dreamingCityHashes[currAscendantChallenge];
+		const currAscendantChallengeInfo =
+			dreamingCityHashes[currAscendantChallenge];
 
 		res.send({
 			curseWeek,
 			ascendantChallenge: {
 				currAscendantChallengeInfo,
-				currAscendantChallenge
-			}
+				currAscendantChallenge,
+			},
 		});
 	});
 
 	app.get("/api/raid_rotation", async (req, res) => {
-		const raidRotationDB = await RaidAndDungeonRotations.findOne({featuredRaidIndex: {$gte: 0}});
+		const raidRotationDB = await RaidAndDungeonRotations.findOne({
+			featuredRaidIndex: { $gte: 0 },
+		});
 
-		const featuredRaid = raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex];
+		const featuredRaid =
+			raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex];
 
 		const rotationHashes = raidRotationHashes.rotation.map(raidName => {
 			return raidRotationHashes[raidName];
-		})
-
-		res.send({
-			featuredRaid: raidRotationHashes[featuredRaid],
-			raidRotation: rotationHashes
-		})
-	});
-
-	app.get("/api/dungeon_rotation", async (req, res) => {
-		const raidRotationDB = await RaidAndDungeonRotations.findOne({featuredDungeonIndex: {$gte: 0}});
-
-		const featuredDungeon = dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex];
-
-		const rotationHashes = dungeonRotationHashes.rotation.map(dungeonName => {
-			return dungeonRotationHashes[dungeonName];
 		});
 
 		res.send({
+			featuredRaid: raidRotationHashes[featuredRaid],
+			raidRotation: rotationHashes,
+		});
+	});
+
+	app.get("/api/dungeon_rotation", async (req, res) => {
+		const raidRotationDB = await RaidAndDungeonRotations.findOne({
+			featuredDungeonIndex: { $gte: 0 },
+		});
+
+		const featuredDungeon =
+			dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex];
+
+		const rotationHashes = dungeonRotationHashes.rotation.map(
+			dungeonName => {
+				return dungeonRotationHashes[dungeonName];
+			}
+		);
+
+		res.send({
 			featuredDungeon: dungeonRotationHashes[featuredDungeon],
-			dungeonRotation: rotationHashes
+			dungeonRotation: rotationHashes,
 		});
 	});
 
@@ -259,6 +283,41 @@ module.exports = app => {
 		}
 		const resp = await response.json();
 		const settings = resp.Response;
-		res.send({"seasonHash": settings.destiny2CoreSettings.currentSeasonHash});
+		res.send({
+			seasonHash: settings.destiny2CoreSettings.currentSeasonHash,
+		});
+	});
+
+	app.get("/api/terminal_overload", async (req, res) => {
+		const terminalOverloadDB = await TerminalOverloadRotation.findOne({
+			currentLocation: { $gte: 0 },
+		});
+
+		const featuredLocation =
+			terminalOverloadHashes.rotation[terminalOverloadDB.currentLocation];
+
+		res.send({
+			location: terminalOverloadHashes[featuredLocation].activityHash,
+			weapon: terminalOverloadHashes[featuredLocation].weaponHash,
+		});
+	});
+
+	app.get("/api/vex_incursion_zone", async (req, res) => {
+		const vizDB = await DestinationRotations.findOne({
+			name: { $eq: "Vex Incursion Zone" },
+		});
+
+		const featuredLocation =
+			destinationRotationHashes.neomunaRotation[vizDB.id];
+
+		res.send({
+			featuredLocation,
+			activityHash: destinationRotationHashes["Vex Incursion Zone"],
+			destinationHash: destinationRotationHashes["Neomuna"]
+		});
+	});
+
+	app.get("/api/europa_eclipsed_zone", async (req, res) => {
+
 	});
 };

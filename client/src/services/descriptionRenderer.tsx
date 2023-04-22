@@ -2,27 +2,33 @@ import {
 	DestinyActivityModifierDefinition,
 	DestinyInventoryItemDefinition,
 } from "bungie-api-ts/destiny2";
-import { renderBreakerIcons, renderDamageIcons, renderIconWithWatermark } from "./iconRenderer";
+import {
+	renderBreakerIcons,
+	renderDamageIcons,
+	renderIconWithWatermark,
+} from "./iconRenderer";
 
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
 function renderVar(description: string) {
-	const varString = description.split(/[{|}]+/g).filter(e => e.includes("var:"));
+	const varString = description
+		.split(/[{|}]+/g)
+		.filter(e => e.includes("var:"));
 	console.log(varString);
 
 	let value = "";
-	switch(varString[0]) {
-		case "var:608648777":	//hero
+	switch (varString[0]) {
+		case "var:608648777": //hero
 			value = "1765";
 			break;
-		case "var:1693239810": 	//legend
+		case "var:1693239810": //legend
 			value = "1815";
 			break;
-		case "var:3875023991": 	//master
+		case "var:3875023991": //master
 			value = "1820";
 			break;
-		case "var:1607961440": 	//grandmaster
+		case "var:1607961440": //grandmaster
 			value = "1815";
 			break;
 		default:
@@ -40,7 +46,6 @@ export function renderModifiers(
 		if (mod === undefined) return null;
 		let renderedDescription;
 		if (mod.displayProperties.description.includes("{")) {
-			console.log(mod.displayProperties.name, mod.displayProperties.description);
 			renderedDescription = renderVar(mod.displayProperties.description);
 		} else {
 			renderedDescription = mod.displayProperties.description;
@@ -88,7 +93,11 @@ export function renderRewards(
 		if (reward.iconWatermark) {
 			return (
 				<div className='display-in-row' key={reward.hash}>
-                    {renderIconWithWatermark(reward.displayProperties.icon, reward.iconWatermark, 30)}
+					{renderIconWithWatermark(
+						reward.displayProperties.icon,
+						reward.iconWatermark,
+						30
+					)}
 					{reward.displayProperties.name}
 				</div>
 			);

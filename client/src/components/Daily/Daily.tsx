@@ -1,10 +1,11 @@
 import { FC } from "react";
 import "../styles/component.css";
 
-import AltarsOfSorrow from "../Weekly/AltarsOfSorrow";
+import AltarsOfSorrow from "./AltarsOfSorrow";
 import Countdown from "../CountdownTimer";
 import LostSectorRotation from "./LostSectorRotation";
-import Wellspring from "../Weekly/Wellspring";
+import Wellspring from "./Wellspring";
+import TerminalOverload from "./TerminalOverload";
 // import StrikeModifiers from './StrikeModifiers';
 
 const Daily: FC = () => {
@@ -18,24 +19,14 @@ const Daily: FC = () => {
 			<h4>Lost Sector</h4>
 			<LostSectorRotation />
 
-			{/* <div className='display-in-row rowSpacing'>
-                <div>
-                    <h4>Ada-1 Mods</h4>
-                    <ModsRotation vendor={'Ada-1'}/>
-                </div>
-                
-                <div>
-                    <h4>Banshee Mods</h4>
-                    <ModsRotation vendor={'Banshee'}/>
-                </div>
-            </div> */}
-
 			<div>
 				<h4>Altars of Sorrow Reward</h4>
 				<AltarsOfSorrow />
 			</div>
-			<div className='mt10'>
+			
+			<div className='mt10 display-in-row-wrap row-margin'>
 				<Wellspring />
+				<TerminalOverload />
 			</div>
 
 			<div>
