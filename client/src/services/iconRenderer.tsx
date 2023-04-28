@@ -163,6 +163,8 @@ export function getCalendarIcon(name: string) {
 			return "/common/destiny2_content/icons/3ced9acee3e24b777f57c95c07efa0f2.png";
 		case "Root of Nightmares Raid":
 			return "/common/destiny2_content/icons/9694158ef08d416ab091062629b6b7ec.png";
+		case "Reputation Bonus":
+			return "/common/destiny2_content/icons/61291400245977ef44420c61217f3393.png";
 	}
 }
 

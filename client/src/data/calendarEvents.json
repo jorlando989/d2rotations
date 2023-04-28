@@ -1,6 +1,12 @@
 {
 	"events": [
-		{ "title": "Root of Nightmares Raid", "time": ["Normal: Week 2 on March 10", "Master and Challenges: Week 4 on March 28"] },
+		{
+			"title": "Root of Nightmares Raid",
+			"time": [
+				"Normal: Week 2 on March 10",
+				"Master and Challenges: Week 4 on March 28"
+			]
+		},
 		{
 			"title": "Iron Banner",
 			"time": [
@@ -22,7 +28,24 @@
 			]
 		},
 		{ "title": "Grandmaster Nightfalls", "time": ["Week 7 on April 11"] },
-		{ "title": "Guardian Games", "time": ["May 02, 2023 – May 22, 2023"] }
+		{ "title": "Guardian Games", "time": ["May 02, 2023 – May 22, 2023"] },
+		{
+			"title": "Reputation Bonus",
+			"time": [
+				"None: Week 1 on February 28",
+				"Crucible: Week 2 on March 7",
+				"Gambit: Week 3 on March 14",
+				"Vanguard: Week 4 on March 21",
+				"Trials: Week 5 on March 28",
+				"Gambit: Week 6 on April 4",
+				"Double Nightfall Rewards: Week 7 on April 11",
+				"Crucible: Week 8 on April 18",
+				"Vanguard: Week 9 on April 25",
+				"Trials: Week 10 on May 2",
+				"Double Nightfall Rewards: Week 11 on May 9",
+				"Crucible, Gambit, and Vanguard: Week 12 on May 16"
+			]
+		}
 	],
 	"seasonInfo": {
 		"dates": "February 28th, 2023 - May 22, 2023"
