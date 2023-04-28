@@ -15,7 +15,6 @@ function renderVar(description: string) {
 	const varString = description
 		.split(/[{|}]+/g)
 		.filter(e => e.includes("var:"));
-	console.log(varString);
 
 	let value = "";
 	switch (varString[0]) {

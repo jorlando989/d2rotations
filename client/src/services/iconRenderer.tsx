@@ -194,10 +194,9 @@ export function renderIconWithWatermark(
 	);
 }
 
-export function renderReputationIcon(eventTime: String) {
-	const eventTitle = eventTime.split(":")[0];
+export function getActivityIcon(name: String) {
 	let imgSrc = "";
-	switch (eventTitle) {
+	switch (name) {
 		case "Double Nightfall Rewards":
 			imgSrc =
 				"/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png";
@@ -222,5 +221,41 @@ export function renderReputationIcon(eventTime: String) {
 			imgSrc =
 				"/common/destiny2_content/icons/61291400245977ef44420c61217f3393.png";
 	}
+	return imgSrc;
+}
+
+export function getActivityImage(name: String) {
+	let imgSrc = "";
+	switch (name) {
+		case "Double Nightfall Rewards":
+			imgSrc =
+				"/common/destiny2_content/icons/0a599ca6fad56a014f14475b73a6a1d8.jpg";
+			break;
+		case "Crucible":
+			imgSrc =
+				"/common/destiny2_content/icons/5f75861207ce50620ecd9b71e46611ca.jpg";
+			break;
+		case "Gambit":
+			imgSrc =
+				"/common/destiny2_content/icons/15019dda029a1e4a7d6399eb7486854c.jpg";
+			break;
+		case "Vanguard":
+			imgSrc =
+				"/common/destiny2_content/icons/0a599ca6fad56a014f14475b73a6a1d8.jpg";
+			break;
+		case "Trials":
+			imgSrc =
+				"/common/destiny2_content/icons/d1b03d37c680a09753ceb9f49a37891c.jpg";
+			break;
+		default:
+			imgSrc =
+				"/img/destiny_content/pgcr/social_traveler.jpg";
+	}
+	return imgSrc;
+}
+
+export function renderReputationIcon(eventTime: String) {
+	const eventTitle = eventTime.split(":")[0];
+	let imgSrc = getActivityIcon(eventTitle);
 	return <img src={`https://bungie.net${imgSrc}`} className='rewardIcon' />;
 }

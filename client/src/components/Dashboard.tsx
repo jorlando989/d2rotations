@@ -1,6 +1,12 @@
 import { getActivityDef } from "@d2api/manifest-web";
 import React from "react";
-import { getArmorImage } from "../services/iconRenderer";
+import { checkIfActive } from "../services/activeChecker";
+import {
+	getActivityIcon,
+	getActivityImage,
+	getArmorImage,
+} from "../services/iconRenderer";
+import { eventType } from "../typeDefinitions/calendarTypes";
 import { terminalOverloadResponse } from "../typeDefinitions/destinationTypes";
 import { lostSectorType } from "../typeDefinitions/lostSectors";
 import { weeklyNightfallResponse } from "../typeDefinitions/nightfall";
@@ -14,6 +20,7 @@ import CountdownTimer from "./CountdownTimer";
 import "./styles/component.css";
 import "./styles/dashboard.css";
 
+const calendarEvents = require("../data/calendarEvents.json");
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 type MyProps = {};
@@ -127,6 +134,26 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		return name;
 	}
 
+	getReputationBonus() {
+		const reputationEvent = calendarEvents.events.filter(
+			(event: eventType) => {
+				return event.title === "Reputation Bonus";
+			}
+		)[0];
+
+		const activeEvent = reputationEvent.time.filter((time: String) => {
+			return checkIfActive(reputationEvent.title, time);
+		})[0];
+
+		const activeTitle = activeEvent.split(":")[0];
+
+		return {
+			title: activeTitle,
+			iconImg: "https://bungie.net" + getActivityIcon(activeTitle),
+			activityImg: getActivityImage(activeTitle),
+		};
+	}
+
 	render() {
 		if (this.state.nightfallResponse.nightfallActivities === undefined) {
 			return;
@@ -146,7 +173,8 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const terminalOverloadInfo = this.getInfo(
 			Number(this.state.terminalOverloadResponse.location)
 		);
-		console.log(terminalOverloadInfo);
+		const reputationBonusInfo = this.getReputationBonus();
+		console.log(reputationBonusInfo);
 		return (
 			<div className='info'>
 				<SeasonCard />
@@ -167,6 +195,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 								extraImg={getArmorImage(
 									this.state.lostSectorResponse.currReward
 								)}
+								extraImgClasses='armorIcon'
 							/>
 						</a>
 					</div>
@@ -205,6 +234,16 @@ class Dashboard extends React.Component<MyProps, MyState> {
 									terminalOverloadInfo.name
 								)}
 								imageSrc={terminalOverloadInfo.image}
+							/>
+						</a>
+					</div>
+					<div>
+						Reputation Bonus:
+						<a href='/calendar'>
+							<ImageCard
+								title={reputationBonusInfo.title}
+								imageSrc={reputationBonusInfo.activityImg}
+								extraImg={reputationBonusInfo.iconImg}
 							/>
 						</a>
 					</div>

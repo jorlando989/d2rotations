@@ -1,12 +1,13 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 import "../styles/component.css";
 import "../styles/imagecard.css";
-import Card from "react-bootstrap/Card";
 
 type MyProps = {
 	title: string | undefined;
 	imageSrc: string | undefined;
 	extraImg?: string;
+	extraImgClasses?: string;
 };
 
 type MyState = {};
@@ -18,7 +19,7 @@ class ImageCard extends React.Component<MyProps, MyState> {
 				<span>
 					<img
 						src={this.props.extraImg}
-						className='rewardIcon armorIcon'
+						className={"rewardIcon " + this.props.extraImgClasses}
 					/>
 				</span>
 			);
