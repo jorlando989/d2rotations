@@ -4,13 +4,9 @@ import "../styles/component.css";
 
 import { renderRewards } from "../../services/descriptionRenderer";
 import LargeImageCard from "../Card/LargeImageCard";
+import { terminalOverloadResponse } from "../../typeDefinitions/destinationTypes";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
-
-type terminalOverloadResponse = {
-	location: string;
-	weapon: string;
-};
 
 type MyProps = {};
 

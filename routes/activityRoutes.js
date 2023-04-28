@@ -303,12 +303,12 @@ module.exports = app => {
 	});
 
 	app.get("/api/vex_incursion_zone", async (req, res) => {
-		const vizDB = await DestinationRotations.findOne({
+		const destinationsDB = await DestinationRotations.findOne({
 			name: { $eq: "Vex Incursion Zone" },
 		});
 
 		const featuredLocation =
-			destinationRotationHashes.neomunaRotation[vizDB.id];
+			destinationRotationHashes.neomunaRotation[destinationsDB.id];
 
 		res.send({
 			featuredLocation,
@@ -318,6 +318,16 @@ module.exports = app => {
 	});
 
 	app.get("/api/europa_eclipsed_zone", async (req, res) => {
+		const destinationsDB = await DestinationRotations.findOne({
+			name: { $eq: "Europa Eclipsed Zone" },
+		});
 
+		const featuredLocation =
+			destinationRotationHashes.europaRotation[destinationsDB.id];
+
+		res.send({
+			featuredLocation,
+			activityHash: destinationRotationHashes["Europa Eclipsed Zone"]
+		});
 	});
 };

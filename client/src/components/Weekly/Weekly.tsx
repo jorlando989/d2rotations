@@ -6,6 +6,7 @@ import Countdown from "../CountdownTimer";
 import DreamingCity from "./DreamingCity";
 import EmpireHunt from "./EmpireHunt";
 import VexIncursionZone from "./VexIncursionZone";
+import EuropaEclipsedZone from "./EuropaEclipsedZone";
 
 const Weekly: FC = () => {
 	return (
@@ -27,6 +28,7 @@ const Weekly: FC = () => {
 				<EmpireHunt />
 				<DreamingCity />
 				<VexIncursionZone />
+				<EuropaEclipsedZone />
 			</div>
 		</div>
 	);

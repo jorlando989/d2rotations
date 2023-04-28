@@ -1,18 +1,18 @@
 import { getActivityDef } from "@d2api/manifest-web";
 import React from "react";
 import { getArmorImage } from "../services/iconRenderer";
+import { terminalOverloadResponse } from "../typeDefinitions/destinationTypes";
 import { lostSectorType } from "../typeDefinitions/lostSectors";
 import { weeklyNightfallResponse } from "../typeDefinitions/nightfall";
 import {
 	dungeonResponse,
 	raidResponse,
 } from "../typeDefinitions/raidDungeonTypes";
-import CountdownTimer from "./CountdownTimer";
 import ImageCard from "./Card/ImageCard";
-
+import SeasonCard from "./Card/SeasonCard";
+import CountdownTimer from "./CountdownTimer";
 import "./styles/component.css";
 import "./styles/dashboard.css";
-import SeasonCard from "./Card/SeasonCard";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
@@ -23,6 +23,7 @@ type MyState = {
 	nightfallResponse: weeklyNightfallResponse;
 	raidResponse: raidResponse;
 	dungeonResponse: dungeonResponse;
+	terminalOverloadResponse: terminalOverloadResponse;
 };
 
 class Dashboard extends React.Component<MyProps, MyState> {
@@ -57,6 +58,10 @@ class Dashboard extends React.Component<MyProps, MyState> {
 				},
 				dungeonRotation: [],
 			},
+			terminalOverloadResponse: {
+				location: "",
+				weapon: ""
+			}
 		};
 	}
 
@@ -84,11 +89,18 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			.then(res => this.setState({ dungeonResponse: res }));
 	}
 
+	getTerminalOverloadRotation() {
+		fetch(`${API_ENDPOINT}/api/terminal_overload`)
+			.then(res => res.json())
+			.then(res => this.setState({ terminalOverloadResponse: res }));
+	}
+
 	componentDidMount() {
 		this.getLostSectors();
 		this.getWeeklyNightfallRewards();
 		this.getDungeonRotation();
 		this.getRaidRotation();
+		this.getTerminalOverloadRotation();
 	}
 
 	getInfo(hash: number) {
@@ -107,7 +119,6 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const nightfallInfo = this.getInfo(
 			this.state.nightfallResponse.nightfallActivities[0].activityHash
 		);
-
 		const lostSectorInfo = this.getInfo(
 			this.state.lostSectorResponse.currLostSectorHashes.legend
 		);
@@ -117,6 +128,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const dungeonInfo = this.getInfo(
 			this.state.dungeonResponse.featuredDungeon.activityHash
 		);
+		const terminalOverloadInfo = this.getInfo(Number(this.state.terminalOverloadResponse.location));
 		return (
 			<div className='info'>
 				<SeasonCard />
@@ -153,7 +165,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						Raid Rotator:
 						<a href='/raiddungeon'>
 							<ImageCard
-								title={raidInfo.name?.split(':')[0]}
+								title={raidInfo.name?.split(":")[0]}
 								imageSrc={raidInfo.image}
 							/>
 						</a>
@@ -162,8 +174,17 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						Dungeon Rotator:
 						<a href='/raiddungeon'>
 							<ImageCard
-								title={dungeonInfo.name?.split(':')[0]}
+								title={dungeonInfo.name?.split(":")[0]}
 								imageSrc={dungeonInfo.image}
+							/>
+						</a>
+					</div>
+					<div>
+						Terminal Overload:
+						<a href='/daily'>
+							<ImageCard
+								title={terminalOverloadInfo.name}
+								imageSrc={terminalOverloadInfo.image}
 							/>
 						</a>
 					</div>
