@@ -60,8 +60,8 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			},
 			terminalOverloadResponse: {
 				location: "",
-				weapon: ""
-			}
+				weapon: "",
+			},
 		};
 	}
 
@@ -112,6 +112,21 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		};
 	}
 
+	parseTerminalOverloadLocation(name: string | undefined) {
+		if (name === undefined) return "";
+
+		const location = name.split(": ")[1];
+		switch (location) {
+			case "ZC":
+				return "Zephyr Concourse";
+			case "LH":
+				return "Liming Harbor";
+			case "AP":
+				return "Ahimsa Park";
+		}
+		return name;
+	}
+
 	render() {
 		if (this.state.nightfallResponse.nightfallActivities === undefined) {
 			return;
@@ -128,7 +143,10 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const dungeonInfo = this.getInfo(
 			this.state.dungeonResponse.featuredDungeon.activityHash
 		);
-		const terminalOverloadInfo = this.getInfo(Number(this.state.terminalOverloadResponse.location));
+		const terminalOverloadInfo = this.getInfo(
+			Number(this.state.terminalOverloadResponse.location)
+		);
+		console.log(terminalOverloadInfo);
 		return (
 			<div className='info'>
 				<SeasonCard />
@@ -183,7 +201,9 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						Terminal Overload:
 						<a href='/daily'>
 							<ImageCard
-								title={terminalOverloadInfo.name}
+								title={this.parseTerminalOverloadLocation(
+									terminalOverloadInfo.name
+								)}
 								imageSrc={terminalOverloadInfo.image}
 							/>
 						</a>
