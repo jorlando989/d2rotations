@@ -168,9 +168,16 @@ export function getCalendarIcon(name: string) {
 	}
 }
 
-export function renderIconWithWatermark(iconImg: string, watermarkImg: string, size: number) {
+export function renderIconWithWatermark(
+	iconImg: string,
+	watermarkImg: string,
+	size: number
+) {
 	return (
-		<div className='rewardContainer mr5' style={{height: `${size}px`, width: `${size}px`}}>
+		<div
+			className='rewardContainer mr5'
+			style={{ height: `${size}px`, width: `${size}px` }}
+		>
 			<div
 				className='rewardItem p5'
 				style={{
@@ -185,4 +192,35 @@ export function renderIconWithWatermark(iconImg: string, watermarkImg: string, s
 			></div>
 		</div>
 	);
+}
+
+export function renderReputationIcon(eventTime: String) {
+	const eventTitle = eventTime.split(":")[0];
+	let imgSrc = "";
+	switch (eventTitle) {
+		case "Double Nightfall Rewards":
+			imgSrc =
+				"/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png";
+			break;
+		case "Crucible":
+			imgSrc =
+				"/common/destiny2_content/icons/DestinyActivityModeDefinition_fb3e9149c43f7a2e8f8b66cbea7845fe.png";
+			break;
+		case "Gambit":
+			imgSrc =
+				"/common/destiny2_content/icons/DestinyActivityModeDefinition_96f7e9009d4f26e30cfd60564021925e.png";
+			break;
+		case "Vanguard":
+			imgSrc =
+				"/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png";
+			break;
+		case "Trials":
+			imgSrc =
+				"/common/destiny2_content/icons/DestinyActivityModeDefinition_e35792b49b249ca5dcdb1e7657ca42b6.png";
+			break;
+		default:
+			imgSrc =
+				"/common/destiny2_content/icons/61291400245977ef44420c61217f3393.png";
+	}
+	return <img src={`https://bungie.net${imgSrc}`} className='rewardIcon' />;
 }

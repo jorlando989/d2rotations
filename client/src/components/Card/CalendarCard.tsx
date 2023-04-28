@@ -7,6 +7,7 @@ import {
 	dstOffsetAtDate,
 	isAfterDailyReset,
 } from "../../services/daylightSavingsChecker";
+import { renderReputationIcon } from "../../services/iconRenderer";
 
 type MyProps = {
 	title: string | undefined;
@@ -126,6 +127,15 @@ class CalendarCard extends React.Component<MyProps, MyState> {
 		return this.props.eventInfo.time.map(eventTime => {
 			let classes = "mb5 pl5 rounded-corners";
 			if (this.checkIfActive(eventTime)) classes += " highlight2";
+			if (this.props.title === "Reputation Bonus") {
+				classes += " display-in-row";
+				return (
+					<div key={eventTime} className={classes}>
+						{renderReputationIcon(eventTime)}
+						{eventTime}
+					</div>
+				);
+			}
 			return (
 				<div key={eventTime} className={classes}>
 					{eventTime}
