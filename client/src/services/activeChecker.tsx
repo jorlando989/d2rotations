@@ -15,10 +15,20 @@ const monthNames = [
 	"December",
 ];
 
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+function isLeapYear(now: Date) {
+	return (
+		(0 === now.getFullYear() % 4 && 0 !== now.getFullYear() % 100) ||
+		0 === now.getFullYear() % 400
+	);
+}
+
 function checkActiveWeek(time: String, now: Date) {
 	const splitString = time.split(" ");
 	const month = splitString[splitString.length - 2];
 	const day = Number(splitString[splitString.length - 1]);
+	const monthIndex = monthNames.findIndex(m => m === month);
 
 	if (
 		month === monthNames[now.getMonth()] &&
@@ -28,11 +38,31 @@ function checkActiveWeek(time: String, now: Date) {
 		if (now.getDate() === day && !isAfterDailyReset(now)) {
 			//reset has not happened on tuesday
 			return false;
-		} else if (now.getDate() == day + 7 && isAfterDailyReset(now)) {
+		} else if (now.getDate() === day + 7 && isAfterDailyReset(now)) {
 			//reset has already happened on next tuesday
 			return false;
 		}
 		return true;
+	} else if (monthIndex === now.getMonth() - 1) {
+		//crossover of months
+		let daysLeftInMonth;
+		if (isLeapYear(now) && now.getMonth() === 1) {
+			//february in leap year
+			daysLeftInMonth = daysInMonth[now.getMonth()] + 1 - day;
+		} else {
+			daysLeftInMonth = daysInMonth[now.getMonth()] - day;
+		}
+
+		if (daysLeftInMonth + now.getDate() <= 8 && !isAfterDailyReset(now)) {
+			if (now.getDate() === day && !isAfterDailyReset(now)) {
+				//reset has not happened on tuesday
+				return false;
+			} else if (now.getDate() === day + 7 && isAfterDailyReset(now)) {
+				//reset has already happened on next tuesday
+				return false;
+			}
+			return true;
+		}
 	}
 	return false;
 }
@@ -41,6 +71,7 @@ function checkActiveWeekend(time: String, now: Date) {
 	const splitString = time.split(" ");
 	const month = splitString[splitString.length - 2];
 	const day = Number(splitString[splitString.length - 1]);
+	const monthIndex = monthNames.findIndex(m => m === month);
 
 	if (
 		month === monthNames[now.getMonth()] &&
@@ -48,8 +79,23 @@ function checkActiveWeekend(time: String, now: Date) {
 		now.getDate() <= day + 5
 	) {
 		//reset has already happened on next tuesday
-		if (now.getDate() == day + 4 && isAfterDailyReset(now)) return false;
+		if (now.getDate() === day + 4 && isAfterDailyReset(now)) return false;
 		return true;
+	} else if (monthIndex === now.getMonth() - 1) {
+		//crossover of months
+		let daysLeftInMonth;
+		if (isLeapYear(now) && now.getMonth() === 1) {
+			//february in leap year
+			daysLeftInMonth = daysInMonth[now.getMonth()] + 1 - day;
+		} else {
+			daysLeftInMonth = daysInMonth[now.getMonth()] - day;
+		}
+
+		if (daysLeftInMonth + now.getDate() <= 8 && !isAfterDailyReset(now)) {
+			//reset has already happened on next tuesday
+			if (now.getDate() === day + 4 && isAfterDailyReset(now)) return false;
+			return true;
+		}
 	}
 	return false;
 }

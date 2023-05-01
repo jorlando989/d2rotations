@@ -145,6 +145,8 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			return checkIfActive(reputationEvent.title, time);
 		})[0];
 
+		console.log(activeEvent);
+
 		const activeTitle = activeEvent.split(":")[0];
 
 		return {
