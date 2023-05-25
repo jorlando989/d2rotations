@@ -158,13 +158,15 @@ export function getCalendarIcon(name: string) {
 		case "Trials of Osiris":
 			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_e35792b49b249ca5dcdb1e7657ca42b6.png";
 		case "Grandmaster Nightfalls":
-			return "/common/destiny2_content/icons/11d1851959f173b417cccb8be23719d2.png";
+			return "/common/destiny2_content/icons/87271a86b4542822aad73d8f0f56d4cb.png";
 		case "Guardian Games":
 			return "/common/destiny2_content/icons/3ced9acee3e24b777f57c95c07efa0f2.png";
-		case "Root of Nightmares Raid":
-			return "/common/destiny2_content/icons/9694158ef08d416ab091062629b6b7ec.png";
 		case "Reputation Bonus":
-			return "/common/destiny2_content/icons/61291400245977ef44420c61217f3393.png";
+			return "/common/destiny2_content/icons/406c1a5917cb2eb5c59ca0b8e43de411.png";
+		case "Solstice": 
+			return "/common/destiny2_content/icons/39300324430f597dc9356fa5e10b6837.png";
+		case "Ghosts of the Deep Dungeon": 
+			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_f20ebb76bee675ca429e470cec58cc7b.png";
 	}
 }
 
@@ -199,7 +201,7 @@ export function getActivityIcon(name: String) {
 	switch (name) {
 		case "Double Nightfall Rewards":
 			imgSrc =
-				"/common/destiny2_content/icons/e8848ef24b4bf60370c71eac4d5cd94d.png";
+				"/common/destiny2_content/icons/3642cf9e2acd174dcab5b5f9e3a3a45d.png";
 			break;
 		case "Crucible":
 			imgSrc =
@@ -211,7 +213,7 @@ export function getActivityIcon(name: String) {
 			break;
 		case "Vanguard":
 			imgSrc =
-				"/common/destiny2_content/icons/f2154b781b36b19760efcb23695c66fe.png";
+				"/common/destiny2_content/icons/3642cf9e2acd174dcab5b5f9e3a3a45d.png";
 			break;
 		case "Trials":
 			imgSrc =
@@ -219,7 +221,7 @@ export function getActivityIcon(name: String) {
 			break;
 		default:
 			imgSrc =
-				"/common/destiny2_content/icons/61291400245977ef44420c61217f3393.png";
+				"/common/destiny2_content/icons/406c1a5917cb2eb5c59ca0b8e43de411.png";
 	}
 	return imgSrc;
 }
@@ -257,5 +259,6 @@ export function getActivityImage(name: String) {
 export function renderReputationIcon(eventTime: String) {
 	const eventTitle = eventTime.split(":")[0];
 	let imgSrc = getActivityIcon(eventTitle);
+	console.log(eventTitle + " " + imgSrc);
 	return <img src={`https://bungie.net${imgSrc}`} className='rewardIcon' />;
 }

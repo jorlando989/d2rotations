@@ -1,53 +1,55 @@
 {
 	"events": [
 		{
-			"title": "Root of Nightmares Raid",
+			"title": "Ghosts of the Deep Dungeon",
 			"time": [
-				"Normal: Week 2 on March 10",
-				"Master and Challenges: Week 4 on March 28"
+				"Normal: Week 1 on May 26"
 			]
 		},
 		{
 			"title": "Iron Banner",
 			"time": [
-				"Week 3 on March 14",
-				"Week 6 on April 4",
-				"Week 9 on April 25"
+				"Week 2 on May 30",
+				"Week 6 on June 27",
+				"Week 9 on July 18"
 			]
 		},
 		{
 			"title": "Trials of Osiris",
 			"time": [
-				"Week 4 on March 24",
-				"Week 5 on March 31",
-				"Week 7 on April 14",
-				"Week 8 on April 21",
-				"Week 10 on May 5",
-				"Week 11 on May 12",
-				"Week 12 on May 19"
+				"Week 1 on May 26",
+				"Week 3 on June 9",
+				"Week 4 on June 16",
+				"Week 5 on June 23",
+				"Week 7 on July 7",
+				"Week 8 on July 14",
+				"Week 10 on July 28",
+				"Week 11 on August 4",
+				"Week 12 on August 11"
 			]
 		},
-		{ "title": "Grandmaster Nightfalls", "time": ["Week 7 on April 11"] },
-		{ "title": "Guardian Games", "time": ["May 02, 2023 – May 22, 2023"] },
+		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on June 13"] },
+		{ "title": "Solstice", "time": ["July 18, 2023 - August 21, 2023"] },
 		{
 			"title": "Reputation Bonus",
 			"time": [
-				"None: Week 1 on February 28",
-				"Crucible: Week 2 on March 7",
-				"Gambit: Week 3 on March 14",
-				"Vanguard: Week 4 on March 21",
-				"Trials: Week 5 on March 28",
-				"Gambit: Week 6 on April 4",
-				"Double Nightfall Rewards: Week 7 on April 11",
-				"Crucible: Week 8 on April 18",
-				"Vanguard: Week 9 on April 25",
-				"Trials: Week 10 on May 2",
-				"Double Nightfall Rewards: Week 11 on May 9",
-				"Crucible, Gambit, and Vanguard: Week 12 on May 16"
+				"None: Week 1 on May 23",
+				"Crucible: Week 2 on May 30",
+				"Gambit: Week 3 on June 6",
+				"Vanguard: Week 4 on June 13",
+				"Trials: Week 5 on June 20",
+				"Gambit: Week 6 on June 27",
+				"Double Nightfall Rewards: Week 7 on July 4",
+				"Crucible: Week 8 on July 11",
+				"Vanguard: Week 9 on July 18",
+				"Trials: Week 10 on July 25",
+				"Double Nightfall Rewards: Week 11 on August 1",
+				"Crucible, Gambit, and Vanguard: Week 12 on August 8",
+				"None: Week 13 on August 15"
 			]
 		}
 	],
 	"seasonInfo": {
-		"dates": "February 28th, 2023 - May 22, 2023"
+		"dates": "May 23, 2023 - August 21, 2023"
 	}
 }

@@ -1,5 +1,5 @@
 {
-    "rotation": ["Hung Jury SR4", "Mindbender's Ambition", "Wendigo GL3", "The Militia's Birthright", "Buzzard", "THE SWARM"],
+    "rotation": ["Buzzard", "D.F.A.", "Horror's Least", "The Militia's Birthright", "THE SWARM", "Hung Jury SR4"],
     "D.F.A.": {
         "itemHash": 575830664,
         "adeptItemHash": 2006308129
@@ -25,11 +25,11 @@
         "adeptItemHash": 2378101424
     },
     "Buzzard": {
-        "itemHash": 1857225098,
-        "adeptItemHash": 927835311
+        "itemHash": 1699403824,
+        "adeptItemHash": 1478676677
     },
     "THE SWARM": {
-        "itemHash": 1351625431,
+        "itemHash": 545918878,
         "adeptItemHash": 566740455
     }
 }

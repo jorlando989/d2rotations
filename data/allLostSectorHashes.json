@@ -20,7 +20,7 @@
         "legend": 145221019
     },
     "Chamber of Starlight": {
-        "master": 457172845        ,
+        "master": 457172845,
         "legend": 457172842
     },
     "Aphelion's Rest": {
@@ -34,10 +34,6 @@
     "The Rift": {
         "master": 1551471974,
         "legend": 1551471969
-    }, 
-    "K1 Crew Quarters": {
-        "master": 184186578,
-        "legend": 184186581
     },
     "K1 Logistics": {
         "master": 567131519,
@@ -50,6 +46,10 @@
     "K1 Revelation": {
         "master": 3911969238,
         "legend": 3911969233
+    },
+    "K1 Crew Quarters": {
+        "master": 1525311377,
+        "legend": 1525311382
     },
     "Skydock IV": {
         "master": 55186256,

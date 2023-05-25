@@ -19,6 +19,7 @@ import SeasonCard from "./Card/SeasonCard";
 import CountdownTimer from "./CountdownTimer";
 import "./styles/component.css";
 import "./styles/dashboard.css";
+import { act } from "@testing-library/react";
 
 const calendarEvents = require("../data/calendarEvents.json");
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
@@ -145,7 +146,12 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			return checkIfActive(reputationEvent.title, time);
 		})[0];
 
-		console.log(activeEvent);
+		if (!activeEvent) {
+			return {
+				title: "No active bonus",
+				activityImg: getActivityImage("")
+			};
+		}
 
 		const activeTitle = activeEvent.split(":")[0];
 
