@@ -1,12 +1,12 @@
 {
-    "rotation": ["Buzzard", "D.F.A.", "Horror's Least", "The Militia's Birthright", "THE SWARM", "Hung Jury SR4"],
+    "rotation": ["Buzzard", "Hung Jury SR4", "THE SWARM", "Wendigo GL3", "Loaded Question", "Braytech Osprey"],
     "D.F.A.": {
         "itemHash": 575830664,
         "adeptItemHash": 2006308129
     },
     "Wendigo GL3": {
         "itemHash": 3183283212,
-        "adeptItemHash": 555148853
+        "adeptItemHash": 3915197957
     },
     "Mindbender's Ambition": {
         "itemHash": 1094005544,
@@ -31,5 +31,13 @@
     "THE SWARM": {
         "itemHash": 545918878,
         "adeptItemHash": 566740455
+    },
+    "Loaded Question": {
+        "itemHash": 1467113692,
+        "adeptItemHash": 485859982
+    },
+    "Braytech Osprey": {
+        "itemHash": 1086085273,
+        "adeptItemHash": 3341152510 
     }
 }
