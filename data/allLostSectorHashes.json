@@ -16,8 +16,8 @@
         "legend": 480864726
     },
     "Extraction": {
-        "master": 145221020,
-        "legend": 145221019
+        "master": 1509764575,
+        "legend": 1509764568
     },
     "Chamber of Starlight": {
         "master": 457172845,
@@ -26,6 +26,10 @@
     "Aphelion's Rest": {
         "master": 2571435846,
         "legend": 2571435841
+    },
+    "Bay of Drowned Wishes": {
+        "master": 628527323,
+        "legend": 628527324
     },
     "The Conflux": {
         "master": 4269987985,
@@ -78,5 +82,13 @@
     "Hydroponics Delta": {
         "master": 1869786719,
         "legend": 1869786712
+    },
+    "Veles Labyrinth": {
+        "master": 2310698352,
+        "legend": 2310698359
+    },
+    "Exodus Garden 2A": {
+        "master": 2504276276,
+        "legend": 2504276275
     }
 }
