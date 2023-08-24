@@ -1,35 +1,35 @@
 {
 	"events": [
 		{
-			"title": "Ghosts of the Deep Dungeon",
+			"title": "Crota's End",
 			"time": [
-				"Normal: Week 1 on May 26"
+				"Normal: Week 2 on September 1"
 			]
 		},
 		{
 			"title": "Iron Banner",
 			"time": [
-				"Week 2 on May 30",
-				"Week 5 on June 20",
-				"Week 9 on July 18"
+				"Week 2 on ",
+				"Week 5 on ",
+				"Week 9 on "
 			]
 		},
 		{
 			"title": "Trials of Osiris",
 			"time": [
-				"Week 1 on May 26",
-				"Week 3 on June 9",
-				"Week 4 on June 16",
-				"Week 6 on June 30",
-				"Week 7 on July 7",
-				"Week 8 on July 14",
-				"Week 10 on July 28",
-				"Week 11 on August 4",
-				"Week 12 on August 11"
+				"Week 1 on ",
+				"Week 3 on ",
+				"Week 4 on ",
+				"Week 6 on ",
+				"Week 7 on ",
+				"Week 8 on ",
+				"Week 10 on 8",
+				"Week 11 on ",
+				"Week 12 on "
 			]
 		},
-		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on June 13"] },
-		{ "title": "Solstice", "time": ["July 18, 2023 - August 21, 2023"] },
+		{ "title": "Grandmaster Nightfalls", "time": ["Week  on "] },
+		{ "title": "Festival of the Lost", "time": [""] },
 		{
 			"title": "Reputation Bonus",
 			"time": [
@@ -50,6 +50,6 @@
 		}
 	],
 	"seasonInfo": {
-		"dates": "May 23, 2023 - August 21, 2023"
+		"dates": "August 22, 2023 - November 28, 2023"
 	}
 }

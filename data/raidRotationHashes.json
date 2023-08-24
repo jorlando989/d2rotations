@@ -1,5 +1,5 @@
 {
-    "rotation": ["Last Wish", "Garden of Salvation", "Deep Stone Crypt", "Vault of Glass", "Vow of the Disciple", "King's Fall"],
+    "rotation": ["Last Wish", "Garden of Salvation", "Deep Stone Crypt", "Vault of Glass", "Vow of the Disciple", "King's Fall", "Root of Nightmares"],
     "King's Fall": {
         "milestoneHash": 292102995,
         "activityHash": 1374392663,
@@ -29,5 +29,10 @@
         "milestoneHash": 2712317338,
         "activityHash": 3458480158,
         "masterActivityHash": null
+    },
+    "Root of Nightmares": {
+        "milestoneHash": 3699252268,
+        "activityHash": 1191701339,
+        "masterActivityHash": 2918919505
     }
 }

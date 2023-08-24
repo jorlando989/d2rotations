@@ -1,5 +1,5 @@
 {
-    "rotation": ["Buzzard", "Hung Jury SR4", "THE SWARM", "Wendigo GL3", "Loaded Question", "Braytech Osprey"],
+    "rotation": ["Loaded Question", "Braytech Osprey", "Warden's Law", "Pre Astyanax IV", "Buzzard", "THE SWARM"],
     "D.F.A.": {
         "itemHash": 575830664,
         "adeptItemHash": 2006308129
@@ -39,5 +39,13 @@
     "Braytech Osprey": {
         "itemHash": 1086085273,
         "adeptItemHash": 3341152510 
+    },
+    "Warden's Law": {
+        "itemHash": 272660800,
+        "adeptItemHash": 2341443046
+    },
+    "Pre Astyanax IV": {
+        "itemHash": 192784503,
+        "adeptItemHash": 2807348229
     }
 }
