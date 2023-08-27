@@ -165,8 +165,10 @@ export function getCalendarIcon(name: string) {
 			return "/common/destiny2_content/icons/406c1a5917cb2eb5c59ca0b8e43de411.png";
 		case "Solstice": 
 			return "/common/destiny2_content/icons/39300324430f597dc9356fa5e10b6837.png";
-		case "Ghosts of the Deep Dungeon": 
-			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_f20ebb76bee675ca429e470cec58cc7b.png";
+		case "Festival of the Lost":
+			return "/common/destiny2_content/icons/DestinyEventCardDefinition_1a1e3f8074c98241af80f4bee77084c3.png";
+		case "Crota's End":
+			return "";
 	}
 }
 

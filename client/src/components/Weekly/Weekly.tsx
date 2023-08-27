@@ -16,10 +16,10 @@ const Weekly: FC = () => {
 				<Countdown type='weekly' />
 			</div>
 
-			<div>
+			{/* <div>
 				<h4>Crucible Playlist</h4>
 				<ActivityCardList activityType='cruciblePlaylist' />
-			</div>
+			</div> */}
 			<div>
 				<h4>Nightmare Hunts</h4>
 				<ActivityCardList activityType='nightmareHunts' />

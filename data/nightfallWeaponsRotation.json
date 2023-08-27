@@ -1,5 +1,5 @@
 {
-    "rotation": ["Loaded Question", "Braytech Osprey", "Warden's Law", "Pre Astyanax IV", "Buzzard", "THE SWARM"],
+    "rotation": ["Loaded Question", "BrayTech Osprey", "Warden's Law", "Pre Astyanax IV", "Buzzard", "THE SWARM"],
     "D.F.A.": {
         "itemHash": 575830664,
         "adeptItemHash": 2006308129
@@ -29,15 +29,15 @@
         "adeptItemHash": 1478676677
     },
     "THE SWARM": {
-        "itemHash": 545918878,
-        "adeptItemHash": 566740455
+        "itemHash": 3920872880,
+        "adeptItemHash": 4073744300
     },
     "Loaded Question": {
-        "itemHash": 1467113692,
-        "adeptItemHash": 485859982
+        "itemHash": 3054692414,
+        "adeptItemHash": 2914913838
     },
-    "Braytech Osprey": {
-        "itemHash": 1086085273,
+    "BrayTech Osprey": {
+        "itemHash": 4197367273,
         "adeptItemHash": 3341152510 
     },
     "Warden's Law": {

@@ -34,5 +34,10 @@
         "milestoneHash": 3699252268,
         "activityHash": 1191701339,
         "masterActivityHash": 2918919505
+    }, 
+    "Crota's End": {
+        "milestoneHash": -1,
+        "activityHash": 4179289725,
+        "masterActivityHash": 1507509200
     }
 }

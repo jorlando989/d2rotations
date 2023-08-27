@@ -9,43 +9,49 @@
 		{
 			"title": "Iron Banner",
 			"time": [
-				"Week 2 on ",
-				"Week 5 on ",
-				"Week 9 on "
+				"TBD",
+				"TBD",
+				"TBD"
 			]
 		},
 		{
 			"title": "Trials of Osiris",
 			"time": [
-				"Week 1 on ",
-				"Week 3 on ",
-				"Week 4 on ",
-				"Week 6 on ",
-				"Week 7 on ",
-				"Week 8 on ",
-				"Week 10 on 8",
-				"Week 11 on ",
-				"Week 12 on "
+				"Week 1 on August 25",
+				"Week 2 on September 1",
+				"Week 3 on September 8",
+				"Week 4 on September 15",
+				"Week 5 on September 22",
+				"Week 6 on September 29",
+				"Week 7 on October 6",
+				"Week 8 on October 13",
+				"Week 9 on October 20",
+				"Week 10 on October 27",
+				"Week 11 on November 3",
+				"Week 12 on November 10",
+				"Week 13 on November 17",
+				"Week 14 on November 24"
 			]
 		},
-		{ "title": "Grandmaster Nightfalls", "time": ["Week  on "] },
-		{ "title": "Festival of the Lost", "time": [""] },
+		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on September 12"] },
+		{ "title": "Festival of the Lost", "time": ["TBD"] },
 		{
 			"title": "Reputation Bonus",
 			"time": [
-				"None: Week 1 on May 23",
-				"None: Week 2 on May 30",
-				"Crucible: Week 3 on June 6",
-				"Gambit: Week 4 on June 13",
-				"Vanguard: Week 5 on June 20",
-				"Trials: Week 6 on June 27",
-				"Gambit: Week 7 on July 4",
-				"Double Nightfall Rewards: Week 8 on July 11",
-				"Crucible: Week 9 on July 18",
-				"Vanguard: Week 10 on July 25",
-				"Trials: Week 11 on August 1",
-				"Double Nightfall Rewards: Week 12 on August 8",
-				"Crucible, Gambit, and Vanguard: Week 13 on August 15" 
+				"None: Week 1 on August 22",
+				"None: Week 2 on August 29",
+				"Crucible: Week 3 on September 5",
+				"Gambit: Week 4 on September 12",
+				"Vanguard: Week 5 on September 19",
+				"Trials: Week 6 on September 26",
+				"Gambit: Week 7 on October 3",
+				"Double Nightfall Rewards: Week 8 on October 10",
+				"Crucible: Week 9 on October 17",
+				"Vanguard: Week 10 on October 24",
+				"Trials: Week 11 on October 31",
+				"Double Nightfall Rewards: Week 12 on November 7",
+				"None: Week 13 on November 14" ,
+				"Crucible, Gambit, and Vanguard: Week 14 on November 21"
 			]
 		}
 	],
