@@ -7,7 +7,10 @@ import {
 	getArmorImage,
 } from "../services/iconRenderer";
 import { eventType } from "../typeDefinitions/calendarTypes";
-import { terminalOverloadResponse, exoticMissionResponse } from "../typeDefinitions/destinationTypes";
+import {
+	terminalOverloadResponse,
+	exoticMissionResponse,
+} from "../typeDefinitions/destinationTypes";
 import { lostSectorType } from "../typeDefinitions/lostSectors";
 import { weeklyNightfallResponse } from "../typeDefinitions/nightfall";
 import {
@@ -71,9 +74,9 @@ class Dashboard extends React.Component<MyProps, MyState> {
 				weapon: "",
 			},
 			exoticMissionResponse: {
-				featuredMission: {normal: -1, legend: -1},
-                rotation: []
-			}
+				featuredMission: { normal: -1, legend: -1 },
+				rotation: [],
+			},
 		};
 	}
 
@@ -107,7 +110,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			.then(res => this.setState({ terminalOverloadResponse: res }));
 	}
 
-	getExoticMissionRotation(){
+	getExoticMissionRotation() {
 		fetch(`${API_ENDPOINT}/api/exotic_mission`)
 			.then(res => res.json())
 			.then(res => this.setState({ exoticMissionResponse: res }));
@@ -160,7 +163,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		if (!activeEvent) {
 			return {
 				title: "No active bonus",
-				activityImg: getActivityImage("")
+				activityImg: getActivityImage(""),
 			};
 		}
 
@@ -189,8 +192,9 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const dungeonInfo = this.getInfo(
 			this.state.dungeonResponse.featuredDungeon.activityHash
 		);
-		const exoticMissionInfo = this.getInfo(this.state.exoticMissionResponse.featuredMission.normal);
-		console.log("exotic mission", exoticMissionInfo);
+		const exoticMissionInfo = this.getInfo(
+			this.state.exoticMissionResponse.featuredMission.normal
+		);
 		const terminalOverloadInfo = this.getInfo(
 			Number(this.state.terminalOverloadResponse.location)
 		);
@@ -248,7 +252,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 					</div>
 					<div>
 						Exotic Mission:
-						<a href="/weekly">
+						<a href='/weekly'>
 							<ImageCard
 								title={exoticMissionInfo.name}
 								imageSrc={exoticMissionInfo.image}
