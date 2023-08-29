@@ -40,7 +40,6 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 		const missionInfo = getActivityDef(
 			this.state.apiResponse.featuredMission.normal
 		);
-        console.log(missionInfo, this.state.apiResponse.featuredMission);
 		if (missionInfo === undefined) {
 			return;
 		}

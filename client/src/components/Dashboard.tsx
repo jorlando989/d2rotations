@@ -7,7 +7,7 @@ import {
 	getArmorImage,
 } from "../services/iconRenderer";
 import { eventType } from "../typeDefinitions/calendarTypes";
-import { terminalOverloadResponse } from "../typeDefinitions/destinationTypes";
+import { terminalOverloadResponse, exoticMissionResponse } from "../typeDefinitions/destinationTypes";
 import { lostSectorType } from "../typeDefinitions/lostSectors";
 import { weeklyNightfallResponse } from "../typeDefinitions/nightfall";
 import {
@@ -31,6 +31,7 @@ type MyState = {
 	raidResponse: raidResponse;
 	dungeonResponse: dungeonResponse;
 	terminalOverloadResponse: terminalOverloadResponse;
+	exoticMissionResponse: exoticMissionResponse;
 };
 
 class Dashboard extends React.Component<MyProps, MyState> {
@@ -69,6 +70,10 @@ class Dashboard extends React.Component<MyProps, MyState> {
 				location: "",
 				weapon: "",
 			},
+			exoticMissionResponse: {
+				featuredMission: {normal: -1, legend: -1},
+                rotation: []
+			}
 		};
 	}
 
@@ -102,12 +107,19 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			.then(res => this.setState({ terminalOverloadResponse: res }));
 	}
 
+	getExoticMissionRotation(){
+		fetch(`${API_ENDPOINT}/api/exotic_mission`)
+			.then(res => res.json())
+			.then(res => this.setState({ exoticMissionResponse: res }));
+	}
+
 	componentDidMount() {
 		this.getLostSectors();
 		this.getWeeklyNightfallRewards();
 		this.getDungeonRotation();
 		this.getRaidRotation();
 		this.getTerminalOverloadRotation();
+		this.getExoticMissionRotation();
 	}
 
 	getInfo(hash: number) {
@@ -177,11 +189,12 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const dungeonInfo = this.getInfo(
 			this.state.dungeonResponse.featuredDungeon.activityHash
 		);
+		const exoticMissionInfo = this.getInfo(this.state.exoticMissionResponse.featuredMission.normal);
+		console.log("exotic mission", exoticMissionInfo);
 		const terminalOverloadInfo = this.getInfo(
 			Number(this.state.terminalOverloadResponse.location)
 		);
 		const reputationBonusInfo = this.getReputationBonus();
-		console.log(reputationBonusInfo);
 		return (
 			<div className='info'>
 				<SeasonCard />
@@ -230,6 +243,15 @@ class Dashboard extends React.Component<MyProps, MyState> {
 							<ImageCard
 								title={dungeonInfo.name?.split(":")[0]}
 								imageSrc={dungeonInfo.image}
+							/>
+						</a>
+					</div>
+					<div>
+						Exotic Mission:
+						<a href="/weekly">
+							<ImageCard
+								title={exoticMissionInfo.name}
+								imageSrc={exoticMissionInfo.image}
 							/>
 						</a>
 					</div>
