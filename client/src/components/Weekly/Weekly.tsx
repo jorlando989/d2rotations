@@ -7,6 +7,7 @@ import DreamingCity from "./DreamingCity";
 import EmpireHunt from "./EmpireHunt";
 import VexIncursionZone from "./VexIncursionZone";
 import EuropaEclipsedZone from "./EuropaEclipsedZone";
+import ExoticMission from "./ExoticMission";
 
 const Weekly: FC = () => {
 	return (
@@ -20,6 +21,10 @@ const Weekly: FC = () => {
 				<h4>Crucible Playlist</h4>
 				<ActivityCardList activityType='cruciblePlaylist' />
 			</div> */}
+			<div>
+				<h4>Exotic Mission</h4>
+				<ExoticMission />
+			</div>
 			<div>
 				<h4>Nightmare Hunts</h4>
 				<ActivityCardList activityType='nightmareHunts' />

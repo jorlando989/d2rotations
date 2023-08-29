@@ -1,0 +1,15 @@
+{
+    "rotation": ["Presage", "Vox Obscura", "Operation: Seraph's Shield"],
+    "Presage": {
+        "normal": 3883295757,
+        "legend": 4201846671
+    },
+    "Vox Obscura": {
+        "normal": 2668737148,
+        "legend": 666172264
+    },
+    "Operation: Seraph's Shield": {
+        "normal": 1221538367,
+        "legend": 2919809209
+    }
+}

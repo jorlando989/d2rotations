@@ -16,6 +16,7 @@ const raidRotationHashes = require("../data/raidRotationHashes.json");
 const dungeonRotationHashes = require("../data/dungeonRotationHashes.json");
 const terminalOverloadHashes = require("../data/terminalOverloadHashes.json");
 const destinationRotationHashes = require("../data/destinationRotations.json");
+const exoticMissionHashes = require("../data/exoticMissionHashes.json");
 
 const LostSectorIndexes = mongoose.model("lostSectorIndex");
 const AltarsOfSorrowRotation = mongoose.model("altarsOfSorrowRotation");
@@ -329,5 +330,18 @@ module.exports = app => {
 			featuredLocation,
 			activityHash: destinationRotationHashes["Europa Eclipsed Zone"]
 		});
+	});
+
+	app.get("/api/exotic_mission", async (req, res) => {
+		const destinationsDB = await DestinationRotations.findOne({
+			name: { $eq: "Exotic Mission" },
+		});
+
+		const featuredMission = exoticMissionHashes.rotation[destinationsDB.id];
+
+		res.send({
+			featuredMission: exoticMissionHashes[featuredMission],
+			rotation: exoticMissionHashes
+		})
 	});
 };
