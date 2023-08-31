@@ -9,26 +9,23 @@
 		{
 			"title": "Iron Banner",
 			"time": [
-				"TBD",
-				"TBD",
-				"TBD"
+				"Fortress: Week 3 on September 5",
+				"Control: Week 8 on October 10",
+				"Fortress: Week 13 on November 14"
 			]
 		},
 		{
 			"title": "Trials of Osiris",
 			"time": [
 				"Week 1 on August 25",
-				"Week 3 on September 8",
 				"Week 4 on September 15",
 				"Week 5 on September 22",
 				"Week 6 on September 29",
 				"Week 7 on October 6",
-				"Week 8 on October 13",
 				"Week 9 on October 20",
 				"Week 10 on October 27",
 				"Week 11 on November 3",
 				"Week 12 on November 10",
-				"Week 13 on November 17",
 				"Week 14 on November 24"
 			]
 		},
@@ -49,7 +46,7 @@
 				"Gambit: Week 10 on October 24",
 				"Vanguard: Week 11 on October 31",
 				"Crucible: Week 12 on November 7",
-				"Trials: Week 13 on November 14" ,
+				"None: Week 13 on November 14" ,
 				"Crucible, Gambit, and Vanguard: Week 14 on November 21"
 			]
 		}
