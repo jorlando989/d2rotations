@@ -3,16 +3,20 @@ import LargeImageCard from "../Card/LargeImageCard";
 import "../styles/component.css";
 import { renderRewards } from "../../services/descriptionRenderer";
 import { getActivityDef, getInventoryItemDef } from "@d2api/manifest-web";
+import { exoticMissionResponse } from "../../typeDefinitions/destinationTypes";
+import { DestinyActivityDefinition } from "bungie-api-ts/destiny2";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
+
+type exoticMissionType = {
+    normal: number,
+    legend: number
+}
 
 type MyProps = {};
 
 type MyState = {
-	apiResponse: {
-        featuredMission: {normal: number, legend: number},
-        rotation: string[]
-    };
+	apiResponse: exoticMissionResponse;
 };
 
 class ExoticMission extends React.Component<MyProps, MyState> {
@@ -20,8 +24,8 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 		super(props);
 		this.state = {
 			apiResponse: {
-				featuredMission: {normal: -1, legend: -1},
-                rotation: []
+				featuredMission: { normal: -1, legend: -1 },
+				rotation: [],
 			},
 		};
 	}
@@ -36,7 +40,7 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 		this.getExoticMissionRotation();
 	}
 
-    getInfo() {
+	getInfo() {
 		const missionInfo = getActivityDef(
 			this.state.apiResponse.featuredMission.normal
 		);
@@ -61,12 +65,39 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 		return { missionInfo, activityRewards };
 	}
 
+	renderRotation(
+		rotation: string[] | undefined,
+		current: string
+	) {
+		if (rotation) {
+			let iconImage: string = "/common/destiny2_content/icons/DestinyMilestoneDefinition_7b2e832d6fa3513b3c3e55f69aaeee40.png";
+			
+            return rotation.map(rotator => {
+				if (rotator === undefined) return null;
+				let classes = "display-in-row center center-vertical pr5";
+				if (rotator === current) {
+					classes = classes.concat(" highlight");
+				}
+				return (
+					<div key={rotator} className={classes}>
+						<img
+							src={`https://www.bungie.net${iconImage}`}
+							className='weaponIcon darkBgIcon'
+							alt='weapon icon'
+						/>
+						{rotator}
+					</div>
+				);
+			});
+		}
+	}
+
 	render() {
 		if (
 			this.state.apiResponse !== undefined &&
 			this.state.apiResponse.featuredMission.normal !== -1
 		) {
-            const rotationInfo = this.getInfo();
+			const rotationInfo = this.getInfo();
 			if (
 				rotationInfo === undefined ||
 				rotationInfo.missionInfo === undefined
@@ -85,6 +116,12 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 							{renderRewards(rotationInfo.activityRewards)}
 						</div>
 					</LargeImageCard>
+                    <div className='display-in-row-wrap rotationBox'>
+					{this.renderRotation(
+						this.state.apiResponse.rotation,
+						rotationInfo.missionInfo.displayProperties.name
+					)}
+				</div>
 				</div>
 			);
 		}

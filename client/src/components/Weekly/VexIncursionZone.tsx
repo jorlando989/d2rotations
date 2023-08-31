@@ -1,7 +1,6 @@
 import { getActivityDef, getInventoryItemDef } from "@d2api/manifest-web";
 import React from "react";
 import "../styles/component.css";
-
 import LargeImageCard from "../Card/LargeImageCard";
 import { renderRewards } from "../../services/descriptionRenderer";
 

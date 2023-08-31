@@ -1,19 +1,9 @@
 import React from "react";
 import LargeImageCard from "../Card/LargeImageCard";
 import "../styles/component.css";
+import { dreamingCityResponse } from "../../typeDefinitions/destinationTypes";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
-
-type dreamingCityResponse = {
-	curseWeek: {
-		strength: string;
-		petraLocation: string;
-	};
-	ascendantChallenge: {
-		currAscendantChallengeInfo: { challengeName: string };
-		currAscendantChallenge: string;
-	};
-};
 
 type MyProps = {};
 
