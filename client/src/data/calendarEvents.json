@@ -1,57 +1,30 @@
 {
 	"events": [
 		{
-			"title": "Crota's End",
+			"title": "Warlord's Ruin",
 			"time": [
-				"Normal: Week 2 on September 1"
+				"Normal: Week 1 on December 1"
 			]
 		},
 		{
 			"title": "Iron Banner",
 			"time": [
-				"Fortress: Week 3 on September 5",
-				"Control: Week 8 on October 10",
-				"Fortress: Week 13 on November 14"
+				"Control: Week 2 on December 5",
+				"Week 6 on January 2",
+				"Week 9 on January 23"
 			]
 		},
 		{
-			"title": "Trials of Osiris",
+			"title": "Crucible Labs",
 			"time": [
-				"Week 1 on August 25",
-				"Week 4 on September 15",
-				"Week 5 on September 22",
-				"Week 6 on September 29",
-				"Week 7 on October 6",
-				"Week 9 on October 20",
-				"Week 10 on October 27",
-				"Week 11 on November 3",
-				"Week 12 on November 10",
-				"Week 14 on November 24"
+				"Checkmate Countdown Rush: Week 5 on December 26",
+				"Checkmate Clash: Week 8 on January 16"
 			]
 		},
-		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on September 12"] },
-		{ "title": "Festival of the Lost", "time": ["TBD"] },
-		{
-			"title": "Reputation Bonus",
-			"time": [
-				"None: Week 1 on August 22",
-				"Gambit: Week 2 on August 29",
-				"Crucible: Week 3 on September 5",
-				"Double Nightfall Rewards: Week 4 on September 12",
-				"Trials: Week 5 on September 19",
-				"Gambit: Week 6 on September 26",
-				"Double Nightfall Rewards: Week 7 on October 3",
-				"Crucible: Week 8 on October 10",
-				"Trials: Week 9 on October 17",
-				"Gambit: Week 10 on October 24",
-				"Vanguard: Week 11 on October 31",
-				"Crucible: Week 12 on November 7",
-				"None: Week 13 on November 14" ,
-				"Crucible, Gambit, and Vanguard: Week 14 on November 21"
-			]
-		}
+		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on December 19"] },
+		{ "title": "The Dawning", "time": ["December 12, 2023 - January 2, 2024"] }
 	],
 	"seasonInfo": {
-		"dates": "August 22, 2023 - November 28, 2023"
+		"dates": "November 28, 2023 - June 3, 2024"
 	}
 }

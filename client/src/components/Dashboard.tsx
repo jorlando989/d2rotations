@@ -149,32 +149,32 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		return name;
 	}
 
-	getReputationBonus() {
-		const reputationEvent = calendarEvents.events.filter(
-			(event: eventType) => {
-				return event.title === "Reputation Bonus";
-			}
-		)[0];
+	// getReputationBonus() {
+	// 	const reputationEvent = calendarEvents.events.filter(
+	// 		(event: eventType) => {
+	// 			return event.title === "Reputation Bonus";
+	// 		}
+	// 	)[0];
 
-		const activeEvent = reputationEvent.time.filter((time: String) => {
-			return checkIfActive(reputationEvent.title, time);
-		})[0];
+	// 	const activeEvent = reputationEvent.time.filter((time: String) => {
+	// 		return checkIfActive(reputationEvent.title, time);
+	// 	})[0];
 
-		if (!activeEvent) {
-			return {
-				title: "No active bonus",
-				activityImg: getActivityImage(""),
-			};
-		}
+	// 	if (!activeEvent) {
+	// 		return {
+	// 			title: "No active bonus",
+	// 			activityImg: getActivityImage(""),
+	// 		};
+	// 	}
 
-		const activeTitle = activeEvent.split(":")[0];
+	// 	const activeTitle = activeEvent.split(":")[0];
 
-		return {
-			title: activeTitle,
-			iconImg: "https://bungie.net" + getActivityIcon(activeTitle),
-			activityImg: getActivityImage(activeTitle),
-		};
-	}
+	// 	return {
+	// 		title: activeTitle,
+	// 		iconImg: "https://bungie.net" + getActivityIcon(activeTitle),
+	// 		activityImg: getActivityImage(activeTitle),
+	// 	};
+	// }
 
 	render() {
 		if (this.state.nightfallResponse.nightfallActivities === undefined) {
@@ -198,7 +198,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const terminalOverloadInfo = this.getInfo(
 			Number(this.state.terminalOverloadResponse.location)
 		);
-		const reputationBonusInfo = this.getReputationBonus();
+		// const reputationBonusInfo = this.getReputationBonus();
 		return (
 			<div className='info'>
 				<SeasonCard />
@@ -270,7 +270,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 							/>
 						</a>
 					</div>
-					<div>
+					{/* <div>
 						Reputation Bonus:
 						<a href='/calendar'>
 							<ImageCard
@@ -279,7 +279,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 								extraImg={reputationBonusInfo.iconImg}
 							/>
 						</a>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		);
