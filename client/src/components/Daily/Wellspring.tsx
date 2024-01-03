@@ -55,6 +55,7 @@ class Wellspring extends React.Component<MyProps, MyState> {
 		if (activityInfo === undefined) {
 			return;
 		}
+		console.log(wellspringInfo.weaponHash);
 		const rewardInfo = getInventoryItemDef(wellspringInfo.weaponHash);
 		if (rewardInfo === undefined) {
 			return;

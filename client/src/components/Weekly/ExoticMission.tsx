@@ -71,11 +71,11 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 	) {
 		if (rotation) {
 			let iconImage: string = "/common/destiny2_content/icons/DestinyMilestoneDefinition_7b2e832d6fa3513b3c3e55f69aaeee40.png";
-			
+			console.log(rotation);
             return rotation.map(rotator => {
 				if (rotator === undefined) return null;
 				let classes = "display-in-row center center-vertical pr5";
-				if (rotator === current) {
+				if (rotator + ": Normal" === current) {
 					classes = classes.concat(" highlight");
 				}
 				return (

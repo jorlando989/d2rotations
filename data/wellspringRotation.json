@@ -1,14 +1,15 @@
 {
     "rotation": ["bor'gong", "zeerik", "golmag", "vezuul"],
+    "weaponRotation": ["Fel Taradiddle", "Father's Sins", "Come to Pass", "Tarnation"],
     "bor'gong": {
         "bossName": "Bor'Gong",
         "activityHash": 54269080,
-        "weaponHash": 138845773
+        "weaponHash": 1399109800
     },
     "zeerik": {
         "bossName": "Zeerik",
         "activityHash": 3333680772,
-        "weaponHash": 408327437
+        "weaponHash": 3865728990
     },
     "golmag": {
         "bossName": "Golmag",
@@ -18,6 +19,6 @@
     "vezuul": {
         "bossName": "Vezuul",
         "activityHash": 2948928434,
-        "weaponHash": 2371706208
+        "weaponHash": 2721157927
     }
 }

@@ -341,7 +341,7 @@ module.exports = app => {
 
 		res.send({
 			featuredMission: exoticMissionHashes[featuredMission],
-			rotation: exoticMissionHashes
+			rotation: exoticMissionHashes.rotation
 		})
 	});
 };

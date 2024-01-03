@@ -167,8 +167,12 @@ export function getCalendarIcon(name: string) {
 			return "/common/destiny2_content/icons/39300324430f597dc9356fa5e10b6837.png";
 		case "Festival of the Lost":
 			return "/common/destiny2_content/icons/DestinyEventCardDefinition_1a1e3f8074c98241af80f4bee77084c3.png";
-		case "Crota's End":
-			return "";
+		case "The Dawning":
+			return "/common/destiny2_content/icons/03c5f9c90c1295c9233a92d8ea8689db.png";
+		case "Warlord's Ruin":
+			return "/common/destiny2_content/icons/DestinyMilestoneDefinition_7b2e832d6fa3513b3c3e55f69aaeee40.png";
+		case "Crucible Labs":
+			return "/common/destiny2_content/icons/DestinyMilestoneDefinition_6e3e2457fd1f7a9df5c491213bcaf133.png";
 	}
 }
 
