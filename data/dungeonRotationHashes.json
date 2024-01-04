@@ -1,5 +1,10 @@
 {
-    "rotation": ["Shattered Throne", "Pit of Heresy", "Prophecy", "Grasp of Avarice", "Duality", "Spire of the Watcher"],
+    "rotation": ["Shattered Throne", "Pit of Heresy", "Prophecy", "Grasp of Avarice", "Duality", "Spire of the Watcher", "Ghosts of the Deep"],
+    "Ghosts of the Deep": {
+        "milestoneHash": 390471874,
+        "activityHash": 313828469,
+        "masterActivityHash": 2716998124
+    },
     "Spire of the Watcher": {
         "milestoneHash": 526718853,
         "activityHash": 1262462921,
