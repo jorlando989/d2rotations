@@ -93,7 +93,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 					);
 				});
 		}
-
+		console.log(this.state.raidApiResponse.raidRotation);
 		const rotation = this.state.raidApiResponse.raidRotation.map(raid => {
 			const raidData = getActivityDef(raid.activityHash);
 			return raidData;
