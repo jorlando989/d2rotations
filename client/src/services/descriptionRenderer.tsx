@@ -1,4 +1,5 @@
 import {
+	DestinyActivityDefinition,
 	DestinyActivityModifierDefinition,
 	DestinyInventoryItemDefinition,
 } from "bungie-api-ts/destiny2";
@@ -10,6 +11,7 @@ import {
 
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+import { getInventoryItemDef } from "@d2api/manifest-web";
 
 function renderVar(description: string) {
 	const varString = description
@@ -85,8 +87,9 @@ export function renderModifiers(
 }
 
 export function renderRewards(
-	rewardsInfo: (DestinyInventoryItemDefinition | undefined)[]
+	rewardsInfo: (DestinyInventoryItemDefinition | undefined)[] | null
 ) {
+	if (rewardsInfo === null) return;
 	return rewardsInfo.map(reward => {
 		if (reward === undefined) return null;
 		if (reward.iconWatermark) {
@@ -112,4 +115,23 @@ export function renderRewards(
 			</div>
 		);
 	});
+}
+ export function getActivityRewards(activityInfo: DestinyActivityDefinition | undefined){
+	if (activityInfo === undefined) return null;
+	const activityRewards = activityInfo.rewards.flatMap(
+		({ rewardItems }) => {
+			const rewards = rewardItems
+				.filter(reward => {
+					return reward !== undefined;
+				})
+				.map(reward => {
+					const rewardData = getInventoryItemDef(
+						reward.itemHash
+					)!;
+					return rewardData;
+				});
+			return rewards;
+		}
+	);
+	return activityRewards;
 }

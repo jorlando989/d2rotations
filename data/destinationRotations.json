@@ -1,7 +1,10 @@
 {
     "europaRotation": ["Eventide Ruins", "Asterion Abyss", "Cadmus Ridge"],
     "neomunaRotation": ["Liming Harbor", "Zephyr Concourse", "Ahimsa Park"],
+    "overthrowRotation": ["Impasse", "Blooming", "Landing"],
     "Europa Eclipsed Zone": 1813752023,
     "Vex Incursion Zone": 231808097,
+    "Overthrow": 1079402165,
+    "Pale Heart": 3998251206,
     "Neomuna": 2992386051
 }

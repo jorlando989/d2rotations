@@ -169,8 +169,10 @@ export function getCalendarIcon(name: string) {
 			return "/common/destiny2_content/icons/DestinyEventCardDefinition_1a1e3f8074c98241af80f4bee77084c3.png";
 		case "The Dawning":
 			return "/common/destiny2_content/icons/03c5f9c90c1295c9233a92d8ea8689db.png";
-		case "Warlord's Ruin":
-			return "/common/destiny2_content/icons/DestinyMilestoneDefinition_7b2e832d6fa3513b3c3e55f69aaeee40.png";
+		case "Salvation's Edge":
+			return "/common/destiny2_content/icons/4da15a79ac0497134721eb8ce11004e3.png";
+		case "Acts":
+			return "/common/destiny2_content/icons/3da29bf786212928dfa439737f91725d.png";
 		case "Crucible Labs":
 			return "/common/destiny2_content/icons/DestinyMilestoneDefinition_6e3e2457fd1f7a9df5c491213bcaf133.png";
 	}

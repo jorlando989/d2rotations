@@ -229,3 +229,7 @@
     background: rgba(0, 0, 0, 0.5);
     border-radius: 3px;
 }
+
+.exoticMission > div {
+    height: 80%;
+}

@@ -23,7 +23,11 @@ const Weekly: FC = () => {
 			</div> */}
 			<div>
 				<h4>Exotic Mission</h4>
-				<ExoticMission />
+				<div className="mt10 display-in-row-wrap row-margin exoticMission">
+					<ExoticMission name=""/>
+					<ExoticMission name="Zero Hour"/>
+					<ExoticMission name="The Whisper"/>
+				</div>
 			</div>
 			<div>
 				<h4>Nightmare Hunts</h4>

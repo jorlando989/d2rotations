@@ -1,5 +1,5 @@
 {
-    "rotation": ["Undercurrent", "Uzume RR4", "BrayTech Osprey", "Loaded Question", "Warden's Law", "Pre Astyanax IV"],
+    "rotation": ["Warden's Law", "Pre Astyanax IV", "Undercurrent", "Uzume RR4", "The Slammer", "Wild Style", "Scintillation", "Shadow Price"],
     "D.F.A.": {
         "itemHash": 575830664,
         "adeptItemHash": 2006308129
@@ -41,19 +41,35 @@
         "adeptItemHash": 3341152510 
     },
     "Warden's Law": {
-        "itemHash": 3601846646,
-        "adeptItemHash": 2088917122
+        "itemHash": 2015566989,
+        "adeptItemHash": 1606927173
     },
     "Pre Astyanax IV": {
-        "itemHash": 192784503,
-        "adeptItemHash": 2807348229
+        "itemHash": 1066588498,
+        "adeptItemHash": 130489153
     },
     "Uzume RR4": {
-        "itemHash": 2450917538,
-        "adeptItemHash": 852228780
+        "itemHash": 42874240,
+        "adeptItemHash": 1256672756
     },
     "Undercurrent": {
-        "itemHash": 1151688091,
-        "adeptItemHash": 672957262
+        "itemHash": 1047537927,
+        "adeptItemHash": 817909300
+    }, 
+    "The Slammer": {
+        "itemHash": 2889501828,
+        "adeptItemHash": 1354727549
+    },
+    "Wild Style": {
+        "itemHash": 249396569,
+        "adeptItemHash": 3188175770
+    },
+    "Scintillation": {
+        "itemHash": 41264278,
+        "adeptItemHash": 1492522228
+    },
+    "Shadow Price": {
+        "itemHash": 911992742,
+        "adeptItemHash": 1047780469
     }
 }

@@ -344,4 +344,18 @@ module.exports = app => {
 			rotation: exoticMissionHashes.rotation
 		})
 	});
+
+	app.get("/api/overthrow", async (req, res) => {
+		const destinationsDB = await DestinationRotations.findOne({
+			name: { $eq: "Overthrow" },
+		});
+
+		const overthrowLocation = destinationRotationHashes.overthrowRotation[destinationsDB.id];
+
+		res.send({
+			overthrowLocation,
+			activityHash: destinationRotationHashes["Overthrow"],
+			destinationHash: destinationRotationHashes["Pale Heart"]
+		})
+	});
 };

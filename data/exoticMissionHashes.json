@@ -1,5 +1,5 @@
 {
-    "rotation": ["Presage", "Vox Obscura", "Operation: Seraph's Shield"],
+    "rotation": ["Presage", "Vox Obscura", "Operation: Seraph's Shield", "//node.ovrd.AVALON//", "Starcrossed"],
     "Presage": {
         "normal": 3883295757,
         "legend": 4201846671
@@ -11,5 +11,13 @@
     "Operation: Seraph's Shield": {
         "normal": 1221538367,
         "legend": 2919809209
+    },
+    "//node.ovrd.AVALON//": {
+        "normal": 509188661,
+        "legend": 3083261666
+    },
+    "Starcrossed": {
+        "normal": 896748846,
+        "legend": 3214480871
     }
 }

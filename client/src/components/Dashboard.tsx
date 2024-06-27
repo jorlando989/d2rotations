@@ -1,15 +1,12 @@
 import { getActivityDef } from "@d2api/manifest-web";
 import React from "react";
-import { checkIfActive } from "../services/activeChecker";
 import {
-	getActivityIcon,
-	getActivityImage,
 	getArmorImage,
 } from "../services/iconRenderer";
-import { eventType } from "../typeDefinitions/calendarTypes";
 import {
 	terminalOverloadResponse,
 	exoticMissionResponse,
+	overthrowResponse
 } from "../typeDefinitions/destinationTypes";
 import { lostSectorType } from "../typeDefinitions/lostSectors";
 import { weeklyNightfallResponse } from "../typeDefinitions/nightfall";
@@ -23,7 +20,6 @@ import CountdownTimer from "./CountdownTimer";
 import "./styles/component.css";
 import "./styles/dashboard.css";
 
-const calendarEvents = require("../data/calendarEvents.json");
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 type MyProps = {};
@@ -35,6 +31,7 @@ type MyState = {
 	dungeonResponse: dungeonResponse;
 	terminalOverloadResponse: terminalOverloadResponse;
 	exoticMissionResponse: exoticMissionResponse;
+	overthrowResponse: overthrowResponse;
 };
 
 class Dashboard extends React.Component<MyProps, MyState> {
@@ -77,6 +74,11 @@ class Dashboard extends React.Component<MyProps, MyState> {
 				featuredMission: { normal: -1, legend: -1 },
 				rotation: [],
 			},
+			overthrowResponse: {
+				overthrowLocation: "",
+				activityHash: -1,
+				destinationHash: -1
+			}
 		};
 	}
 
@@ -110,6 +112,12 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			.then(res => this.setState({ terminalOverloadResponse: res }));
 	}
 
+	getOverthrowRotation() {
+		fetch(`${API_ENDPOINT}/api/overthrow`)
+			.then(res => res.json())
+			.then(res => this.setState({ overthrowResponse: res }));
+	}
+
 	getExoticMissionRotation() {
 		fetch(`${API_ENDPOINT}/api/exotic_mission`)
 			.then(res => res.json())
@@ -123,6 +131,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		this.getRaidRotation();
 		this.getTerminalOverloadRotation();
 		this.getExoticMissionRotation();
+		this.getOverthrowRotation();
 	}
 
 	getInfo(hash: number) {
@@ -198,6 +207,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const terminalOverloadInfo = this.getInfo(
 			Number(this.state.terminalOverloadResponse.location)
 		);
+		const overthrowInfo = this.getInfo(this.state.overthrowResponse.activityHash);
 		// const reputationBonusInfo = this.getReputationBonus();
 		return (
 			<div className='info'>
@@ -267,6 +277,15 @@ class Dashboard extends React.Component<MyProps, MyState> {
 									terminalOverloadInfo.name
 								)}
 								imageSrc={terminalOverloadInfo.image}
+							/>
+						</a>
+					</div>
+					<div>
+						Overthrow:
+						<a href='/daily'>
+							<ImageCard
+								title={this.state.overthrowResponse.overthrowLocation}
+								imageSrc={overthrowInfo.image}
 							/>
 						</a>
 					</div>

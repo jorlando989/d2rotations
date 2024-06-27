@@ -1,30 +1,32 @@
 {
 	"events": [
 		{
-			"title": "Warlord's Ruin",
+			"title": "Acts",
 			"time": [
-				"Normal: Week 1 on December 1"
+				"Act 1: Week 2 on June 11",
+				"Act 2: Week 7 on July 16",
+				"Act 3: Week 13 on August 27"
+			]
+		},
+		{
+			"title": "Salvation's Edge",
+			"time": [
+				"Normal: Week 1 on June 7",
+				"Master: Week 4 on June 25"
 			]
 		},
 		{
 			"title": "Iron Banner",
 			"time": [
-				"Control: Week 2 on December 5",
-				"Week 6 on January 2",
-				"Week 9 on January 23"
+				"Week 5 on July 2",
+				"TBA",
+				"TBA"
 			]
 		},
-		{
-			"title": "Crucible Labs",
-			"time": [
-				"Checkmate Countdown Rush: Week 5 on December 26",
-				"Checkmate Clash: Week 8 on January 16"
-			]
-		},
-		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on December 19"] },
-		{ "title": "The Dawning", "time": ["December 12, 2023 - January 2, 2024"] }
+		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on June 25"] },
+		{ "title": "Solstice", "time": ["August 6, 2024 - August 26, 2024"] }
 	],
 	"seasonInfo": {
-		"dates": "November 28, 2023 - June 3, 2024"
+		"dates": "June 11, 2024 - TBA"
 	}
 }

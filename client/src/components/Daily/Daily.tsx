@@ -6,6 +6,7 @@ import Countdown from "../CountdownTimer";
 import LostSectorRotation from "./LostSectorRotation";
 import Wellspring from "./Wellspring";
 import TerminalOverload from "./TerminalOverload";
+import Overthrow from "./Overthrow"
 // import StrikeModifiers from './StrikeModifiers';
 
 const Daily: FC = () => {
@@ -18,15 +19,16 @@ const Daily: FC = () => {
 
 			<h4>Lost Sector</h4>
 			<LostSectorRotation />
+			
+			<div className='mt10 display-in-row-wrap row-margin'>
+				<Overthrow />
+				<TerminalOverload />
+				<Wellspring />
+			</div>
 
 			<div>
 				<h4>Altars of Sorrow Reward</h4>
 				<AltarsOfSorrow />
-			</div>
-			
-			<div className='mt10 display-in-row-wrap row-margin'>
-				<Wellspring />
-				<TerminalOverload />
 			</div>
 
 			<div>

@@ -193,7 +193,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 	renderTable(nightfallLevels: nightfallLevelsInfoType[]) {
 		return (
 			<Tabs
-				defaultActiveKey='Nightfall: Hero'
+				defaultActiveKey='Nightfall: Advanced'
 				id='nightfall-tabs'
 				className='mb-3'
 			>

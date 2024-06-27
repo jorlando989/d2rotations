@@ -8,6 +8,12 @@ export type exoticMissionResponse = {
 	rotation: string[]
 }
 
+export type overthrowResponse = {
+	overthrowLocation: string;
+	activityHash: number;
+	destinationHash: number;
+};
+
 export type dreamingCityResponse = {
 	curseWeek: {
 		strength: string;

@@ -1,19 +1,23 @@
 import React from "react";
 import LargeImageCard from "../Card/LargeImageCard";
 import "../styles/component.css";
-import { renderRewards } from "../../services/descriptionRenderer";
 import { getActivityDef, getInventoryItemDef } from "@d2api/manifest-web";
 import { exoticMissionResponse } from "../../typeDefinitions/destinationTypes";
-import { DestinyActivityDefinition } from "bungie-api-ts/destiny2";
+import {
+	renderRewards,
+	getActivityRewards,
+} from "../../services/descriptionRenderer";
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 type exoticMissionType = {
-    normal: number,
-    legend: number
-}
+	normal: number;
+	legend: number;
+};
 
-type MyProps = {};
+type MyProps = {
+	name: string | undefined;
+};
 
 type MyState = {
 	apiResponse: exoticMissionResponse;
@@ -47,35 +51,31 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 		if (missionInfo === undefined) {
 			return;
 		}
-		const activityRewards = missionInfo.rewards.flatMap(
-			({ rewardItems }) => {
-				const rewards = rewardItems
-					.filter(reward => {
-						return reward !== undefined;
-					})
-					.map(reward => {
-						const rewardData = getInventoryItemDef(
-							reward.itemHash
-						)!;
-						return rewardData;
-					});
-				return rewards;
-			}
-		);
+		return {
+			missionInfo,
+			activityRewards: getActivityRewards(missionInfo),
+		};
+	}
+
+	getMissionInfo(hash: number) {
+		const missionInfo = getActivityDef(hash);
+		const activityRewards = getActivityRewards(missionInfo);
 		return { missionInfo, activityRewards };
 	}
 
-	renderRotation(
-		rotation: string[] | undefined,
-		current: string
-	) {
+	renderRotation(rotation: string[] | undefined, current: string) {
+		if (current === "The Whisper: Standard" || current === "Zero Hour: Standard") return;
 		if (rotation) {
-			let iconImage: string = "/common/destiny2_content/icons/DestinyMilestoneDefinition_7b2e832d6fa3513b3c3e55f69aaeee40.png";
-			console.log(rotation);
-            return rotation.map(rotator => {
+			let iconImage: string =
+				"/common/destiny2_content/icons/9e6c42c7427efa14f50279d761744e38.png";
+			return rotation.map(rotator => {
 				if (rotator === undefined) return null;
 				let classes = "display-in-row center center-vertical pr5";
-				if (rotator + ": Normal" === current) {
+				if (
+					rotator === current ||
+					rotator + ": Standard" === current ||
+					rotator + ": Normal" === current
+				) {
 					classes = classes.concat(" highlight");
 				}
 				return (
@@ -97,31 +97,44 @@ class ExoticMission extends React.Component<MyProps, MyState> {
 			this.state.apiResponse !== undefined &&
 			this.state.apiResponse.featuredMission.normal !== -1
 		) {
-			const rotationInfo = this.getInfo();
-			if (
-				rotationInfo === undefined ||
-				rotationInfo.missionInfo === undefined
-			)
-				return <div>error loading rotation </div>;
+			var rotationInfo = null;
+			if (this.props.name === "") {
+				rotationInfo = this.getInfo();
+			} else if (this.props.name === "The Whisper") {
+				rotationInfo = this.getMissionInfo(3743446313);
+			} else if (this.props.name === "Zero Hour") {
+				rotationInfo = this.getMissionInfo(3361746271);
+				
+			} 
+			if (rotationInfo === null || rotationInfo === undefined || rotationInfo.missionInfo === undefined) return <div>error loading exotic mission info</div>;
 			return (
 				<div style={{ maxWidth: "500px" }}>
 					<LargeImageCard
 						imageSrc={rotationInfo.missionInfo?.pgcrImage}
-						title={rotationInfo.missionInfo.displayProperties.name}
+						title={
+							rotationInfo.missionInfo.displayProperties.name
+						}
 					>
 						<div
-							className='dark-background p5'
+							className='dark-background p5 overflowAuto80'
 							style={{ width: "80%", margin: "auto" }}
 						>
+							<div>
+								{
+									rotationInfo.missionInfo
+										?.displayProperties.description
+								}
+							</div> 
+							<hr />
 							{renderRewards(rotationInfo.activityRewards)}
 						</div>
 					</LargeImageCard>
-                    <div className='display-in-row-wrap rotationBox'>
-					{this.renderRotation(
-						this.state.apiResponse.rotation,
-						rotationInfo.missionInfo.displayProperties.name
-					)}
-				</div>
+					<div className='display-in-row-wrap rotationBox'>
+						{this.renderRotation(
+							this.state.apiResponse.rotation,
+							rotationInfo.missionInfo.displayProperties.name
+						)}
+					</div>
 				</div>
 			);
 		}
