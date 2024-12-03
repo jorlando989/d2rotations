@@ -1,5 +1,5 @@
 {
-    "rotation": ["Undercurrent",  "Scintillation", "Uzume RR4", "Rake Angle", "Shadow Price", "Plug One.1", "Wild Style", "The Slammer"],
+    "rotation": ["Undercurrent",  "Scintillation", "Uzume RR4", "Rake Angle", "Shadow Price", "PLUG ONE.1", "Wild Style", "The Slammer"],
     "D.F.A.": {
         "itemHash": 575830664,
         "adeptItemHash": 2006308129
@@ -49,28 +49,28 @@
         "adeptItemHash": 130489153
     },
     "Uzume RR4": {
-        "itemHash": 42874240,
-        "adeptItemHash": 1256672756
+        "itemHash": 2487540783,
+        "adeptItemHash": 3610521673
     },
     "Undercurrent": {
-        "itemHash": 1047537927,
-        "adeptItemHash": 817909300
+        "itemHash": 502425410,
+        "adeptItemHash": 2694613907
     }, 
     "The Slammer": {
         "itemHash": 2889501828,
         "adeptItemHash": 1354727549
     },
     "Wild Style": {
-        "itemHash": 249396569,
-        "adeptItemHash": 3188175770
+        "itemHash": 1332123064,
+        "adeptItemHash": 3004927172
     },
     "Scintillation": {
-        "itemHash": 41264278,
-        "adeptItemHash": 1492522228
+        "itemHash": 1262289634,
+        "adeptItemHash": 380705679
     },
     "Shadow Price": {
-        "itemHash": 911992742,
-        "adeptItemHash": 1047780469
+        "itemHash": 168662290,
+        "adeptItemHash": 15760717
     },
     "Rake Angle": {
         "itemHash": 3790887546,
