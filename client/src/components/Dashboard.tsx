@@ -56,10 +56,20 @@ class Dashboard extends React.Component<MyProps, MyState> {
 					activityHash: -1,
 					masterActivityHash: -1,
 				},
+				featuredRaid2: {
+					milestoneHash: -1,
+					activityHash: -1,
+					masterActivityHash: -1,
+				},
 				raidRotation: [],
 			},
 			dungeonResponse: {
 				featuredDungeon: {
+					milestoneHash: -1,
+					activityHash: -1,
+					masterActivityHash: -1,
+				},
+				featuredDungeon2: {
 					milestoneHash: -1,
 					activityHash: -1,
 					masterActivityHash: -1,
@@ -198,8 +208,14 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		const raidInfo = this.getInfo(
 			this.state.raidResponse.featuredRaid.activityHash
 		);
+		const raidInfo2 = this.getInfo(
+			this.state.raidResponse.featuredRaid2.activityHash
+		);
 		const dungeonInfo = this.getInfo(
 			this.state.dungeonResponse.featuredDungeon.activityHash
+		);
+		const dungeonInfo2 = this.getInfo(
+			this.state.dungeonResponse.featuredDungeon2.activityHash
 		);
 		const exoticMissionInfo = this.getInfo(
 			this.state.exoticMissionResponse.featuredMission.normal
@@ -252,11 +268,29 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						</a>
 					</div>
 					<div>
+						Raid Rotator 2:
+						<a href='/raiddungeon'>
+							<ImageCard
+								title={raidInfo2.name?.split(":")[0]}
+								imageSrc={raidInfo2.image}
+							/>
+						</a>
+					</div>
+					<div>
 						Dungeon Rotator:
 						<a href='/raiddungeon'>
 							<ImageCard
 								title={dungeonInfo.name?.split(":")[0]}
 								imageSrc={dungeonInfo.image}
+							/>
+						</a>
+					</div>
+					<div>
+						Dungeon Rotator 2:
+						<a href='/raiddungeon'>
+							<ImageCard
+								title={dungeonInfo2.name?.split(":")[0]}
+								imageSrc={dungeonInfo2.image}
 							/>
 						</a>
 					</div>

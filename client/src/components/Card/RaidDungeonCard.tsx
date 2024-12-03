@@ -2,6 +2,7 @@ import { getActivityDef, getActivityModifierDef } from "@d2api/manifest-web";
 import React from "react";
 import {
 	dungeonResponse,
+	featuredType,
 	raidResponse,
 	rotatorType
 } from "../../typeDefinitions/raidDungeonTypes";
@@ -37,10 +38,20 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 					activityHash: -1,
 					masterActivityHash: -1,
 				},
+				featuredRaid2: {
+					milestoneHash: -1,
+					activityHash: -1,
+					masterActivityHash: -1,
+				},
 				raidRotation: [],
 			},
 			dungeonApiResponse: {
 				featuredDungeon: {
+					milestoneHash: -1,
+					activityHash: -1,
+					masterActivityHash: -1,
+				},
+				featuredDungeon2: {
 					milestoneHash: -1,
 					activityHash: -1,
 					masterActivityHash: -1,
@@ -67,8 +78,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 		else if (this.props.type === "dungeon") this.getDungeonRotation();
 	}
 
-	getRaidInfo() {
-		const featuredRaid = this.state.raidApiResponse.featuredRaid;
+	getRaidInfo(featuredRaid: featuredType) {
 		const raidInfo = getActivityDef(featuredRaid.activityHash);
 		if (raidInfo === undefined) return;
 
@@ -93,7 +103,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 					);
 				});
 		}
-		console.log(this.state.raidApiResponse.raidRotation);
+
 		const rotation = this.state.raidApiResponse.raidRotation.map(raid => {
 			const raidData = getActivityDef(raid.activityHash);
 			return raidData;
@@ -119,12 +129,11 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 			masterInfo,
 			rotation,
 			challenges,
-			masterModifiers,
+			masterModifiers
 		};
 	}
 
-	getDungeonInfo() {
-		const featuredDungeon = this.state.dungeonApiResponse.featuredDungeon;
+	getDungeonInfo(featuredDungeon: featuredType) {
 		const dungeonInfo = getActivityDef(featuredDungeon.activityHash);
 		if (dungeonInfo === undefined) return;
 
@@ -236,6 +245,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 	renderRotation(
 		rotation: DestinyActivityDefinition[] | undefined,
 		current: string,
+		current2: string,
 		type: string
 	) {
 		if (rotation) {
@@ -248,7 +258,7 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 				if (rotator === undefined) return null;
 				let classes =
 					"display-in-row center center-vertical pr5";
-				if (rotator.displayProperties.name === current) {
+				if (rotator.displayProperties.name === current || rotator.displayProperties.name === current2) {
 					classes = classes.concat(" highlight");
 				}
 				if (iconImage === "") {
@@ -268,8 +278,8 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 		}
 	}
 
-	renderRotator(rotator: rotatorType, type: string) {
-		if (rotator === undefined) return <div>error loading rotator</div>;
+	renderRotator(rotator: rotatorType, rotator2: rotatorType, type: string) {
+		if (rotator === undefined || rotator2 === undefined) return <div>error loading rotator</div>;
 		return (
 			<div className='ml5 mr5 raidDungeonCard'>
 				<LargeImageCard
@@ -284,10 +294,23 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 						{this.renderMaster(rotator.masterModifiers)}
 					</div>
 				</LargeImageCard>
+				<LargeImageCard
+					title={
+						rotator2.rotatorInfo.displayProperties.name.split(":")[0]
+					}
+					imageSrc={rotator2.rotatorInfo.pgcrImage}
+					withFooter={true}
+				>
+					<div className='overflowAuto'>
+						{this.renderChallenges(rotator2.challenges)}
+						{this.renderMaster(rotator2.masterModifiers)}
+					</div>
+				</LargeImageCard>
 				<div className='display-in-row-wrap rotationBox'>
 					{this.renderRotation(
 						rotator.rotation,
 						rotator.rotatorInfo.displayProperties.name,
+						rotator2.rotatorInfo.displayProperties.name,
 						type
 					)}
 				</div>
@@ -302,20 +325,22 @@ class RaidDungeonCard extends React.Component<MyProps, MyState> {
 				this.state.raidApiResponse !== null &&
 				this.state.raidApiResponse.featuredRaid.activityHash !== -1
 			) {
-				const raidInfo = this.getRaidInfo();
-				if (raidInfo === undefined)
+				const raidInfo = this.getRaidInfo(this.state.raidApiResponse.featuredRaid);
+				const raidInfo2 = this.getRaidInfo(this.state.raidApiResponse.featuredRaid2);
+				if (raidInfo === undefined || raidInfo2 === undefined)
 					return <div>error loading raid rotator </div>;
-				return <div>{this.renderRotator(raidInfo, "raid")}</div>;
+				return <div>{this.renderRotator(raidInfo, raidInfo2, "raid")}</div>;
 			} else if (
 				this.props.type === "dungeon" &&
 				this.state.dungeonApiResponse !== null &&
 				this.state.dungeonApiResponse.featuredDungeon.activityHash !==
 					-1
 			) {
-				const dungeonInfo = this.getDungeonInfo();
+				const dungeonInfo = this.getDungeonInfo(this.state.dungeonApiResponse.featuredDungeon);
+				const dungeonInfo2 = this.getDungeonInfo(this.state.dungeonApiResponse.featuredDungeon2);
 				if (dungeonInfo === undefined)
 					return <div>error loading dungeon rotator </div>;
-				return <div>{this.renderRotator(dungeonInfo, "Dungeon")}</div>;
+				return <div>{this.renderRotator(dungeonInfo, dungeonInfo2, "Dungeon")}</div>;
 			}
 		} else {
 			return <div>loading...</div>;

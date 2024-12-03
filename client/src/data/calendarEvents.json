@@ -3,30 +3,30 @@
 		{
 			"title": "Acts",
 			"time": [
-				"Act 1: Week 2 on June 11",
-				"Act 2: Week 7 on July 16",
-				"Act 3: Week 13 on August 27"
+				"Act 1: Week 1 on October 8",
+				"Act 2: Week 7 on November 19",
+				"Act 3: Week 14 on January 7"
 			]
 		},
 		{
-			"title": "Salvation's Edge",
+			"title": "Vesper's Host",
 			"time": [
-				"Normal: Week 1 on June 7",
-				"Master: Week 4 on June 25"
+				"Week 1 on June 7"
 			]
 		},
 		{
 			"title": "Iron Banner",
 			"time": [
-				"Control: Week 5 on July 2",
-				"Tribute: Week 6 on July 9",
+				"Week 8 on November 19",
+				"Week 9 on December 3",
 				"TBA"
 			]
 		},
-		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on June 25"] },
-		{ "title": "Solstice", "time": ["August 6, 2024 - August 26, 2024"] }
+		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on October 29"] },
+		{ "title": "Festival of the Lost", "time": ["October 29, 2024 - November 18, 2024"] },
+		{ "title": "The Dawning", "time": ["December 10, 2024 - December 31, 2024"] }
 	],
 	"seasonInfo": {
-		"dates": "June 11, 2024 - TBA"
+		"dates": "October 8, 2024 - Febraury 4, 2025"
 	}
 }

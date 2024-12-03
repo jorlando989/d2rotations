@@ -208,9 +208,9 @@ class LostSectorRotation extends React.Component<MyProps, MyState> {
 						<div className='ml5'>
 							{this.renderLostSectorRotation()}
 						</div>
-						<div className='display-in-row rewardRotation'>
+						{/* <div className='display-in-row rewardRotation'>
 							{this.renderRewardRotation()}
-						</div>
+						</div> */}
 					</div>
 				</div>
 			);

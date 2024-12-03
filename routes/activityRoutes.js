@@ -235,8 +235,8 @@ module.exports = app => {
 			featuredRaidIndex: { $gte: 0 },
 		});
 
-		const featuredRaid =
-			raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex];
+		const featuredRaid = raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex];
+		const featuredRaid2 = raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex + 1];
 
 		const rotationHashes = raidRotationHashes.rotation.map(raidName => {
 			return raidRotationHashes[raidName];
@@ -244,6 +244,7 @@ module.exports = app => {
 
 		res.send({
 			featuredRaid: raidRotationHashes[featuredRaid],
+			featuredRaid2: raidRotationHashes[featuredRaid2],
 			raidRotation: rotationHashes,
 		});
 	});
@@ -253,8 +254,8 @@ module.exports = app => {
 			featuredDungeonIndex: { $gte: 0 },
 		});
 
-		const featuredDungeon =
-			dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex];
+		const featuredDungeon = dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex];
+		const featuredDungeon2 = dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex + 1];
 
 		const rotationHashes = dungeonRotationHashes.rotation.map(
 			dungeonName => {
@@ -264,6 +265,7 @@ module.exports = app => {
 
 		res.send({
 			featuredDungeon: dungeonRotationHashes[featuredDungeon],
+			featuredDungeon2: dungeonRotationHashes[featuredDungeon2],
 			dungeonRotation: rotationHashes,
 		});
 	});

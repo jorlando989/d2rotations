@@ -16,10 +16,12 @@ type featuredType = {
 
 export type raidResponse = {
 	featuredRaid: featuredType;
+    featuredRaid2: featuredType;
 	raidRotation: DestinyActivityDefinition[];
 };
 
 export type dungeonResponse  = {
     featuredDungeon: featuredType;
+    featuredDungeon2: featuredType;
 	dungeonRotation: DestinyActivityDefinition[];
 }

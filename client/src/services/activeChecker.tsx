@@ -122,8 +122,13 @@ function checkHasPassed(time: String, now: Date) {
 	const month = splitString[splitString.length - 2];
 	const day = Number(splitString[splitString.length - 1]);
 
+	var year = now.getFullYear();
+	if (monthNames.indexOf(month) == 0) {
+		year++;
+	}
+
 	const eventDate = new Date(
-		now.getFullYear(),
+		year,
 		monthNames.indexOf(month),
 		day
 	);
