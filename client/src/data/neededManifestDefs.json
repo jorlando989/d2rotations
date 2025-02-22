@@ -6,6 +6,7 @@
 		"ActivityMode",
 		"BreakerType",
 		"DamageType",
-		"Season"
+		"Season",
+		"Collectible"
 	]
 }

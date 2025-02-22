@@ -47,7 +47,7 @@ class Dashboard extends React.Component<MyProps, MyState> {
 			},
 			nightfallResponse: {
 				nightfallActivities: undefined,
-				weaponsRotation: [{ itemHash: -1, adeptItemHash: -1 }],
+				weaponsRotation: [{ itemHash: -1, adeptItemHash: -1, collectibleHash: -1, adeptCollectibleHash: -1}],
 				currWeapon: "",
 			},
 			raidResponse: {

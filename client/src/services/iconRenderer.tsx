@@ -160,7 +160,7 @@ export function getCalendarIcon(name: string) {
 		case "Grandmaster Nightfalls":
 			return "/common/destiny2_content/icons/87271a86b4542822aad73d8f0f56d4cb.png";
 		case "Guardian Games":
-			return "/common/destiny2_content/icons/3ced9acee3e24b777f57c95c07efa0f2.png";
+			return "/common/destiny2_content/icons/DestinyEventCardDefinition_ce6c2cf855dce694bcc89803b6bc44b7.png";
 		case "Reputation Bonus":
 			return "/common/destiny2_content/icons/406c1a5917cb2eb5c59ca0b8e43de411.png";
 		case "Solstice": 
@@ -169,7 +169,9 @@ export function getCalendarIcon(name: string) {
 			return "/common/destiny2_content/icons/DestinyEventCardDefinition_1a1e3f8074c98241af80f4bee77084c3.png";
 		case "The Dawning":
 			return "/common/destiny2_content/icons/03c5f9c90c1295c9233a92d8ea8689db.png";
-		case "Vesper's Host":
+		case "Moments of Triumph":
+			return "/common/destiny2_content/icons/3fc55af09fc887e17e1fcf41553619c4.png";
+		case "Sundered Doctrine":
 			return "/common/destiny2_content/icons/1406f929d0c25506a5ab5ea73956fcb3.png";
 		case "Acts":
 			return "/common/destiny2_content/icons/3da29bf786212928dfa439737f91725d.png";

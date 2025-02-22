@@ -1,5 +1,5 @@
 {
-    "rotation": ["Shattered Throne", "Duality", "Spire of the Watcher", "Pit of Heresy", "Prophecy", "Ghosts of the Deep", "Grasp of Avarice", "Warlord's Ruin"],
+    "rotation": ["Shattered Throne", "Duality", "Spire of the Watcher", "Pit of Heresy", "Prophecy", "Ghosts of the Deep", "Grasp of Avarice", "Warlord's Ruin", "Vesper's Host"],
     "Ghosts of the Deep": {
         "milestoneHash": 390471874,
         "activityHash": 313828469,
@@ -39,6 +39,10 @@
         "milestoneHash": 3921784328,
         "activityHash": 2004855007,
         "masterActivityHash": 2534833093
-
+    }, 
+    "Vesper's Host": {
+        "milestoneHash": 4062961115, 
+        "activityHash": 1915770060,
+        "masterActivityHash": 4293676253
     }
 }

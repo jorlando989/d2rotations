@@ -1,12 +1,15 @@
 import {
 	DestinyActivityDefinition,
 	DestinyActivityModifierDefinition,
+	DestinyCollectibleDefinition,
 	DestinyInventoryItemDefinition,
 } from "bungie-api-ts/destiny2";
 
 type weaponHashType = {
 	itemHash: number,
-	adeptItemHash: number
+	adeptItemHash: number,
+	collectibleHash: number,
+	adeptCollectibleHash: number
 }
 
 export type weeklyNightfallResponse = {
@@ -31,6 +34,6 @@ export type nightfallLevelsInfoType =
 	| undefined;
 
 export type weaponInfoType = {
-	itemInfo: DestinyInventoryItemDefinition | undefined,
-	adeptItemInfo: DestinyInventoryItemDefinition | undefined
+	itemInfo: DestinyCollectibleDefinition | undefined,
+	adeptItemInfo: DestinyCollectibleDefinition | undefined
 } | undefined;

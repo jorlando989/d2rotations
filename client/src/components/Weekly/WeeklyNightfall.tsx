@@ -2,6 +2,7 @@ import {
 	getActivityDef,
 	getActivityModifierDef,
 	getInventoryItemDef,
+	getCollectibleDef
 } from "@d2api/manifest-web";
 import React from "react";
 import {
@@ -35,7 +36,7 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		this.state = {
 			apiResponse: {
 				nightfallActivities: undefined,
-				weaponsRotation: [{ itemHash: -1, adeptItemHash: -1 }],
+				weaponsRotation: [{ itemHash: -1, adeptItemHash: -1, collectibleHash: -1, adeptCollectibleHash: -1 }],
 				currWeapon: "",
 			},
 		};
@@ -93,8 +94,8 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 		if (this.state.apiResponse.weaponsRotation === undefined) return;
 		const weaponsInfo = this.state.apiResponse.weaponsRotation.map(
 			weapon => {
-				const itemInfo = getInventoryItemDef(weapon.itemHash);
-				const adeptItemInfo = getInventoryItemDef(weapon.adeptItemHash);
+				const itemInfo = getCollectibleDef(weapon.collectibleHash);
+				const adeptItemInfo = getCollectibleDef(weapon.adeptCollectibleHash);
 				return {
 					itemInfo,
 					adeptItemInfo,

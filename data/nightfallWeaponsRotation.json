@@ -1,83 +1,135 @@
 {
-    "rotation": ["Undercurrent",  "Scintillation", "Uzume RR4", "Rake Angle", "Shadow Price", "PLUG ONE.1", "Wild Style", "The Slammer"],
+    "rotation": ["Scintillation",  "Rake Angle", "Shadow Price", "The Palindrome", "Undercurrent", "The Slammer", "PLUG ONE.1", "Lotus-Eater"],
     "D.F.A.": {
         "itemHash": 575830664,
-        "adeptItemHash": 2006308129
+        "adeptItemHash": 2006308129,
+        "collectibleHash": 487194039,
+        "adeptCollectibleHash": 788608986
     },
     "Wendigo GL3": {
         "itemHash": 3183283212,
-        "adeptItemHash": 3915197957
+        "adeptItemHash": 3915197957,
+        "collectibleHash": 671455614,
+        "adeptCollectibleHash": 1207784467
     },
     "Mindbender's Ambition": {
         "itemHash": 1094005544,
-        "adeptItemHash": 912150785
+        "adeptItemHash": 912150785,
+        "collectibleHash": 1074861258,
+        "adeptCollectibleHash": 1560041758
     },
     "Horror's Least": {
         "itemHash": 216983039,
-        "adeptItemHash": 1924276978
+        "adeptItemHash": 1924276978,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Hung Jury SR4": {
         "itemHash": 772231794,
-        "adeptItemHash": 4074251943
+        "adeptItemHash": 4074251943,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "The Militia's Birthright": {
         "itemHash": 40394833,
-        "adeptItemHash": 2378101424
+        "adeptItemHash": 2378101424,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Buzzard": {
         "itemHash": 1699403824,
-        "adeptItemHash": 1478676677
+        "adeptItemHash": 1478676677,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "THE SWARM": {
         "itemHash": 3920872880,
-        "adeptItemHash": 4073744300
+        "adeptItemHash": 4073744300,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Loaded Question": {
         "itemHash": 580961571,
-        "adeptItemHash": 643164677
+        "adeptItemHash": 643164677,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "BrayTech Osprey": {
         "itemHash": 4197367273,
-        "adeptItemHash": 3341152510 
+        "adeptItemHash": 3341152510,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Warden's Law": {
         "itemHash": 2015566989,
-        "adeptItemHash": 1606927173
+        "adeptItemHash": 1606927173,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Pre Astyanax IV": {
         "itemHash": 1066588498,
-        "adeptItemHash": 130489153
+        "adeptItemHash": 130489153,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Uzume RR4": {
         "itemHash": 2487540783,
-        "adeptItemHash": 3610521673
+        "adeptItemHash": 3610521673,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Undercurrent": {
         "itemHash": 502425410,
-        "adeptItemHash": 2694613907
+        "adeptItemHash": 2694613907,
+        "collectibleHash": 3736539201,
+        "adeptCollectibleHash": 2452254592
     }, 
     "The Slammer": {
         "itemHash": 2889501828,
-        "adeptItemHash": 1354727549
+        "adeptItemHash": 1354727549,
+        "collectibleHash": 2656445298,
+        "adeptCollectibleHash": 2687004583
     },
     "Wild Style": {
         "itemHash": 1332123064,
-        "adeptItemHash": 3004927172
+        "adeptItemHash": 3004927172,
+        "collectibleHash": -1,
+        "adeptCollectibleHash": -1
     },
     "Scintillation": {
-        "itemHash": 1262289634,
-        "adeptItemHash": 380705679
+        "itemHash": 2591257541,
+        "adeptItemHash": 380705679,
+        "collectibleHash": 536976377,
+        "adeptCollectibleHash": 724063816
     },
     "Shadow Price": {
         "itemHash": 168662290,
-        "adeptItemHash": 15760717
+        "adeptItemHash": 15760717,
+        "collectibleHash": 1373475716,
+        "adeptCollectibleHash": 2299563901
     },
     "Rake Angle": {
-        "itemHash": 3790887546,
-        "adeptItemHash": 2998282114
+        "itemHash": 782991879,
+        "adeptItemHash": 117057140,
+        "collectibleHash": 3803814194,
+        "adeptCollectibleHash": 1717346663
     },
     "PLUG ONE.1": {
         "itemHash": 3293524502,
-        "adeptItemHash": 3349513867
+        "adeptItemHash": 3349513867,
+        "collectibleHash": 1236069238,
+        "adeptCollectibleHash": 458000219
+    },
+    "Lotus-Eater": {
+        "itemHash": 1568976227,
+        "adeptItemHash": 742707936,
+        "collectibleHash": 3538387303,
+        "adeptCollectibleHash": 381263594
+    },
+    "The Palindrome": {
+        "itemHash": 2876244791,
+        "adeptItemHash": 4023039160,
+        "collectibleHash": 3244999284,
+        "adeptCollectibleHash": 3256749901
     }
 }

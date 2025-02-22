@@ -3,30 +3,30 @@
 		{
 			"title": "Acts",
 			"time": [
-				"Act 1: Week 1 on October 8",
+				"Act 1: Week 1 on February 4",
 				"Act 2: Week 7 on November 19",
 				"Act 3: Week 14 on January 7"
 			]
 		},
 		{
-			"title": "Vesper's Host",
+			"title": "Sundered Doctrine",
 			"time": [
-				"Week 1 on June 7"
+				"Week 1 on February 7"
 			]
 		},
 		{
 			"title": "Iron Banner",
 			"time": [
-				"Week 8 on November 19",
-				"Week 9 on December 3",
-				"TBA"
+				"Week 3 on February 18",
+				"Week 9 on April 1",
+				"Week 13 on April 29"
 			]
 		},
-		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on October 29"] },
-		{ "title": "Festival of the Lost", "time": ["October 29, 2024 - November 18, 2024"] },
-		{ "title": "The Dawning", "time": ["December 10, 2024 - December 31, 2024"] }
+		{ "title": "Grandmaster Nightfalls", "time": ["Week 4 on February 25"] },
+		{ "title": "Moments of Triumph", "time": ["TBD"] },
+		{ "title": "Guardian Games", "time": ["TBD"] }
 	],
 	"seasonInfo": {
-		"dates": "October 8, 2024 - Febraury 4, 2025"
+		"dates": "Febraury 4, 2025 - July 15th, 2025"
 	}
 }
