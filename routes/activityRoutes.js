@@ -236,7 +236,12 @@ module.exports = app => {
 		});
 
 		const featuredRaid = raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex];
-		const featuredRaid2 = raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex + 1];
+		var featuredRaid2 = "";
+		if (raidRotationDB.featuredRaidIndex + 1 == raidRotationDB.numRaids) {
+			featuredDungeon2 = raidRotationHashes.rotation[0];
+		} else {
+			featuredRaid2 = raidRotationHashes.rotation[raidRotationDB.featuredRaidIndex + 1];
+		}
 
 		const rotationHashes = raidRotationHashes.rotation.map(raidName => {
 			return raidRotationHashes[raidName];
@@ -255,7 +260,12 @@ module.exports = app => {
 		});
 
 		const featuredDungeon = dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex];
-		const featuredDungeon2 = dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex + 1];
+		var featuredDungeon2 = "";
+		if (raidRotationDB.featuredDungeonIndex + 1 == raidRotationDB.numDungeons) {
+			featuredDungeon2 = dungeonRotationHashes.rotation[0];
+		} else {
+			featuredDungeon2 = dungeonRotationHashes.rotation[raidRotationDB.featuredDungeonIndex + 1];
+		}
 
 		const rotationHashes = dungeonRotationHashes.rotation.map(
 			dungeonName => {
