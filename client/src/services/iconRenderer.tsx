@@ -173,6 +173,8 @@ export function getCalendarIcon(name: string) {
 			return "/common/destiny2_content/icons/3fc55af09fc887e17e1fcf41553619c4.png";
 		case "Sundered Doctrine":
 			return "/common/destiny2_content/icons/1406f929d0c25506a5ab5ea73956fcb3.png";
+		case "Rise of the Nine":
+			return "/common/destiny2_content/icons/DestinyActivityModeDefinition_f4b12d402bb36270cd911f4e1fa8bb0c.png";
 		case "Acts":
 			return "/common/destiny2_content/icons/3da29bf786212928dfa439737f91725d.png";
 		case "Crucible Labs":
