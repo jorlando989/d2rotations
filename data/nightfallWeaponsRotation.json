@@ -1,5 +1,5 @@
 {
-    "rotation": ["Scintillation",  "Rake Angle", "Shadow Price", "The Palindrome", "PLUG ONE.1", "Lotus-Eater", "Undercurrent", "The Slammer"],
+    "rotation": ["Scintillation",  "Rake Angle", "Shadow Price", "The Palindrome", "PLUG ONE.1", "Lotus-Eater", "Wild Style", "The Slammer"],
     "D.F.A.": {
         "itemHash": 575830664,
         "adeptItemHash": 2006308129,
@@ -93,8 +93,8 @@
     "Wild Style": {
         "itemHash": 1332123064,
         "adeptItemHash": 3004927172,
-        "collectibleHash": -1,
-        "adeptCollectibleHash": -1
+        "collectibleHash": 464393446,
+        "adeptCollectibleHash": 720998891
     },
     "Scintillation": {
         "itemHash": 2591257541,
