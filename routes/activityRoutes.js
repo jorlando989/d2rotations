@@ -151,7 +151,7 @@ module.exports = app => {
 		);
 
 		res.send({
-			nightfallActivities: nightfallMilestoneInfo.activities,
+			nightfallActivities: nightfallMilestoneInfo !== undefined ? nightfallMilestoneInfo.activities : null,
 			weaponsRotation,
 			currWeapon,
 		});

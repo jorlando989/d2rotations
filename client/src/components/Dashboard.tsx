@@ -199,9 +199,12 @@ class Dashboard extends React.Component<MyProps, MyState> {
 		if (this.state.nightfallResponse.nightfallActivities === undefined) {
 			return;
 		}
-		const nightfallInfo = this.getInfo(
-			this.state.nightfallResponse.nightfallActivities[0].activityHash
-		);
+		var nightfallInfo;
+		if (this.state.nightfallResponse.nightfallActivities !== null) {
+			nightfallInfo = this.getInfo(
+				this.state.nightfallResponse.nightfallActivities[0].activityHash
+			);
+		}
 		const lostSectorInfo = this.getInfo(
 			this.state.lostSectorResponse.currLostSectorHashes.legend
 		);
@@ -253,8 +256,8 @@ class Dashboard extends React.Component<MyProps, MyState> {
 						Weekly Nightfall:
 						<a href='/nightfall'>
 							<ImageCard
-								title={nightfallInfo?.description}
-								imageSrc={nightfallInfo?.image}
+								title={nightfallInfo ? nightfallInfo.description : "Nightfall info not found"}
+								imageSrc={nightfallInfo ? nightfallInfo.image : "/img/destiny_content/pgcr/vanguard_strike_playlist.jpg"}
 							/>
 						</a>
 					</div>

@@ -53,7 +53,9 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 	}
 
 	getNightfallLevelsInfo() {
-		if (this.state.apiResponse.nightfallActivities === undefined) return;
+		if (this.state.apiResponse.nightfallActivities === undefined 
+			|| this.state.apiResponse.nightfallActivities === null
+		) return;
 		const nightfallLevels = this.state.apiResponse.nightfallActivities.map(
 			activity => {
 				const activityInfo = getActivityDef(activity.activityHash);
@@ -234,7 +236,18 @@ class WeeklyNightfall extends React.Component<MyProps, MyState> {
 				nightfallLevels === undefined ||
 				nightfallLevels[0] === undefined
 			) {
-				return <div>error loading nightfall rotation</div>;
+				return (
+					<div className='display-in-row-wrap'>
+					<div className='rounded-corners ml5 mr5 width60 pb5'>
+						Nightfall info not found
+					</div>
+					<div>
+						<h4>Nightfall Weapon Rotation</h4>
+						<hr />
+						<div>{this.renderWeaponRotation(weaponsInfo)}</div>
+					</div>
+				</div>
+				);
 			}
 			return (
 				<div className='display-in-row-wrap'>
