@@ -102,7 +102,7 @@ function checkActiveWeekend(time: String, now: Date) {
 
 function checkActiveRange(time: String, now: Date) {
 	//date range
-	const splitString = time.split("–");
+	const splitString = time.split("-");
 
 	const daylight_savings = dstOffsetAtDate(now) !== 0;
 	let startDate, endDate;
@@ -142,12 +142,10 @@ function checkHasPassed(time: String, now: Date) {
 export function checkIfActive(title: String, time: String) {
 	const now = new Date();
 
-	if (title === "Iron Banner") {
+	if (title === "Iron Banner" || title === "Reputation Bonus") {
 		return checkActiveWeek(time, now);
 	} else if (title === "Trials of Osiris") {
 		return checkActiveWeekend(time, now);
-	} else if (title === "Reputation Bonus") {
-		return checkActiveWeek(time, now);
 	} else if (time.includes(",")) {
 		return checkActiveRange(time, now);
 	} else {
